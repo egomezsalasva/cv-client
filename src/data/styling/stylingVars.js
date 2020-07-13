@@ -20,7 +20,7 @@ const colors = {
 //FONTS
 const fonts = {
   //Font
-  displayFnt: 'Space Mono-display',
+  displayFnt: "'Space Mono', mono space",
   fntSemiBold: 'Graphik-Semibold',
   fntRegular: 'Graphik-Regular',
   fntItalic: 'Graphik-RegularItalic',
