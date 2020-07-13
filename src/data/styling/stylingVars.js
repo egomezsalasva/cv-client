@@ -1,4 +1,6 @@
 
+
+
 //DEVICES
 const devices = {
     mobileS: `(min-width: 320px)`,
@@ -18,9 +20,11 @@ const colors = {
 }
 
 //FONTS
+const spaceMono = "url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap')"
+
 const fonts = {
   //Font
-  displayFnt: "'Space Mono', mono space",
+  displayFnt: `${spaceMono}, mono space`,
   fntSemiBold: 'Graphik-Semibold',
   fntRegular: 'Graphik-Regular',
   fntItalic: 'Graphik-RegularItalic',
