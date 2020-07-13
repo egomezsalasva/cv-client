@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//IMPORTS
+//-Modules
+import React from 'react'
+// import styled from 'styled-components'
+import { Switch, Route } from "react-router-dom"
 
+//-Components
+import Header from './components/global/Header'
+import Footer from './components/global/Footer'
+import Navigation from './components/global/Navigation'
+import Cv from './components/cv/Cv'
+import Portfolio from './components/portfolio/Portfolio'
+import Library from './components/library/Library'
+//-Data
+// import data from './data/cv'
+
+//STYLE
+//-Variables
+//-Components
+
+
+//MAIN COMPONENT
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+  return (
+    <>
+
+      <Header/>
+      <Navigation/>
+
+      <Switch>
+        <Route exact path="/">
+          <Cv/>
+        </Route>
+        <Route path="/portfolio">
+          <Portfolio />
+        </Route>
+        <Route path="/library">
+          <Library />
+        </Route>
+      </Switch>
+
+      <Footer/>
+
+    </>
+  )
+}
 export default App;
