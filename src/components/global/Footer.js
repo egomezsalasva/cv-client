@@ -2,7 +2,7 @@
 //-Modules
 import React from 'react'
 import styled from 'styled-components'
-
+import { colors } from '../../data/styling/stylingVars'
 
 //STYLE
 //-Components
@@ -14,6 +14,7 @@ const FooterContainer = styled.div`
   box-shadow: 0 5px 10px 0 #CBCCCB;
   text-align: center;
   border-top: 1px solid rgba(242,242,241,0.50);
+  background: ${colors.back};
 `
 const Email = styled.div`
     font-family: 'Graphik-Semibold';
