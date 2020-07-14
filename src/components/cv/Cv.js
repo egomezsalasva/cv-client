@@ -50,6 +50,7 @@ const SectionsOuter = styled.div`
   .section{
     max-width: 600px;
     margin: 0 ${responsiveWidthHeights.w30px} 50px;
+    scroll-behavior: smooth;
     @media ${devices.tablet} {
       margin: 0 auto 50px;
     }
