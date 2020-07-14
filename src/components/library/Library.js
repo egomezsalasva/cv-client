@@ -31,14 +31,17 @@ const SectionsOuter = styled.div`
         font-size: ${fonts.fntSz14};
         margin-bottom: ${fonts.fntSz14};
         .bookTitle{
-          font-weight: 700;
+          font-family: ${fonts.fntSemiBold};
+          font-weight: 600;
         }
         .bookSubtitle{
-          font-weight: 300;
+          font-family: ${fonts.fntRegular};
+          font-weight: normal;
         }
         .bookAuthor{
           font-family: ${fonts.fntItalic};
-          font-weight: 300;
+          font-style: italic;
+          font-weight: normal;
         }
       }
     }
