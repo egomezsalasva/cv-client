@@ -47,7 +47,7 @@ const SectionsOuter = styled.div`
   height: calc(100vh - 210px - 60px);
   margin-top: 30px;
   overflow: scroll;
-  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
   .section{
     max-width: 600px;
     margin: 0 ${responsiveWidthHeights.w30px} 50px;
