@@ -331,8 +331,8 @@ function Cv() {
             <Heading headingName="Me" classProp="heading" />
 
             <div className="storyText">
-             <p>I consider myself to be a generalist, as I find interest in a wide range of subjects. I find this helps me have a different perspective in a certain field.</p>
-             <p>For better or for worse, I am somewhat of a perfectionist. It helps me do detailed work but it also slows down some projects.</p>
+             <p>I consider myself to be a generalist, due to the fact I find interest in a wide range of subjects. I reckon this helps me have a different perspective in a specific field.</p>
+             <p>For better or for worse, I am somewhat of a perfectionist. It helps me produce detailed work, but it also slows down some projects.</p>
             </div>
             <div className="summaryText">
               <ul>
@@ -347,10 +347,10 @@ function Cv() {
             <Heading headingName="What I’m Looking For" classProp="heading" />
 
             <div className="storyText">
-              <p>I’m preferibly looking for a business on it’s early stages, where there is shared responsability and tasks in different fields.</p>
+              <p>I’m preferibly looking for a business in it’s early stages, where there is shared responsability and tasks in different departments.</p>
               <p>I really value purpose-driven companies. These are companies who’s main goal is not monetary but solving an important issue in society.</p>
-              <p>I also value autonomy. I like when companies let their employees take their own decisions and let them manage themselves.</p>
-              <p>Finally, I value mastery. I like when companies let their employees progress in their skills and think of long-term progression as opposed to short-term goals.</p>
+              <p>I also value autonomy. I like when companies let their employees take their own decisions and let individuals manage themselves.</p>
+              <p>Finally, I value mastery. I like when companies let their employees progress in their personal long-term skills as as opposed to short-term goals. I belive this improves overall individual perfomance which is then translated to company performance.</p>
               <p>As an extra, I find the ’20% time’, where employees are given part of their time for side projects an interesting concept.</p>
             </div>
             <div className="summaryText">
