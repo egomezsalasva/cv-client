@@ -20,11 +20,9 @@ const colors = {
 }
 
 //FONTS
-const spaceMono = "url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap')"
-
 const fonts = {
   //Font
-  displayFnt: `${spaceMono}, mono space`,
+  displayFnt: 'Space Mono',
   fntSemiBold: 'Graphik-Semibold',
   fntRegular: 'Graphik-Regular',
   fntItalic: 'Graphik-RegularItalic',

@@ -23,7 +23,7 @@ const CvButtonsContainer = styled.div`
     display: inline-block;
     padding: 13px 20px 10px;
     border: 1px solid ${colors.front};
-    font-family: ${fonts.fntRegular};
+    font-family: 'Graphik-Regular';
     font-size: ${fonts.fntSz12};
     text-align: center;
     cursor: pointer;

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 @font-face {
   font-family: 'Graphik-Semibold';
-  src: url('Graphik-Semibold.eot');
+  src: url('./fonts/Graphik-Semibold.eot');
   src: url('./fonts/Graphik-Semibold.eot?#iefix') format('embedded-opentype'),
       url('./fonts/Graphik-Semibold.woff2') format('woff2'),
       url('./fonts/Graphik-Semibold.woff') format('woff'),
