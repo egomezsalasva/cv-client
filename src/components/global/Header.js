@@ -23,15 +23,17 @@ const Title = styled.h2`
   /* font-family: 'Graphik-Semibold'; */
   font-family: 'Space Mono';
   /* font-size: 18px; */
-  font-size: 16px;
+  font-size: 14.5px;
   color: #000;
-  text-align: center;
+  text-align: center
+  letter-spacing: -0.5;
   .letterContainer{
     display: inline-block;
     overflow: hidden;
     /* height: 20px; */
     /* height: 26px; */
-    height: 24px;
+    /* height: 24px; */
+    height: 20px;
     text-align: center;
     cursor: pointer;
   }
