@@ -24,8 +24,8 @@ const Title = styled.h2`
   font-family: 'Space Mono';
   /* font-size: 18px; */
   font-size: 14.5px;
-  color: #000;
-  text-align: center
+  color: ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
+  text-align: center;
   letter-spacing: -0.5;
   .letterContainer{
     display: inline-block;
@@ -44,12 +44,12 @@ const ThemeBox = styled.div`
   transform: translateY(calc(-50% + 1px));
   width: 30px;
   height: 18px;
-  border: 1px solid black;
+  border: 1px solid ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
   .cube{
     position: absolute;
     width: 10px;
     height: 10px;
-    background: black;
+    background: ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
     margin: 3px;
     right: auto;
     left: 0;
@@ -57,8 +57,9 @@ const ThemeBox = styled.div`
 `
 
 //MAIN COMPONENT
-function Header() {
+const Header = () => {
 
+  const [theme, setTheme] = useState({ mode: "light" })
   const [ themeColorToggle , setThemeColorToggle ] = useState(false)
   const toggleCubeAnim = gsap.timeline()
 

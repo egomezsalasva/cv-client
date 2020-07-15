@@ -1,7 +1,7 @@
 //IMPORTS
 //-Modules
-import React from 'react'
-// import styled from 'styled-components'
+import React, {useState} from 'react'
+import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { Switch, Route } from "react-router-dom"
 
 //-Components
@@ -13,17 +13,26 @@ import Portfolio from './components/portfolio/Portfolio'
 import Library from './components/library/Library'
 //-Data
 // import data from './data/cv'
+// import { colors } from './data/styling/stylingVars'
 
 //STYLE
-//-Variables
-//-Components
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: ${ props => props.theme.mode === 'light' ? "#F8F9F8" : "#000" };
+    color:  ${ props => props.theme.mode === 'light' ? "#000" : "#F8F9F8" }
+  }
+`
 
 
 //MAIN COMPONENT
 function App() {
 
+  const [theme, setTheme] = useState({ mode: "light" })
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
+
+      <GlobalStyle/>
 
       <Header/>
       <Navigation/>
@@ -42,7 +51,7 @@ function App() {
 
       <Footer/>
 
-    </>
+    </ThemeProvider>
   )
 }
 export default App;

@@ -3,7 +3,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { colors, fonts } from '../../data/styling/stylingVars'
+import { fonts } from '../../data/styling/stylingVars'
 
 
 //STYLE
@@ -22,7 +22,7 @@ const NavContainer = styled.div`
 const NavOption = styled(NavLink)`
   font-family: ${fonts.displayFnt};
   font-size: ${fonts.fntSz14};
-  color: ${colors.front};
+  color: ${ props => props.theme.mode === 'light' ? "#000" : "#F8F9F8" };
   text-align: center;
   text-transform: lowercase;
   text-decoration: none;
