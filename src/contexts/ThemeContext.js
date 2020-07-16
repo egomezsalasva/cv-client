@@ -1,15 +1,16 @@
 import React, { createContext, useState } from 'react'
-import { render } from '@testing-library/react'
 
 
 export const ThemeContext = createContext()
 
 
-const ThemeContextProvider = (props) => {
-    const [theme, setTheme] = useState({ mode: "light" })
+const ThemeContextProvider = ({children}) => {
+
+    const [theme, setTheme] = useState({ mode: "dark" })
+
     return(
-        <ThemeContext.Provider value={{theme}}>
-            {props.children}
+        <ThemeContext.Provider value={{theme, setTheme}} >
+            {children}
         </ThemeContext.Provider>
     )
 }

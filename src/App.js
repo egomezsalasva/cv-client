@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React, {useState} from 'react'
+import React, { useState, useContext } from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { Switch, Route } from "react-router-dom"
 //-Components
@@ -10,6 +10,7 @@ import Navigation from './components/global/Navigation'
 import Cv from './components/cv/Cv'
 import Portfolio from './components/portfolio/Portfolio'
 import Library from './components/library/Library'
+import { ThemeContext } from './contexts/ThemeContext'
 //-Data
 // import data from './data/cv'
 // import { colors } from './data/styling/stylingVars'
@@ -26,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
 //MAIN COMPONENT
 const App = () => {
 
-  const [theme, setTheme] = useState({ mode: "light" })
+  const {theme, setTheme }= useContext(ThemeContext)
 
   return (
     <ThemeProvider theme={theme}>

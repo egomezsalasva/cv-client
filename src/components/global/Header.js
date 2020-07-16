@@ -1,12 +1,12 @@
 //IMPORTS
 //-Modules
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import gsap from 'gsap'
 //-Styling
 import { responsiveWidthHeights, devices } from '../../data/styling/stylingVars'
-
-//Te
+//-Context
+import { ThemeContext } from '../../contexts/ThemeContext'
 
 //STYLE
 //-Components
@@ -59,7 +59,7 @@ const ThemeBox = styled.div`
 //MAIN COMPONENT
 const Header = () => {
 
-  const [theme, setTheme] = useState({ mode: "light" })
+  const { setTheme } = useContext(ThemeContext)
   const [ themeColorToggle , setThemeColorToggle ] = useState(false)
   const toggleCubeAnim = gsap.timeline()
 
@@ -67,8 +67,10 @@ const Header = () => {
   const themeColorToggleHandler = () => {
     if(themeColorToggle === false){
       toggleCubeAnim.to(".cube", 0.4, { x: 12 })
+      setTheme({ mode: "dark"})
     } else {
       toggleCubeAnim.to(".cube", 0.4, { x: 0 })
+      setTheme({ mode: "light"})
     }
     setThemeColorToggle(!themeColorToggle)
   }
