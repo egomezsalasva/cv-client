@@ -20,9 +20,7 @@ const HeaderContainer = styled.div`
   }
 `
 const Title = styled.h2`
-  /* font-family: 'Graphik-Semibold'; */
   font-family: 'Space Mono';
-  /* font-size: 18px; */
   font-size: 14.5px;
   color: ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
   text-align: center;
@@ -30,9 +28,6 @@ const Title = styled.h2`
   .letterContainer{
     display: inline-block;
     overflow: hidden;
-    /* height: 20px; */
-    /* height: 26px; */
-    /* height: 24px; */
     height: 20px;
     text-align: center;
     cursor: pointer;
@@ -41,7 +36,7 @@ const Title = styled.h2`
 const ThemeBox = styled.div`
   position: relative;
   top: 50%;
-  transform: translateY(calc(-50% + 1px));
+  transform: translateY(calc(-50% - 1px));
   width: 30px;
   height: 18px;
   border: 1px solid ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
