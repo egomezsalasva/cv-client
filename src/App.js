@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { Switch, Route } from "react-router-dom"
 //-Components
@@ -27,12 +27,12 @@ const GlobalStyles = createGlobalStyle`
 //MAIN COMPONENT
 const App = () => {
 
-  const {theme, setTheme } = useContext(ThemeContext)
+  const { theme, setTheme } = useContext(ThemeContext)
 
   //Reset Theme
   useEffect( () => {
     setTheme({mode: "light"})
-  }, [])
+  }, [setTheme])
 
   return (
     <ThemeProvider theme={theme}>

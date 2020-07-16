@@ -6,7 +6,7 @@ import styled from 'styled-components'
 //-Components
 import Heading from '../global/shared/Heading'
 //-Styling
-import { devices, colors, fonts, responsiveWidthHeights } from '../../data/styling/stylingVars'
+import { devices, fonts, responsiveWidthHeights } from '../../data/styling/stylingVars'
 
 
 //STYLE
