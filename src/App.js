@@ -27,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
 //MAIN COMPONENT
 const App = () => {
 
-  const {theme, setTheme }= useContext(ThemeContext)
+  const {theme, setTheme } = useContext(ThemeContext)
 
   //Reset Theme
   useEffect( () => {
