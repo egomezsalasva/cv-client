@@ -29,6 +29,7 @@ const App = () => {
 
   const {theme, setTheme }= useContext(ThemeContext)
 
+  //Reset Theme
   useEffect( () => {
     setTheme({mode: "light"})
   }, [])
