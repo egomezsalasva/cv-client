@@ -15,8 +15,8 @@ const devices = {
 
 //COLORS
 const colors = {
-  front: props => props.theme.mode === 'light' ? "#000" : "#F8F9F8",
-  back: props => props.theme.mode === 'light' ? "#F8F9F8" : "#000",
+  front: props => props.theme.mode === 'light' ? "#141414" : "#F8F9F8",
+  back: props => props.theme.mode === 'light' ? "#F8F9F8" : "##141414",
 }
 
 //FONTS

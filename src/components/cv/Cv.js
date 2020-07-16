@@ -22,7 +22,7 @@ const CvButtonsContainer = styled.div`
   .summaryButton{
     display: inline-block;
     padding: 13px 20px 10px;
-    border: 1px solid ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
+    border: 1px solid ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
     font-family: ${fonts.fntRegular};
     font-size: ${fonts.fntSz12};
     text-align: center;
@@ -31,7 +31,7 @@ const CvButtonsContainer = styled.div`
   .textResizeButton{
     display: inline-block;
     padding: 13px 17px 10px;
-    border: 1px solid ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
+    border: 1px solid ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
     font-family: 'Graphik-Regular';
     font-size: 12px;
     text-align: center;
@@ -71,12 +71,12 @@ const SectionsOuter = styled.div`
       font-weight: 300;
       font-size: ${fonts.fntSz14};
       line-height: ${fonts.lnHt20};
-      color: ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
+      color: ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
     }
     a{
       display: block;
       font-size: ${fonts.fntSz14};
-      color: ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
+      color: ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
     }
     .interestList{      
       li{
@@ -133,9 +133,9 @@ const SectionsOuter = styled.div`
         line-height: 30px;
         text-align: center;
 
-        background: ${ props => props.theme.mode === 'light' ? "#F8F9F8" :  "#000"};
+        background: ${ props => props.theme.mode === 'light' ? "#F8F9F8" :  "#141414"};
         border: 1px solid rgba(242,242,241,0.50);
-        box-shadow: -5px -5px 10px 0 #FFFFFF, 5px 5px 10px 0 #F2F2F1;
+        box-shadow: -5px -5px 10px 0 ${ props => props.theme.mode === 'light' ? "#FFF" :  "#1F1F1F"}, 5px 5px 10px 0 ${ props => props.theme.mode === 'light' ? "#F2F2F1" :  "#0F0F0F"};
         border-radius: 5px;
 
       }

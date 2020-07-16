@@ -18,8 +18,8 @@ import { ThemeContext } from './contexts/ThemeContext'
 //STYLE
 const GlobalStyles = createGlobalStyle`
   body {
-    background: ${ props => props.theme.mode === 'light' ? "#F8F9F8" : "#000" };
-    color:  ${ props => props.theme.mode === 'light' ? "#000" : "#F8F9F8" }
+    background: ${ props => props.theme.mode === 'light' ? "#F8F9F8" : "#141414" };
+    color:  ${ props => props.theme.mode === 'light' ? "#141414" : "#F8F9F8" }
   }
 `
 

@@ -22,7 +22,7 @@ const HeaderContainer = styled.div`
 const Title = styled.h2`
   font-family: 'Space Mono';
   font-size: 14.5px;
-  color: ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
+  color: ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
   text-align: center;
   letter-spacing: -0.5;
   .letterContainer{
@@ -39,12 +39,12 @@ const ThemeBox = styled.div`
   transform: translateY(calc(-50% - 1px));
   width: 30px;
   height: 18px;
-  border: 1px solid ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
+  border: 1px solid ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
   .cube{
     position: absolute;
     width: 10px;
     height: 10px;
-    background: ${ props => props.theme.mode === 'light' ? "#000" :  "#F8F9F8"};
+    background: ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
     margin: 3px;
     right: auto;
     left: 0;
