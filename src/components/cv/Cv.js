@@ -350,7 +350,7 @@ function Cv() {
             <div className="storyText">
               <p>I’m preferibly looking for a business in it’s early stages, where there is shared responsability and tasks in different departments.</p>
               <p>I really value purpose-driven companies. These are companies who’s main goal is not monetary but solving an important issue in society.</p>
-              <p>I also value autonomy. I like when companies let their employees take their own decisions and let individuals manage themselves.</p>
+              <p>I also value autonomy. I like when companies let their employees take their own decisions and allow individuals to manage themselves.</p>
               <p>Finally, I value mastery. I like when companies let their employees progress in their personal long-term skills as as opposed to short-term goals. I belive this improves overall individual perfomance which is then translated to company performance.</p>
               <p>As an extra, I find the ’20% time’, where employees are given part of their time for side projects an interesting concept.</p>
             </div>
