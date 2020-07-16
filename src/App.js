@@ -13,13 +13,13 @@ import Library from './components/library/Library'
 import { ThemeContext } from './contexts/ThemeContext'
 //-Data
 // import data from './data/cv'
-// import { colors } from './data/styling/stylingVars'
+import { colors } from './data/styling/stylingVars'
 
 //STYLE
 const GlobalStyles = createGlobalStyle`
   body {
-    background: ${ props => props.theme.mode === 'light' ? "#F8F9F8" : "#141414" };
-    color:  ${ props => props.theme.mode === 'light' ? "#141414" : "#F8F9F8" }
+    background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
+    color:  ${ props => props.theme.mode === 'light' ? colors.thmBlack : colors.thmWhite }
   }
 `
 

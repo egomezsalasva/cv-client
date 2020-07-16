@@ -3,24 +3,24 @@
 
 //DEVICES
 const devices = {
-    mobileS: `(min-width: 320px)`,
-    mobileM: `(min-width: 375px)`,
-    mobileL: `(min-width: 425px)`,
-    tablet: `(min-width: 768px)`,
-    laptop: `(min-width: 1024px)`,
-    laptopL: `(min-width: 1440px)`,
-    desktop: `(min-width: 2560px)`,
-    desktopL: `(min-width: 2560px)`
+  mobileS: `(min-width: 320px)`,
+  mobileM: `(min-width: 375px)`,
+  mobileL: `(min-width: 425px)`,
+  tablet: `(min-width: 768px)`,
+  laptop: `(min-width: 1024px)`,
+  laptopL: `(min-width: 1440px)`,
+  desktop: `(min-width: 2560px)`,
+  desktopL: `(min-width: 2560px)`,
 }
 
 //COLORS
 const colors = {
-  themeBlack: "#141414",
-  themeWhite: "#F8F9F8",
-  themeBlackShadowLight: "#1F1F1F",
-  themeBlackShadowDark: "#0F0F0F",
-  themeWhiteShadowLight: "#FFFFFF",
-  themeWhiteShadowDark: "#F2F2F1",
+  thmBlack: "#141414",
+  thmWhite: "#F8F9F8",
+  thmBlackShadowLight: "#1F1F1F",
+  thmBlackShadowDark: "#0F0F0F",
+  thmWhiteShadowLight: "#FFFFFF",
+  thmWhiteShadowDark: "#F2F2F1",
 }
 
 //FONTS
