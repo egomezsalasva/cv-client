@@ -134,8 +134,8 @@ const SectionsOuter = styled.div`
         text-align: center;
 
         background: ${props => props.theme.mode === 'light' ? colors.thmWhite :  colors.thmBlack};
-        border: 1px solid rgba(242,242,241,0.50);
-        box-shadow: -5px -5px 10px 0 ${ props => props.theme.mode === 'light' ? colors.thmWhiteShadowLight :  colors.thmBlackShadowLight}, 5px 5px 10px 0 ${ props => props.theme.mode === 'light' ? colors.thmWhiteShadowDark :  colors.thmBlackShadowDark};
+        border: 1px solid ${props => props.theme.mode === 'light' ? colors.thmWhiteBorder :  colors.thmBlackBorder};
+        box-shadow: -5px -5px 10px 0 ${props => props.theme.mode === 'light' ? colors.thmWhiteShadowLight :  colors.thmBlackShadowLight}, 5px 5px 10px 0 ${ props => props.theme.mode === 'light' ? colors.thmWhiteShadowDark :  colors.thmBlackShadowDark};
         border-radius: 5px;
 
       }

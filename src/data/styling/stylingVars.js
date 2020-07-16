@@ -15,12 +15,14 @@ const devices = {
 
 //COLORS
 const colors = {
-  thmBlack: "#141414",
+  thmBlack: "#0F0F0F",
   thmWhite: "#F8F9F8",
-  thmBlackShadowLight: "#1F1F1F",
-  thmBlackShadowDark: "#0F0F0F",
+  thmBlackShadowLight: "#141414",
+  thmBlackShadowDark: "#0A0A0A",
   thmWhiteShadowLight: "#FFFFFF",
   thmWhiteShadowDark: "#F2F2F1",
+  thmWhiteBorder: "rgba(242,242,241,0.25)",
+  thmBlackBorder: "rgba(15,15,15,0.25)",
 }
 
 //FONTS
