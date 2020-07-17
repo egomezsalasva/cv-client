@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import gsap from 'gsap'
+import { useTranslation } from 'react-i18next';
 //-Styling
 import { responsiveWidthHeights, devices } from '../../data/styling/stylingVars'
 //-Context
@@ -248,6 +249,12 @@ const Header = () => {
   //   setToggleLogoAnim(!toggleLogoAnim)
   // }
 
+  //Translation Handler
+  const { t, i18n } = useTranslation()
+  const handleLanguageChange = lang => {
+    i18n.changeLanguage(lang)
+  }
+
   return (
     <HeaderContainer>
 
@@ -360,7 +367,7 @@ const Header = () => {
         </div>
       </Title>
 
-      <LangButton>
+      <LangButton onClick={() => handleLanguageChange('es')}>
         <p>ñ</p>
       </LangButton>
 
