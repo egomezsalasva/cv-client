@@ -1,18 +1,40 @@
 {
     "cv": {
-        "meSection": {
 
+        "meSection": {
             "heading": {
                 "1": "Me"
             },
-
             "story": {
                 "p": {
                     "1": "I consider myself to be a generalist, due to the fact I find interest in a wide range of subjects. I reckon this helps me have a different perspective in a specific field.",
-                    "2": "For better or for worse, I am somewhat of a perfectionist. It helps me produce detailed work, but it also slows down some projects.",
+                    "2": "For better or for worse, I am somewhat of a perfectionist. It helps me produce detailed work, but it also slows down some projects."
+                }
+            },
+            "summary": {
+                "li": {
+                    "1": "Generalist",
+                    "2": "Perfectionist"
                 }
             }
+        },
 
+        "whatImLookingForSection": {
+            "heading": {
+                "1": "What I'm Looking For"
+            },
+            "story": {
+                "p": {
+                    "1": "I consider myself to be a generalist, due to the fact I find interest in a wide range of subjects. I reckon this helps me have a different perspective in a specific field.",
+                    "2": "For better or for worse, I am somewhat of a perfectionist. It helps me produce detailed work, but it also slows down some projects."
+                }
+            },
+            "summary": {
+                "li": {
+                    "1": "Generalist",
+                    "2": "Perfectionist"
+                }
+            }
         }
     }
 }

@@ -54,6 +54,13 @@ const LangButton = styled.div`
     right: calc(${themeBoxWidth} + 20px);
   }
 `
+const LangButton2 = styled(LangButton)`
+  right: calc(${themeBoxWidth} + ${responsiveWidthHeights.w20px} + 30px);
+  @media ${devices.tablet} {
+    position: absolute;
+    right: calc(${themeBoxWidth} + 20px + 30px);
+  }
+`
 const ThemeBox = styled.div`
   display: inline-block;
   position: absolute;
@@ -250,7 +257,7 @@ const Header = () => {
   // }
 
   //Translation Handler
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
   const handleLanguageChange = lang => {
     i18n.changeLanguage(lang)
   }
@@ -370,6 +377,10 @@ const Header = () => {
       <LangButton onClick={() => handleLanguageChange('es')}>
         <p>ñ</p>
       </LangButton>
+
+      <LangButton2 onClick={() => handleLanguageChange('en')}>
+        <p>n</p>
+      </LangButton2>
 
       <ThemeBox>
         <div className="button" onClick={themeColorToggleHandler}>

@@ -312,7 +312,7 @@ function Cv() {
   //Translation
     const { t } = useTranslation()
 
-    
+
   return (
     <>
 
@@ -333,16 +333,16 @@ function Cv() {
 
           <div className="section">
 
-            <Heading headingName="Me" classProp="heading" />
+            <Heading headingName={t("cv.meSection.heading.1")} classProp="heading" />
 
             <div className="storyText">
-             <p>I consider myself to be a generalist, due to the fact I find interest in a wide range of subjects. I reckon this helps me have a different perspective in a specific field.</p>
-             <p>For better or for worse, I am somewhat of a perfectionist. It helps me produce detailed work, but it also slows down some projects.</p>
+             <p>{t("cv.meSection.story.p.1")}</p>
+             <p>{t("cv.meSection.story.p.2")}</p>
             </div>
             <div className="summaryText">
               <ul>
-                <li>Generalist</li>
-                <li>Perfectionist</li>
+                <li>{t("cv.meSection.summary.li.1")}</li>
+                <li>{t("cv.meSection.summary.li.2")}</li>
               </ul>
             </div>
           </div>

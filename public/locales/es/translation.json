@@ -1,0 +1,26 @@
+{
+    "cv": {
+        "meSection": {
+
+            "heading": {
+                "1": "Yo"
+            },
+
+            "story": {
+                "p": {
+                    "1": "Me considero un generalista, ya que encuentro interes en un amplio rango de temas. Creo que esto me ayuda a tener una perspectiva diferente en una esferas especifica.",
+                    "2": "Para bien o para mal, soy algo perfecionista. Esto me ayuda a producir un trabajo detallado, pero a veces relentiza algunos proyectos."
+                    
+                }
+            },
+
+            "summary": {
+                "li": {
+                    "1": "Generalista",
+                    "2": "Perfeccionista"
+                }
+            }
+
+        }
+    }
+}
