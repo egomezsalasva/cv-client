@@ -2,6 +2,7 @@
 //-Modules
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next';
 // import { gsap } from 'gsap'
 //-Components
 import Heading from '../global/shared/Heading'
@@ -308,7 +309,10 @@ function Cv() {
 
     
 
-  //
+  //Translation
+    const { t } = useTranslation()
+
+    
   return (
     <>
 
