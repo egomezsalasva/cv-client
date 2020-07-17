@@ -8,11 +8,13 @@ import { responsiveWidthHeights, devices } from '../../data/styling/stylingVars'
 //-Context
 import { ThemeContext } from '../../contexts/ThemeContext'
 
-//STYLE
+//STYLE//-Variables
+const themeBoxWidth = "30px"
 //-Components
 const HeaderContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
+  position: relative;
   padding-top: 40px;
   margin: 0 ${responsiveWidthHeights.w30px};
   @media ${devices.tablet} {
@@ -20,8 +22,10 @@ const HeaderContainer = styled.div`
   }
 `
 const Title = styled.h2`
+  display: inline;
   font-family: 'Space Mono';
   font-size: 14.5px;
+  line-height: 20px;
   color: ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
   text-align: center;
   letter-spacing: -0.5;
@@ -33,21 +37,41 @@ const Title = styled.h2`
     cursor: pointer;
   }
 `
-const ThemeBox = styled.div`
-  position: relative;
-  top: 50%;
-  transform: translateY(calc(-50% - 1px));
+const LangButton = styled.div`
+  display: inline-block;
+  position: absolute;
+  right: calc(${themeBoxWidth} + ${responsiveWidthHeights.w20px});
   width: 30px;
-  height: 18px;
-  border: 1px solid ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
-  .cube{
+  height: 30px;
+  transform: translateY(-4px);
+  line-height: 30px;
+  text-align: center;
+  color: ${props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
+  cursor: pointer;
+  @media ${devices.tablet} {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background: ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
-    margin: 3px;
-    right: auto;
-    left: 0;
+    right: calc(${themeBoxWidth} + 20px);
+  }
+`
+const ThemeBox = styled.div`
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  transform: translateY(2px);
+  .button{
+    position: relative;
+    width: ${themeBoxWidth};
+    height: 18px;
+    border: 1px solid ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
+    .cube{
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
+      margin: 3px;
+      right: auto;
+      left: 0;
+    }
   }
 `
 
@@ -75,60 +99,61 @@ const Header = () => {
   const decryptAnim = gsap.timeline({ defaults: {duration: 0.2}, reversed: true })
   const decryptAnim02 = gsap.timeline({ defaults: {duration: 0.2}, reversed: true })
 
-  let letter01_a = useRef()
-  let letter01_b = useRef()
-  let letter01_c = useRef()
-  let letter02_a = useRef()
-  let letter02_b = useRef()
-  let letter02_c = useRef()
-  let letter03_a = useRef()
-  let letter03_b = useRef()
-  let letter03_c = useRef()
-  let letter04_a = useRef()
-  let letter04_b = useRef()
-  let letter04_c = useRef()
-  let letter05_a = useRef()
-  let letter05_b = useRef()
-  let letter05_c = useRef()
-  let letter06_a = useRef()
-  let letter06_b = useRef()
-  let letter06_c = useRef()
-  let letter07_a = useRef()
-  let letter07_b = useRef()
-  let letter07_c = useRef()
-  let letter08_a = useRef()
-  let letter08_b = useRef()
-  let letter08_c = useRef()
-  let letter09_a = useRef()
-  let letter09_b = useRef()
-  let letter09_c = useRef()
-  let letter10_a = useRef()
-  let letter10_b = useRef()
-  let letter10_c = useRef()
-  let letter11_a = useRef()
-  let letter11_b = useRef()
-  let letter11_c = useRef()
-  let letter12_a = useRef()
-  let letter12_b = useRef()
-  let letter12_c = useRef()
-  let letter13_a = useRef()
-  let letter13_b = useRef()
-  let letter13_c = useRef()
-  let letter14_a = useRef()
-  let letter14_b = useRef()
-  let letter14_c = useRef()
-  let letter15_a = useRef()
-  let letter15_b = useRef()
-  let letter15_c = useRef()
-  let letter16_a = useRef()
-  let letter16_b = useRef()
-  let letter16_c = useRef()
-  let letter17_a = useRef()
-  let letter17_b = useRef()
-  let letter17_c = useRef()
-  let letter18_a = useRef()
-  let letter18_b = useRef()
-  let letter18_c = useRef()
+  //Letter Refs
+    let letter01_a = useRef()
+    let letter01_b = useRef()
+    let letter01_c = useRef()
+    let letter02_a = useRef()
+    let letter02_b = useRef()
+    let letter02_c = useRef()
+    let letter03_a = useRef()
+    let letter03_b = useRef()
+    let letter03_c = useRef()
+    let letter04_a = useRef()
+    let letter04_b = useRef()
+    let letter04_c = useRef()
+    let letter05_a = useRef()
+    let letter05_b = useRef()
+    let letter05_c = useRef()
+    let letter06_a = useRef()
+    let letter06_b = useRef()
+    let letter06_c = useRef()
+    let letter07_a = useRef()
+    let letter07_b = useRef()
+    let letter07_c = useRef()
+    let letter08_a = useRef()
+    let letter08_b = useRef()
+    let letter08_c = useRef()
+    let letter09_a = useRef()
+    let letter09_b = useRef()
+    let letter09_c = useRef()
+    let letter10_a = useRef()
+    let letter10_b = useRef()
+    let letter10_c = useRef()
+    let letter11_a = useRef()
+    let letter11_b = useRef()
+    let letter11_c = useRef()
+    let letter12_a = useRef()
+    let letter12_b = useRef()
+    let letter12_c = useRef()
+    let letter13_a = useRef()
+    let letter13_b = useRef()
+    let letter13_c = useRef()
+    let letter14_a = useRef()
+    let letter14_b = useRef()
+    let letter14_c = useRef()
+    let letter15_a = useRef()
+    let letter15_b = useRef()
+    let letter15_c = useRef()
+    let letter16_a = useRef()
+    let letter16_b = useRef()
+    let letter16_c = useRef()
+    let letter17_a = useRef()
+    let letter17_b = useRef()
+    let letter17_c = useRef()
+    let letter18_a = useRef()
+    let letter18_b = useRef()
+    let letter18_c = useRef()
 
   useEffect( () => {
     decryptAnim
@@ -225,6 +250,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
+
       <Title onMouseOver={() => decryptAnim02.play()} onMouseOut={() => decryptAnim02.reverse()}>
         <div className="letterContainer">
           <div className="letterDecrypted" ref={el => (letter01_a = el)}>J</div>
@@ -333,11 +359,17 @@ const Header = () => {
           <div className="letterDecrypted" ref={el => (letter18_c = el)}>s</div>
         </div>
       </Title>
-      <div>
-        <ThemeBox onClick={themeColorToggleHandler}>
+
+      <LangButton>
+        <p>ñ</p>
+      </LangButton>
+
+      <ThemeBox>
+        <div className="button" onClick={themeColorToggleHandler}>
           <div className="cube"/>
-        </ThemeBox>
-      </div>
+        </div>
+      </ThemeBox>
+
     </HeaderContainer>      
   )
 }
