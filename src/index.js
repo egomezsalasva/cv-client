@@ -1,6 +1,6 @@
 //IMPORTS
 //-Libraries
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from "react-router-dom"
 import './i18n' //-Multilanguage // import i18n (needs to be bundled ;))
@@ -15,7 +15,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeContextProvider>
-        <App />
+         <Suspense fallback="loading"> {/*TODO check fallback to make custom*/}
+          <App />
+        </Suspense>
       </ThemeContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
