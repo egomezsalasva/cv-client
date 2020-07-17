@@ -28,6 +28,9 @@ const CvButtonsContainer = styled.div`
     font-size: ${fonts.fntSz12};
     text-align: center;
     cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
   }
   .textResizeButton{
     display: inline-block;
@@ -37,6 +40,9 @@ const CvButtonsContainer = styled.div`
     font-size: 12px;
     text-align: center;
     cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
   }
   .increaseSizeButton{
     margin-left: 10px;
