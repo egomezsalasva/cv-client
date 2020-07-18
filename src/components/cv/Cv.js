@@ -355,14 +355,14 @@ function Cv() {
 
           <div className="section">
 
-            <Heading headingName="What I’m Looking For" classProp="heading" />
+            <Heading headingName={t("cv.whatImLookingForSection.heading.1")} classProp="heading" />
 
             <div className="storyText">
-              <p>I’m preferibly looking for a business in it’s early stages, where there is shared responsability and tasks in different departments.</p>
-              <p>I really value purpose-driven companies. These are companies who’s main goal is not monetary but solving an important issue in society.</p>
-              <p>I also value autonomy. I like when companies let their employees take their own decisions and allow individuals to manage themselves.</p>
-              <p>Finally, I value mastery. I like when companies prioritize employee long-term skill progression over short-term results. I belive this improves overall individual perfomance which is then translated to company performance.</p>
-              <p>As an extra, I find the ’20% time’, where employees are given part of their time for company side projects an interesting concept.</p>
+              <p>{t("cv.whatImLookingForSection.story.p.1")}</p>
+              <p>{t("cv.whatImLookingForSection.story.p.2")}</p>
+              <p>{t("cv.whatImLookingForSection.story.p.3")}</p>
+              <p>{t("cv.whatImLookingForSection.story.p.4")}</p>
+              <p>{t("cv.whatImLookingForSection.story.p.5")}</p>
             </div>
             <div className="summaryText">
               <ul>
