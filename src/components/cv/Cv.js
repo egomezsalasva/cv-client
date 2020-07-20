@@ -390,20 +390,20 @@ function Cv() {
 
           <div className="section">
 
-            <Heading headingName="Education" classProp="heading" />
+            <Heading headingName={t("cv.educationSection.heading.1")} classProp="heading" />
 
             <div className="storyText">
-              <p>It all started at an English school in Mallorca where I had to attend everyday from kindergarden until I got kicked out right before my A levels.</p>
-              <p>After this, I went to a Spanish school to do the E.S.O. and Bachillerato.</p>
-              <p>Then I went to London to do a year of A levels at Ealing Independent College but had to come back to Spain due to economic reasons.</p>
-              <p>Back in Spain, I attended Elisava to do Graphic Design.</p>
+              <p>{t("cv.educationSection.story.p.1")}</p>
+              <p>{t("cv.educationSection.story.p.2")}</p>
+              <p>{t("cv.educationSection.story.p.3")}</p>
+              <p>{t("cv.educationSection.story.p.4")}</p>
             </div>
             <div className="summaryText">
               <ul>
-                <li>Queen’s College, Mallorca (GCSE’s)</li>
-                <li>IES Bendinat, Mallorca (Bachillerato)</li>
-                <li>Ealing Independent Collage, London (A levels)</li>
-                <li>Elisava, Barcelona (Graphic Design)</li>
+                <li>{t("cv.educationSection.summary.li.1")}</li>
+                <li>{t("cv.educationSection.summary.li.2")}</li>
+                <li>{t("cv.educationSection.summary.li.3")}</li>
+                <li>{t("cv.educationSection.summary.li.4")}</li>
               </ul>
             </div>
           </div>
