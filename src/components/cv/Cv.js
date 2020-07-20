@@ -162,13 +162,16 @@ function Cv() {
   //Toggle Summary Button
     const [toggleSummaryButton, setToggleSummaryButton] = useState("OFF")
 
+    //Translation
+    const { t } = useTranslation()
+
     const handleToggleSummaryButton = () => {
 
       if(toggleSummaryButton === "OFF"){
         //Animation
 
         //Handle switch of button text
-        document.querySelector(".summaryButton span").innerHTML = "Tell Me Your Story"
+        document.querySelector(".summaryButton span").innerHTML = t("cv.summaryButton.story.1")
         //Handle switch of cv text
         document.querySelectorAll(".storyText").forEach(e => { e.style.display = "none" })
         document.querySelectorAll(".summaryText").forEach(e => { e.style.display = "block" })
@@ -178,7 +181,7 @@ function Cv() {
         //Animation
 
         //Handle switch of button text
-        document.querySelector(".summaryButton span").innerHTML = "Don’t Make Me Read All This"
+        document.querySelector(".summaryButton span").innerHTML = t("cv.summaryButton.summary.1")
         //Handle switch of cv text
         document.querySelectorAll(".storyText").forEach(e => { e.style.display = "block" })
         document.querySelectorAll(".summaryText").forEach(e => { e.style.display = "none" })
@@ -327,8 +330,7 @@ function Cv() {
 
     
 
-  //Translation
-    const { t } = useTranslation()
+  
 
 
   return (
@@ -336,7 +338,7 @@ function Cv() {
 
       <CvButtonsContainer>
         <div className="summaryButton" onClick={handleToggleSummaryButton}>
-          <span>Don’t Make Me Read All This</span>
+          <span>{toggleSummaryButton === "ON" ? t("cv.summaryButton.summary.1") : t("cv.summaryButton.story.1")}</span>
         </div>
         <div className="textResizeButton increaseSizeButton" onClick={handleIncrementFontSize}>
           <span>+</span>

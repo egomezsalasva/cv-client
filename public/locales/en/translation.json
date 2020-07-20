@@ -1,6 +1,15 @@
 {
     "cv": {
 
+        "summaryButton": {
+            "summary": {
+                "1": "Don’t Make Me Read All This"
+            },
+            "story": {
+                "1": "Tell Me Your Story"
+            }
+        },
+
         "meSection": {
             "heading": {
                 "1": "Me"
@@ -18,7 +27,6 @@
                 }
             }
         },
-
         "whatImLookingForSection": {
             "heading": {
                 "1": "What I'm Looking For"
@@ -41,7 +49,6 @@
                 }
             }
         },
-
         "educationSection": {
             "heading": {
                 "1": "Education"
