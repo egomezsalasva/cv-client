@@ -1,7 +1,8 @@
 //IMPORTS
 //-Modules
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next';
 // import { gsap } from 'gsap'
 //-Components
 import Heading from '../global/shared/Heading'
@@ -161,13 +162,16 @@ function Cv() {
   //Toggle Summary Button
     const [toggleSummaryButton, setToggleSummaryButton] = useState("OFF")
 
+    //Translation
+    const { t } = useTranslation()
+
     const handleToggleSummaryButton = () => {
 
       if(toggleSummaryButton === "OFF"){
         //Animation
 
         //Handle switch of button text
-        document.querySelector(".summaryButton span").innerHTML = "Tell Me Your Story"
+        document.querySelector(".summaryButton span").innerHTML = t("cv.summaryButton.story.1")
         //Handle switch of cv text
         document.querySelectorAll(".storyText").forEach(e => { e.style.display = "none" })
         document.querySelectorAll(".summaryText").forEach(e => { e.style.display = "block" })
@@ -177,7 +181,7 @@ function Cv() {
         //Animation
 
         //Handle switch of button text
-        document.querySelector(".summaryButton span").innerHTML = "Don’t Make Me Read All This"
+        document.querySelector(".summaryButton span").innerHTML = t("cv.summaryButton.summary.1")
         //Handle switch of cv text
         document.querySelectorAll(".storyText").forEach(e => { e.style.display = "block" })
         document.querySelectorAll(".summaryText").forEach(e => { e.style.display = "none" })
@@ -189,17 +193,12 @@ function Cv() {
   //Font Sizing
     const numberOfTimesButtonCanBeClicked = 4
     const numberOfPixelsToChange = 2
-    const sectionHeadingFont = document.querySelectorAll(".section h4")
     const [headingFontSize, setHeadingFontSize] = useState(parseInt(fonts.fntSz14))
     const [headingLineHeight, setHeadingLineHeight] = useState(parseInt(fonts.lnHt20))
-    const sectionParagraphFont = document.querySelectorAll(".section p")
     const [paragraphFontSize, setParagraphFontSize] = useState(parseInt(fonts.fntSz14))
     const [paragraphLineHeight, setParagraphLineHeight] = useState(parseInt(fonts.lnHt20))
-    const sectionSubheadingFont = document.querySelectorAll(".section h5")
     const [subheadingFontSize, setSubheadingFontSize] = useState(parseInt(fonts.fntSz12))
-    const sectionListItemFont = document.querySelectorAll(".section li")
     const [listItemFontSize, setListItemFontSize] = useState(parseInt(fonts.fntSz14))
-    const sectionListItemInnerFont = document.querySelectorAll(".section li li")
     const [listItemInnerFontSize, setListItemInnerFontSize] = useState(parseInt(fonts.fntSz12))
     const [listItemInnerLineHeightSize, setListItemInnerLineHeightSize] = useState(parseInt(fonts.lnHt20))
 
@@ -214,8 +213,6 @@ function Cv() {
         if(headingLineHeight === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20))){
           setHeadingLineHeight(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20)))
         }
-        sectionHeadingFont.forEach(e => { e.style.fontSize = `${headingFontSize}px` })
-        sectionHeadingFont.forEach(e => { e.style.lineHeight = `${headingLineHeight}px` })
       //Increment p
         setParagraphFontSize(paragraphFontSize + numberOfPixelsToChange)
         setParagraphLineHeight(paragraphLineHeight + numberOfPixelsToChange)
@@ -225,21 +222,16 @@ function Cv() {
         if (paragraphLineHeight === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20))){
           setParagraphLineHeight(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20)))
         }
-        sectionParagraphFont.forEach(e => { e.style.fontSize = `${paragraphFontSize}px` })
-        sectionParagraphFont.forEach(e => { e.style.lineHeight = `${paragraphLineHeight}px` })
       //Increment H5
         setSubheadingFontSize(subheadingFontSize + numberOfPixelsToChange)
         if( subheadingFontSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz12)) ){
           setSubheadingFontSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz12)))
         }
-        sectionSubheadingFont.forEach(e => { e.style.fontSize = `${subheadingFontSize}px` })
       //Increment li
         setListItemFontSize(listItemFontSize + numberOfPixelsToChange)
         if( listItemFontSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz14)) ){
           setListItemFontSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz14)))
         }
-        sectionListItemFont.forEach(e => { e.style.fontSize = `${listItemFontSize}px` })
-        sectionListItemFont.forEach(e => { e.style.marginBottom = `${listItemFontSize}px` })
       //Increment li li
         setListItemInnerFontSize(listItemInnerFontSize + numberOfPixelsToChange)
         setListItemInnerLineHeightSize(listItemInnerLineHeightSize + numberOfPixelsToChange)
@@ -249,8 +241,6 @@ function Cv() {
         if (listItemInnerLineHeightSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20))){
           setListItemInnerLineHeightSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20)))
         }
-        sectionListItemInnerFont.forEach(e => { e.style.fontSize = `${listItemInnerFontSize}px` })
-        sectionListItemInnerFont.forEach(e => { e.style.lineHeight = `${listItemInnerLineHeightSize}px` })
     }
 
     //Decrement Font Size Button
@@ -264,8 +254,6 @@ function Cv() {
         if( headingLineHeight === parseInt(fonts.lnHt20) ){
           setHeadingLineHeight(parseInt(fonts.lnHt20))
         }
-        sectionHeadingFont.forEach(e => { e.style.fontSize = `${headingFontSize}px` })
-        sectionHeadingFont.forEach(e => { e.style.lineHeight = `${headingLineHeight}px` })
       //Decrement p
         setParagraphFontSize(paragraphFontSize - numberOfPixelsToChange)
         setParagraphLineHeight(paragraphLineHeight - numberOfPixelsToChange)
@@ -275,21 +263,16 @@ function Cv() {
         if ( paragraphLineHeight === parseInt(fonts.lnHt20) ){
           setParagraphLineHeight(parseInt(fonts.lnHt20))
         }
-        sectionParagraphFont.forEach(e => { e.style.fontSize = `${paragraphFontSize}px` })
-        sectionParagraphFont.forEach(e => { e.style.lineHeight = `${paragraphLineHeight}px` })
       //Decrement H5
         setSubheadingFontSize(subheadingFontSize - numberOfPixelsToChange)
         if( subheadingFontSize === parseInt(fonts.fntSz12) ){
           setSubheadingFontSize(parseInt(fonts.fntSz12))
         }
-        sectionSubheadingFont.forEach(e => { e.style.fontSize = `${subheadingFontSize}px` })
       //Decrement li
         setListItemFontSize(listItemFontSize - numberOfPixelsToChange)
         if( listItemFontSize === (parseInt(fonts.fntSz14)) ){
           setListItemFontSize(parseInt(fonts.fntSz14))
         }
-        sectionListItemFont.forEach(e => { e.style.fontSize = `${listItemFontSize}px` })
-        sectionListItemFont.forEach(e => { e.style.marginBottom = `${listItemFontSize}px` })
       //Decrement li li
         setListItemInnerFontSize(listItemInnerFontSize - numberOfPixelsToChange)
         setListItemInnerLineHeightSize(listItemInnerLineHeightSize - numberOfPixelsToChange)
@@ -299,9 +282,42 @@ function Cv() {
         if (listItemInnerLineHeightSize === parseInt(fonts.lnHt20)){
           setListItemInnerLineHeightSize(parseInt(fonts.lnHt20))
         }
-        sectionListItemInnerFont.forEach(e => { e.style.fontSize = `${listItemInnerFontSize}px` })
-        sectionListItemInnerFont.forEach(e => { e.style.lineHeight = `${listItemInnerLineHeightSize}px` })
     }
+    useEffect(() => {
+      const sectionHeadingFont = document.querySelectorAll(".section h4")
+      sectionHeadingFont.forEach(e => { e.style.fontSize = `${headingFontSize}px` })
+    }, [headingFontSize])
+    useEffect(() => {
+      const sectionHeadingFont = document.querySelectorAll(".section h4")
+      sectionHeadingFont.forEach(e => { e.style.lineHeight = `${headingLineHeight}px` })
+    }, [headingLineHeight])
+    useEffect(() => {
+      const sectionParagraphFont = document.querySelectorAll(".section p")
+      sectionParagraphFont.forEach(e => { e.style.fontSize = `${paragraphFontSize}px` })
+    }, [paragraphFontSize])
+    useEffect(() => {
+      const sectionParagraphFont = document.querySelectorAll(".section p")
+      sectionParagraphFont.forEach(e => { e.style.lineHeight = `${paragraphLineHeight}px` })
+    }, [paragraphLineHeight])
+    useEffect(() => {
+      const sectionSubheadingFont = document.querySelectorAll(".section h5")
+      sectionSubheadingFont.forEach(e => { e.style.fontSize = `${subheadingFontSize}px` })
+    }, [subheadingFontSize])
+    useEffect(() => {
+      const sectionListItemFont = document.querySelectorAll(".section li")
+      sectionListItemFont.forEach(e => { e.style.fontSize = `${listItemFontSize}px` })
+      sectionListItemFont.forEach(e => { e.style.marginBottom = `${listItemFontSize}px` })
+    }, [listItemFontSize])
+    useEffect(() => {
+      const sectionListItemInnerFont = document.querySelectorAll(".section li li")
+      sectionListItemInnerFont.forEach(e => { e.style.fontSize = `${listItemInnerFontSize}px` })
+    }, [listItemInnerFontSize])
+    useEffect(() => {
+      const sectionListItemInnerFont = document.querySelectorAll(".section li li")
+      sectionListItemInnerFont.forEach(e => { e.style.lineHeight = `${listItemInnerLineHeightSize}px` })
+    }, [listItemInnerLineHeightSize])
+
+    
 
     //Anim
     // const headingTl = gsap.timeline()
@@ -314,15 +330,17 @@ function Cv() {
 
     
 
-  //
+  
+
+
   return (
     <>
 
       <CvButtonsContainer>
         <div className="summaryButton" onClick={handleToggleSummaryButton}>
-          <span>Don’t Make Me Read All This</span>
+          <span>{toggleSummaryButton === "ON" ? t("cv.summaryButton.summary.1") : t("cv.summaryButton.story.1")}</span>
         </div>
-        <div className="textResizeButton increaseSizeButton" onClick={ handleIncrementFontSize}>
+        <div className="textResizeButton increaseSizeButton" onClick={handleIncrementFontSize}>
           <span>+</span>
         </div>
         <div className="textResizeButton decreseSizeButton" onClick={handleDecrementFontSize}>
@@ -335,57 +353,57 @@ function Cv() {
 
           <div className="section">
 
-            <Heading headingName="Me" classProp="heading" />
+            <Heading headingName={t("cv.meSection.heading.1")} classProp="heading" />
 
             <div className="storyText">
-             <p>I consider myself to be a generalist, due to the fact I find interest in a wide range of subjects. I reckon this helps me have a different perspective in a specific field.</p>
-             <p>For better or for worse, I am somewhat of a perfectionist. It helps me produce detailed work, but it also slows down some projects.</p>
+             <p>{t("cv.meSection.story.p.1")}</p>
+             <p>{t("cv.meSection.story.p.2")}</p>
             </div>
             <div className="summaryText">
               <ul>
-                <li>Generalist</li>
-                <li>Perfectionist</li>
+                <li>{t("cv.meSection.summary.li.1")}</li>
+                <li>{t("cv.meSection.summary.li.2")}</li>
               </ul>
             </div>
           </div>
 
           <div className="section">
 
-            <Heading headingName="What I’m Looking For" classProp="heading" />
+            <Heading headingName={t("cv.whatImLookingForSection.heading.1")} classProp="heading" />
 
             <div className="storyText">
-              <p>I’m preferibly looking for a business in it’s early stages, where there is shared responsability and tasks in different departments.</p>
-              <p>I really value purpose-driven companies. These are companies who’s main goal is not monetary but solving an important issue in society.</p>
-              <p>I also value autonomy. I like when companies let their employees take their own decisions and allow individuals to manage themselves.</p>
-              <p>Finally, I value mastery. I like when companies prioritize employee long-term skill progression over short-term results. I belive this improves overall individual perfomance which is then translated to company performance.</p>
-              <p>As an extra, I find the ’20% time’, where employees are given part of their time for company side projects an interesting concept.</p>
+              <p>{t("cv.whatImLookingForSection.story.p.1")}</p>
+              <p>{t("cv.whatImLookingForSection.story.p.2")}</p>
+              <p>{t("cv.whatImLookingForSection.story.p.3")}</p>
+              <p>{t("cv.whatImLookingForSection.story.p.4")}</p>
+              <p>{t("cv.whatImLookingForSection.story.p.5")}</p>
             </div>
             <div className="summaryText">
               <ul>
-                <li>Early stage company</li>
-                <li>Purpose-driven company</li>
-                <li>Employee autonomy</li>
-                <li>Long-term progression (Mastery)</li>
+                <li>{t("cv.whatImLookingForSection.summary.li.1")}</li>
+                <li>{t("cv.whatImLookingForSection.summary.li.2")}</li>
+                <li>{t("cv.whatImLookingForSection.summary.li.3")}</li>
+                <li>{t("cv.whatImLookingForSection.summary.li.4")}</li>
               </ul>
             </div>
           </div>
 
           <div className="section">
 
-            <Heading headingName="Education" classProp="heading" />
+            <Heading headingName={t("cv.educationSection.heading.1")} classProp="heading" />
 
             <div className="storyText">
-              <p>It all started at an English school in Mallorca where I had to attend everyday from kindergarden until I got kicked out right before my A levels.</p>
-              <p>After this, I went to a Spanish school to do the E.S.O. and Bachillerato.</p>
-              <p>Then I went to London to do a year of A levels at Ealing Independent College but had to come back to Spain due to economic reasons.</p>
-              <p>Back in Spain, I attended Elisava to do Graphic Design.</p>
+              <p>{t("cv.educationSection.story.p.1")}</p>
+              <p>{t("cv.educationSection.story.p.2")}</p>
+              <p>{t("cv.educationSection.story.p.3")}</p>
+              <p>{t("cv.educationSection.story.p.4")}</p>
             </div>
             <div className="summaryText">
               <ul>
-                <li>Queen’s College, Mallorca (GCSE’s)</li>
-                <li>IES Bendinat, Mallorca (Bachillerato)</li>
-                <li>Ealing Independent Collage, London (A levels)</li>
-                <li>Elisava, Barcelona (Graphic Design)</li>
+                <li>{t("cv.educationSection.summary.li.1")}</li>
+                <li>{t("cv.educationSection.summary.li.2")}</li>
+                <li>{t("cv.educationSection.summary.li.3")}</li>
+                <li>{t("cv.educationSection.summary.li.4")}</li>
               </ul>
             </div>
           </div>
