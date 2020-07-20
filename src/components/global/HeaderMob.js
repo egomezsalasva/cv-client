@@ -84,7 +84,7 @@ const ThemeBox = styled.div`
 `
 
 //MAIN COMPONENT
-const Header = () => {
+const HeaderMob = () => {
 
   const { setTheme } = useContext(ThemeContext)
   const [ themeColorToggle , setThemeColorToggle ] = useState(false)
@@ -391,4 +391,4 @@ const Header = () => {
     </HeaderContainer>      
   )
 }
-export default Header;
+export default HeaderMob;

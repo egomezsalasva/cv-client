@@ -44,11 +44,18 @@ const responsiveWidthHeights = {
   w10px: "2.66666667vw",
   w20px: "5.33333333vw",
   w30px: "8vw",
+  w800px: "55.5555555556vw",
 
   h200px: "29.9850075vh",
   h400px: "59.970015vh",
 }
 
+//Z-INDEXES
+const zIndexes = {
+  //Desktop
+  leftPanelBg : 100,
+}
 
 
-export { devices, colors, fonts, responsiveWidthHeights }
+
+export { devices, colors, fonts, responsiveWidthHeights, zIndexes }

@@ -155,7 +155,7 @@ const SectionsOuter = styled.div`
 
 
 //MAIN COMPONENT
-function Cv() {
+function CvMob() {
 
   //Smooth Scrolling
 
@@ -571,4 +571,4 @@ function Cv() {
     </>      
   )
 }
-export default Cv;
+export default CvMob;

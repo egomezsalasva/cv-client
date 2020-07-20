@@ -4,10 +4,11 @@ import React, { useContext, useEffect } from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { Switch, Route } from "react-router-dom"
 //-Components
-import Header from './components/global/Header'
+import HeaderMob from './components/global/HeaderMob'
 import Footer from './components/global/Footer'
 import Navigation from './components/global/Navigation'
-import Cv from './components/cv/Cv'
+import CvMob from './components/cv/CvMob'
+import CvDesk from './components/cv/CvDesk'
 import Portfolio from './components/portfolio/Portfolio'
 import Library from './components/library/Library'
 import { ThemeContext } from './contexts/ThemeContext'
@@ -34,27 +35,54 @@ const App = () => {
     setTheme({mode: "light"})
   }, [setTheme])
 
+
+  //Desktop Design Match
+  const mediaDesignBreakpoint = window.matchMedia("(min-width: 1200px)").matches
+  const cvMatchMedia = () => {
+    if (mediaDesignBreakpoint) {
+      return <CvDesk/>
+    } else {
+      return <CvMob/>
+    }
+  }
+  const portfolioMatchMedia = () => {
+    if (mediaDesignBreakpoint) {
+      return <div>Portfolio Desktop Version</div>
+    } else {
+      return <Portfolio />
+    }
+  }
+  const libraryMatchMedia = () => {
+    if (mediaDesignBreakpoint) {
+      return <div>Library Desktop Version</div>
+    } else {
+      return <Library />
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
 
       <GlobalStyles/>
 
-      <Header/>
-      <Navigation/>
+      {mediaDesignBreakpoint ? <></> : <HeaderMob/>}
+      {mediaDesignBreakpoint ? <></> : <Navigation/>}
+      
 
       <Switch>
         <Route exact path="/">
-          <Cv/>
+          {cvMatchMedia}
         </Route>
         <Route path="/portfolio">
-          <Portfolio />
+          {portfolioMatchMedia}
         </Route>
         <Route path="/library">
-          <Library />
+          {libraryMatchMedia}
         </Route>
       </Switch>
 
-      <Footer/>
+      {mediaDesignBreakpoint ? <></> : <Footer/>}
+      
 
     </ThemeProvider>
   )
