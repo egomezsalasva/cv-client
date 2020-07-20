@@ -5,6 +5,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { Switch, Route } from "react-router-dom"
 //-Components
 import HeaderMob from './components/global/HeaderMob'
+import HeaderDesk from './components/global/HeaderDesk'
 import Footer from './components/global/Footer'
 import Navigation from './components/global/Navigation'
 import CvMob from './components/cv/CvMob'
@@ -65,7 +66,7 @@ const App = () => {
 
       <GlobalStyles/>
 
-      {mediaDesignBreakpoint ? <></> : <HeaderMob/>}
+      {mediaDesignBreakpoint ? <HeaderDesk/> : <HeaderMob/>}
       {mediaDesignBreakpoint ? <></> : <Navigation/>}
       
 

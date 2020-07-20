@@ -54,6 +54,7 @@ const responsiveWidthHeights = {
 const zIndexes = {
   //Desktop
   leftPanelBg : 100,
+  header: 200,
 }
 
 
