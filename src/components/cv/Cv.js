@@ -378,10 +378,10 @@ function Cv() {
             </div>
             <div className="summaryText">
               <ul>
-                <li>Early stage company</li>
-                <li>Purpose-driven company</li>
-                <li>Employee autonomy</li>
-                <li>Long-term progression (Mastery)</li>
+                <li>{t("cv.whatImLookingForSection.summary.li.1")}</li>
+                <li>{t("cv.whatImLookingForSection.summary.li.2")}</li>
+                <li>{t("cv.whatImLookingForSection.summary.li.3")}</li>
+                <li>{t("cv.whatImLookingForSection.summary.li.4")}</li>
               </ul>
             </div>
           </div>

@@ -40,6 +40,28 @@
                     "4": "Long-term progression (Mastery)"
                 }
             }
+        },
+
+        "educationSection": {
+            "heading": {
+                "1": "Education"
+            },
+            "story": {
+                "p": {
+                    "1": "It all started at an English school in Mallorca where I had to attend everyday from kindergarden until I got kicked out right before my A levels.",
+                    "2": "After this, I went to a Spanish school to do the E.S.O. and Bachillerato.",
+                    "3": "Then I went to London to do a year of A levels at Ealing Independent College but had to come back to Spain due to economic reasons.",
+                    "4": "Back in Spain, I attended Elisava to do Graphic Design."
+                }
+            },
+            "summary": {
+                "li": {
+                    "1": "Queen’s College, Mallorca (GCSE’s)",
+                    "2": "IES Bendinat, Mallorca (Bachillerato)",
+                    "3": "Ealing Independent Collage, London (A levels)",
+                    "4": "Elisava, Barcelona (Graphic Design)"
+                }
+            }
         }
     }
 }

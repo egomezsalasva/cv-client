@@ -32,16 +32,38 @@
                     "1": "Estoy buscando una empresa que preferiblemente este en las primeras etapas, donde las responsabilidades y tareas se compartan  entre diferentes departamentos.",
                     "2": "Valoro mucho las empresas impulsadas por proposito. Compañias en las que el objetivo principal no sea la monetización, sino el resolver problemas importantes en la sociedad.",
                     "3": "Tambien valoro la autonomia. Me gusta cuando las empresas dejan a sus empeados tomar sus propias decisiones y gestionarse a ellos mismos.",
-                    "4": "Finalment, valoro la maestría. Me gusta cuando las compañias priorizan la progresión de sus empleados a largo plazo por encima de resultados a corto plazo. Creo personalmente que esto mejora el general el rendimiento de cada individuo, que luego se traduce a rendimeinto de empresa.",
+                    "4": "Finalmente, valoro la maestría. Me gusta cuando las compañias priorizan la progresión de sus empleados a largo plazo por encima de resultados a corto plazo. Creo personalmente que esto mejora el general el rendimiento de cada individuo, que luego se traduce a rendimeinto de empresa.",
                     "5": "Como extra, encuentro que la regla del '20% time', en la que se le da a los empleados parte de su tiempo para proyectos paralelos un concepto interesante."
                 }
             },
             "summary": {
                 "li": {
-                    "1": "Empresa en primeras etapas",
+                    "1": "Empresas en primeras etapas",
                     "2": "Empresas impulsadas por proposito",
                     "3": "Autonomia del empleado",
                     "4": "Progresion a largo plaze (Maestría)"
+                }
+            }
+        },
+
+        "educationSection": {
+            "heading": {
+                "1": "Educación"
+            },
+            "story": {
+                "p": {
+                    "1": "Todo empezó en un colegio ingles en Mallorca in Mallorca al que tuve que asistir cada dia desde parbulario hasta que me hecharon justo antes de empezar A levels",
+                    "2": "Despues de eso, Fuí a un colegio español ha hacer la E.S.O. y Bachillerato",
+                    "3": "Despues fui a Londres a hacer mis A levels en Ealing Independent Collage pero tuve que volver a España por razones económicas.",
+                    "4": "De vuelta en España, Asistí a Elisava para hacer Diseño Gráfico."
+                }
+            },
+            "summary": {
+                "li": {
+                    "1": "Queen’s College, Mallorca (GCSE’s)",
+                    "2": "IES Bendinat, Mallorca (Bachillerato)",
+                    "3": "Ealing Independent Collage, Londres (A levels)",
+                    "4": "Elisava, Barcelona (Diseño Gráfico)"
                 }
             }
         }
