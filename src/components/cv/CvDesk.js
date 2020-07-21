@@ -3,7 +3,7 @@
 import React from 'react'
 import styled from 'styled-components'
 // import { useTranslation } from 'react-i18next'
-// import { gsap, ScrollTrigger } from 'gsap/all'
+import { gsap } from 'gsap/all'
 //-Components
 //-Styling
 import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
@@ -85,29 +85,62 @@ const RightPanel = styled.div`
   .innerRightPanel{
 
     .section{
-      width: calc(100vw - ${leftPanelWidth});
+      width: ${rightPanelWidth};
       height: 100vh;
     }
 
-    .meSec{
+    #meSection{
       position: absolute;
+      top: 0;
       background: ${colors.thmWhite};
-      left: 0;
     }
-    .lookingForSec{
+    #whatImLookingSection{
       position: absolute;
       background: orange;
-      left: -${rightPanelWidth};
+      top: 0;
+      transform: translateX(-${rightPanelWidth});
     }
-    .sec3{
+    #eduSection{
       position: absolute;
       background: green;
-      left: -${rightPanelWidth};
+      top: 0;
+      transform: translateX(-${rightPanelWidth});
     }
-    .sec4{
+    #postEduSection{
       position: absolute;
       background: pink;
-      left: -${rightPanelWidth};
+      top: 0;
+      transform: translateX(-${rightPanelWidth});
+    }
+    #skillsSection{
+      position: absolute;
+      background: yellowgreen;
+      top: 0;
+      transform: translateX(-${rightPanelWidth});
+    }
+    #interestsSection{
+      position: absolute;
+      background: yellow;
+      top: 0;
+      transform: translateX(-${rightPanelWidth});
+    }
+    #languagesSection{
+      position: absolute;
+      background: aqua;
+      top: 0;
+      transform: translateX(-${rightPanelWidth});
+    }
+    #linksSection{
+      position: absolute;
+      background: wheat;
+      top: 0;
+      transform: translateX(-${rightPanelWidth});
+    }
+    #letsMeetSection{
+      position: absolute;
+      background: seagreen;
+      top: 0;
+      transform: translateX(-${rightPanelWidth});
     }
 
   }
@@ -121,25 +154,79 @@ const RightPanel = styled.div`
 //MAIN COMPONENT
 function CvDesk() {
 
+  const meTl = gsap.timeline()
+  const tl01 = gsap.timeline()
+  const tl02 = gsap.timeline()
 
+  const meSectionHandler = () => {
+    if( !tl01.isActive() || !tl02.isActive() ){
+      //Section Anim
+      const notId = `.section:not(#meSection)`
+      document.querySelector("#meSection").style.zIndex = 50
+      meTl
+        .to("#meSection", { x: 0, duration: 1, ease: "power2.in", })
+        .to("#meSection", { zIndex: 0,  duration: 0.001 })
+        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
-  const lookingForHandler = () => {
-    console.log("test")
+      //Active
+      document.querySelectorAll(".navLink").forEach( el => {
+        el.classList.remove("active")
+      })
+      document.querySelector("#meLink").classList.add("active")
+      document.querySelector(".titleBox").innerHTML = "Me"
+    }
   }
 
+  const sectionHandler01 = () => {
+    if(!tl02.isActive()){
+      //Section Anim
+      const notId = `.section:not(#whatImLookingSection)`
+      document.querySelector("#whatImLookingSection").style.zIndex = 50
+      tl01
+        .to("#whatImLookingSection", { x: 0, duration: 1, ease: "power2.in"})
+        .to("#whatImLookingSection", { zIndex: 0,  duration: 0.001 })
+        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
+      //Active
+      document.querySelectorAll(".navLink").forEach( el => {
+        el.classList.remove("active")
+      })
+      document.getElementById("whatImLookingLink").classList.add("active")
+      document.querySelector(".titleBox").innerHTML = "What I'm Looking For"
+    }
+  }
+
+  const sectionHandler02 = () => {
+    if(!tl01.isActive()){
+      //Section Anim
+      const notId = `.section:not(#eduSection)`
+      document.querySelector("#eduSection").style.zIndex = 50
+      tl02
+        .to("#eduSection", { x: 0, duration: 1, ease: "power2.in" })
+        .to("#eduSection", { zIndex: 0,  duration: 0.001 })
+        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+
+      //Active
+      document.querySelectorAll(".navLink").forEach( el => {
+        el.classList.remove("active")
+      })
+      document.querySelector("#eduLink").classList.add("active")
+      document.querySelector(".titleBox").innerHTML = "Education"
+    }
+  }
+    
 
   return (
     <div id="conatiner">
         <LeftPanel>
           <HeadingContainer>
-              <h4>Me</h4>   
+              <h4 className="titleBox">Me</h4>   
           </HeadingContainer>
           <CvNav>
               <div className="flexLine top">
-                <div className="navLink active">Me</div>
-                <div className="navLink" onClick={lookingForHandler}>What I'm Looking For</div>
-                <div className="navLink">Education</div>
+                <div className="navLink active" onClick={meSectionHandler} id="meLink">Me</div>
+                <div className="navLink" onClick={sectionHandler01} id="whatImLookingLink" >What I'm Looking For</div>
+                <div className="navLink" onClick={sectionHandler02} id="eduLink">Education</div>
                 <div className="navLink">Post-Education</div>
                 <div className="navLink">Skills</div>
               </div>
@@ -153,10 +240,15 @@ function CvDesk() {
         </LeftPanel>
         <RightPanel>
           <div className="innerRightPanel">
-            <div className="section meSec" ></div>
-            <div className="section lookingForSec"></div>
-            <div className="section sec3"></div>
-            <div className="section sec4"></div>
+            <div className="section" id="meSection"></div>
+            <div className="section" id="whatImLookingSection"></div>
+            <div className="section" id="eduSection"></div>
+            <div className="section" id="postEduSection"></div>
+            <div className="section" id="skillsSection"></div>
+            <div className="section" id="interestsSection"></div>
+            <div className="section" id="languagesSection"></div>
+            <div className="section" id="linksSection"></div>
+            <div className="section" id="letsMeetSection"></div>
           </div>
         </RightPanel>
     </div>      
