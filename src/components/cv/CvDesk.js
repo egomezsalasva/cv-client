@@ -158,13 +158,16 @@ function CvDesk() {
   const tl01 = gsap.timeline()
   const tl02 = gsap.timeline()
 
+  const dur = 0.8
+  const eas = "power2.in"
+
   const meSectionHandler = () => {
     if( !tl01.isActive() || !tl02.isActive() ){
       //Section Anim
       const notId = `.section:not(#meSection)`
       document.querySelector("#meSection").style.zIndex = 50
       meTl
-        .to("#meSection", { x: 0, duration: 1, ease: "power2.in", })
+        .to("#meSection", { x: 0, duration: dur, ease: eas, })
         .to("#meSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
@@ -178,12 +181,12 @@ function CvDesk() {
   }
 
   const sectionHandler01 = () => {
-    if(!tl02.isActive()){
+    if( !meTl.isActive() || !tl02.isActive()){
       //Section Anim
       const notId = `.section:not(#whatImLookingSection)`
       document.querySelector("#whatImLookingSection").style.zIndex = 50
       tl01
-        .to("#whatImLookingSection", { x: 0, duration: 1, ease: "power2.in"})
+        .to("#whatImLookingSection", { x: 0, duration: dur, ease: eas})
         .to("#whatImLookingSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
@@ -197,12 +200,12 @@ function CvDesk() {
   }
 
   const sectionHandler02 = () => {
-    if(!tl01.isActive()){
+    if(!meTl.isActive() || !tl01.isActive()){
       //Section Anim
       const notId = `.section:not(#eduSection)`
       document.querySelector("#eduSection").style.zIndex = 50
       tl02
-        .to("#eduSection", { x: 0, duration: 1, ease: "power2.in" })
+        .to("#eduSection", { x: 0, duration: dur, ease: eas })
         .to("#eduSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
