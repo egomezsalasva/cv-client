@@ -5,12 +5,12 @@ import styled from 'styled-components'
 import gsap from 'gsap'
 // import { useTranslation } from 'react-i18next'
 //-Styling
-import { responsiveWidthHeights, zIndexes } from '../../data/styling/stylingVars'
+import {  zIndexes } from '../../data/styling/stylingVars'
 //-Context
 // import { ThemeContext } from '../../contexts/ThemeContext'
 
 //STYLE//-Variables
-const themeBoxWidth = "30px"
+// const themeBoxWidth = "30px"
 //-Components
 const HeaderContainer = styled.div`
   position: fixed;

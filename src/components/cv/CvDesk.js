@@ -1,13 +1,12 @@
 //IMPORTS
 //-Modules
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 // import { useTranslation } from 'react-i18next'
-import { gsap, ScrollTrigger } from 'gsap/all'
+// import { gsap, ScrollTrigger } from 'gsap/all'
 //-Components
-import Heading from '../global/shared/Heading'
 //-Styling
-import { devices, fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
+import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
 
 
 
@@ -90,12 +89,12 @@ const RightPanel = styled.div`
       height: 100vh;
     }
 
-    .sec1{
+    .meSec{
       position: absolute;
       background: ${colors.thmWhite};
       left: 0;
     }
-    .sec2{
+    .lookingForSec{
       position: absolute;
       background: orange;
       left: -${rightPanelWidth};
@@ -124,7 +123,9 @@ function CvDesk() {
 
 
 
-  
+  const lookingForHandler = () => {
+    console.log("test")
+  }
 
 
 
@@ -137,7 +138,7 @@ function CvDesk() {
           <CvNav>
               <div className="flexLine top">
                 <div className="navLink active">Me</div>
-                <div className="navLink">What I'm Looking For</div>
+                <div className="navLink" onClick={lookingForHandler}>What I'm Looking For</div>
                 <div className="navLink">Education</div>
                 <div className="navLink">Post-Education</div>
                 <div className="navLink">Skills</div>
@@ -152,8 +153,8 @@ function CvDesk() {
         </LeftPanel>
         <RightPanel>
           <div className="innerRightPanel">
-            <div className="section sec1" ></div>
-            <div className="section sec2"></div>
+            <div className="section meSec" ></div>
+            <div className="section lookingForSec"></div>
             <div className="section sec3"></div>
             <div className="section sec4"></div>
           </div>
