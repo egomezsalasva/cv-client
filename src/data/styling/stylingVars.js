@@ -44,6 +44,7 @@ const responsiveWidthHeights = {
   w10px: "2.66666667vw",
   w20px: "5.33333333vw",
   w30px: "8vw",
+  w440px: "44.4444444vw",
   w800px: "55.5555555556vw",
 
   h200px: "29.9850075vh",
