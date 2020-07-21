@@ -338,7 +338,7 @@ function CvMob() {
 
       <CvButtonsContainer>
         <div className="summaryButton" onClick={handleToggleSummaryButton}>
-          <span>{toggleSummaryButton === "ON" ? t("cv.summaryButton.summary.1") : t("cv.summaryButton.story.1")}</span>
+          <span>{toggleSummaryButton === "ON" ? t("cv.summaryButton.story.1") : t("cv.summaryButton.summary.1")}</span>
         </div>
         <div className="textResizeButton increaseSizeButton" onClick={handleIncrementFontSize}>
           <span>+</span>
