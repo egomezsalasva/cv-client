@@ -123,7 +123,7 @@ const RightPanel = styled.div`
     }
     #eduSection{
       position: absolute;
-      background: green;
+      background: ${colors.thmWhite};
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
@@ -260,10 +260,11 @@ function CvDesk() {
     if(!meTl.isActive() && !lookingForTl.isActive() && !postEduTl.isActive() ){
       //Section Anim
       const notId = `.section:not(#eduSection)`
+      document.querySelector("#eduSection .secInnerContainer").style.opacity = 0
       document.querySelector("#eduSection").style.zIndex = 50
       eduTl
         .to("#eduSection", { x: 0, duration: dur, ease: eas })
-        .from("#eduSection .innerRightPanel", { autoAlpha: 0, duration: dur, ease: eas, })
+        .to("#eduSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
         .to("#eduSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
@@ -376,7 +377,11 @@ function CvDesk() {
               </div>
             </div>
 
-            <div className="section" id="postEduSection"></div>
+            <div className="section" id="postEduSection">
+                < div className="secInnerContainer">
+                    
+                </div>
+            </div>
             <div className="section" id="skillsSection"></div>
             <div className="section" id="interestsSection"></div>
             <div className="section" id="languagesSection"></div>
