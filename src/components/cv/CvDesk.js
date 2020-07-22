@@ -104,7 +104,7 @@ const RightPanel = styled.div`
           font-family: ${fonts.fntRegular};
           font-weight: 300;
           font-size: ${fonts.fntSz14};
-          line-height: 22px;
+          line-height: ${fonts.lnHt22};
           color: ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
         }
       }
@@ -323,7 +323,7 @@ function CvDesk() {
           <div className="innerRightPanel">
 
             <div className="section" id="meSection">
-              <div className="secInnerContainer meInner">
+              <div className="secInnerContainer">
                 <div className="storyText">
                 <p>{t("cv.meSection.story.p.1")}</p>
                 <p>{t("cv.meSection.story.p.2")}</p>
@@ -357,7 +357,25 @@ function CvDesk() {
               </div>
             </div>
 
-            <div className="section" id="eduSection"></div>
+            <div className="section" id="eduSection">
+              < div className="secInnerContainer">
+                <div className="storyText">
+                  <p>{t("cv.educationSection.story.p.1")}</p>
+                  <p>{t("cv.educationSection.story.p.2")}</p>
+                  <p>{t("cv.educationSection.story.p.3")}</p>
+                  <p>{t("cv.educationSection.story.p.4")}</p>
+                </div>
+                <div className="summaryText">
+                  <ul>
+                    <li>{t("cv.educationSection.summary.li.1")}</li>
+                    <li>{t("cv.educationSection.summary.li.2")}</li>
+                    <li>{t("cv.educationSection.summary.li.3")}</li>
+                    <li>{t("cv.educationSection.summary.li.4")}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             <div className="section" id="postEduSection"></div>
             <div className="section" id="skillsSection"></div>
             <div className="section" id="interestsSection"></div>
