@@ -2,7 +2,7 @@
 //-Modules
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
 // import { gsap } from 'gsap'
 //-Components
 import Heading from '../global/shared/Heading'
@@ -165,6 +165,7 @@ function CvMob() {
     //Translation
     const { t } = useTranslation()
 
+    //Handle Toggle Summary / Story
     const handleToggleSummaryButton = () => {
 
       if(toggleSummaryButton === "OFF"){

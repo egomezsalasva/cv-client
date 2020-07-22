@@ -2,7 +2,7 @@
 //-Modules
 import React from 'react'
 import styled from 'styled-components'
-// import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap/all'
 //-Components
 //-Styling
@@ -87,6 +87,27 @@ const RightPanel = styled.div`
     .section{
       width: ${rightPanelWidth};
       height: 100vh;
+      .secInnerContainer{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        .storyText{
+          display: block;
+        }
+        .summaryText{
+          display: none;
+        }
+        p{
+          margin-bottom: 19px;
+          font-family: ${fonts.fntRegular};
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 23px;
+          color: ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
+        }
+      }
     }
 
     #meSection{
@@ -96,7 +117,7 @@ const RightPanel = styled.div`
     }
     #whatImLookingSection{
       position: absolute;
-      background: orange;
+      background: ${colors.thmWhite};
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
@@ -154,15 +175,45 @@ const RightPanel = styled.div`
 //MAIN COMPONENT
 function CvDesk() {
 
+  //Translation
+  const { t } = useTranslation()
+
+  //Handle Toggle Summary / Story
+  // const handleToggleSummaryButton = () => {
+
+  //   if(toggleSummaryButton === "OFF"){
+  //     //Animation
+
+  //     //Handle switch of button text
+  //     document.querySelector(".summaryButton span").innerHTML = t("cv.summaryButton.story.1")
+  //     //Handle switch of cv text
+  //     document.querySelectorAll(".storyText").forEach(e => { e.style.display = "none" })
+  //     document.querySelectorAll(".summaryText").forEach(e => { e.style.display = "block" })
+  //     //Toggle State
+  //     setToggleSummaryButton("ON")
+  //   } else if (toggleSummaryButton === "ON") {
+  //     //Animation
+
+  //     //Handle switch of button text
+  //     document.querySelector(".summaryButton span").innerHTML = t("cv.summaryButton.summary.1")
+  //     //Handle switch of cv text
+  //     document.querySelectorAll(".storyText").forEach(e => { e.style.display = "block" })
+  //     document.querySelectorAll(".summaryText").forEach(e => { e.style.display = "none" })
+  //     //Toggle State
+  //     setToggleSummaryButton("OFF")
+  //   }
+  // }
+
   const meTl = gsap.timeline()
-  const tl01 = gsap.timeline()
-  const tl02 = gsap.timeline()
+  const lookingForTl = gsap.timeline()
+  const eduTl = gsap.timeline()
+  const postEduTl = gsap.timeline()
 
   const dur = 0.8
   const eas = "power2.in"
 
   const meSectionHandler = () => {
-    if( !tl01.isActive() || !tl02.isActive() ){
+    if( !lookingForTl.isActive() && !eduTl.isActive() && !postEduTl.isActive()){
       //Section Anim
       const notId = `.section:not(#meSection)`
       document.querySelector("#meSection").style.zIndex = 50
@@ -180,12 +231,12 @@ function CvDesk() {
     }
   }
 
-  const sectionHandler01 = () => {
-    if( !meTl.isActive() || !tl02.isActive()){
+  const lookingForHandler = () => {
+    if( !meTl.isActive() && !eduTl.isActive() && !postEduTl.isActive()){
       //Section Anim
       const notId = `.section:not(#whatImLookingSection)`
       document.querySelector("#whatImLookingSection").style.zIndex = 50
-      tl01
+      lookingForTl
         .to("#whatImLookingSection", { x: 0, duration: dur, ease: eas})
         .to("#whatImLookingSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
@@ -199,12 +250,12 @@ function CvDesk() {
     }
   }
 
-  const sectionHandler02 = () => {
-    if(!meTl.isActive() || !tl01.isActive()){
+  const eduHandler = () => {
+    if(!meTl.isActive() && !lookingForTl.isActive() && !postEduTl.isActive() ){
       //Section Anim
       const notId = `.section:not(#eduSection)`
       document.querySelector("#eduSection").style.zIndex = 50
-      tl02
+      eduTl
         .to("#eduSection", { x: 0, duration: dur, ease: eas })
         .to("#eduSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
@@ -215,6 +266,25 @@ function CvDesk() {
       })
       document.querySelector("#eduLink").classList.add("active")
       document.querySelector(".titleBox").innerHTML = "Education"
+    }
+  }
+
+  const postEduHandler = () => {
+    if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
+      //Section Anim
+      const notId = `.section:not(#postEduSection)`
+      document.querySelector("#postEduSection").style.zIndex = 50
+      postEduTl
+        .to("#postEduSection", { x: 0, duration: dur, ease: eas })
+        .to("#postEduSection", { zIndex: 0,  duration: 0.001 })
+        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+
+      //Active
+      document.querySelectorAll(".navLink").forEach( el => {
+        el.classList.remove("active")
+      })
+      document.querySelector("#postEduLink").classList.add("active")
+      document.querySelector(".titleBox").innerHTML = "Post-Education"
     }
   }
     
@@ -228,9 +298,9 @@ function CvDesk() {
           <CvNav>
               <div className="flexLine top">
                 <div className="navLink active" onClick={meSectionHandler} id="meLink">Me</div>
-                <div className="navLink" onClick={sectionHandler01} id="whatImLookingLink" >What I'm Looking For</div>
-                <div className="navLink" onClick={sectionHandler02} id="eduLink">Education</div>
-                <div className="navLink">Post-Education</div>
+                <div className="navLink" onClick={lookingForHandler} id="whatImLookingLink" >What I'm Looking For</div>
+                <div className="navLink" onClick={eduHandler} id="eduLink">Education</div>
+                <div className="navLink" onClick={postEduHandler} id="postEduLink">Post-Education</div>
                 <div className="navLink">Skills</div>
               </div>
               <div className="flexLine bottom">
@@ -243,8 +313,42 @@ function CvDesk() {
         </LeftPanel>
         <RightPanel>
           <div className="innerRightPanel">
-            <div className="section" id="meSection"></div>
-            <div className="section" id="whatImLookingSection"></div>
+
+            <div className="section" id="meSection">
+              <div className="secInnerContainer">
+                <div className="storyText">
+                <p>{t("cv.meSection.story.p.1")}</p>
+                <p>{t("cv.meSection.story.p.2")}</p>
+                </div>
+                <div className="summaryText">
+                  <ul>
+                    <li>{t("cv.meSection.summary.li.1")}</li>
+                    <li>{t("cv.meSection.summary.li.2")}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="section" id="whatImLookingSection">
+              <div className="secInnerContainer">
+                <div className="storyText">
+                  <p>{t("cv.whatImLookingForSection.story.p.1")}</p>
+                  <p>{t("cv.whatImLookingForSection.story.p.2")}</p>
+                  <p>{t("cv.whatImLookingForSection.story.p.3")}</p>
+                  <p>{t("cv.whatImLookingForSection.story.p.4")}</p>
+                  <p>{t("cv.whatImLookingForSection.story.p.5")}</p>
+                </div>
+                <div className="summaryText">
+                  <ul>
+                    <li>{t("cv.whatImLookingForSection.summary.li.1")}</li>
+                    <li>{t("cv.whatImLookingForSection.summary.li.2")}</li>
+                    <li>{t("cv.whatImLookingForSection.summary.li.3")}</li>
+                    <li>{t("cv.whatImLookingForSection.summary.li.4")}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             <div className="section" id="eduSection"></div>
             <div className="section" id="postEduSection"></div>
             <div className="section" id="skillsSection"></div>
