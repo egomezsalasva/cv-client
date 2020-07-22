@@ -92,7 +92,7 @@ const RightPanel = styled.div`
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 350px;
+        width: 360px;
         .storyText{
           display: block;
         }
@@ -103,8 +103,8 @@ const RightPanel = styled.div`
           margin-bottom: 19px;
           font-family: ${fonts.fntRegular};
           font-weight: 300;
-          font-size: 16px;
-          line-height: 23px;
+          font-size: ${fonts.fntSz14};
+          line-height: 22px;
           color: ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
         }
       }
@@ -210,17 +210,21 @@ function CvDesk() {
   const postEduTl = gsap.timeline()
 
   const dur = 0.8
-  const eas = "power2.in"
+  const eas = "power1.out"
 
   const meSectionHandler = () => {
     if( !lookingForTl.isActive() && !eduTl.isActive() && !postEduTl.isActive()){
       //Section Anim
       const notId = `.section:not(#meSection)`
+      document.querySelector("#meSection .secInnerContainer").style.opacity = 0
       document.querySelector("#meSection").style.zIndex = 50
       meTl
         .to("#meSection", { x: 0, duration: dur, ease: eas, })
+        .to("#meSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
+        //Cleanup
         .to("#meSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+
 
       //Active
       document.querySelectorAll(".navLink").forEach( el => {
@@ -235,9 +239,11 @@ function CvDesk() {
     if( !meTl.isActive() && !eduTl.isActive() && !postEduTl.isActive()){
       //Section Anim
       const notId = `.section:not(#whatImLookingSection)`
+      document.querySelector("#whatImLookingSection .secInnerContainer").style.opacity = 0
       document.querySelector("#whatImLookingSection").style.zIndex = 50
       lookingForTl
         .to("#whatImLookingSection", { x: 0, duration: dur, ease: eas})
+        .to("#whatImLookingSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
         .to("#whatImLookingSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
@@ -257,6 +263,7 @@ function CvDesk() {
       document.querySelector("#eduSection").style.zIndex = 50
       eduTl
         .to("#eduSection", { x: 0, duration: dur, ease: eas })
+        .from("#eduSection .innerRightPanel", { autoAlpha: 0, duration: dur, ease: eas, })
         .to("#eduSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
@@ -276,6 +283,7 @@ function CvDesk() {
       document.querySelector("#postEduSection").style.zIndex = 50
       postEduTl
         .to("#postEduSection", { x: 0, duration: dur, ease: eas })
+        .from("#postEduSection .innerRightPanel", { autoAlpha: 0, duration: dur, ease: eas, })
         .to("#postEduSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
@@ -315,7 +323,7 @@ function CvDesk() {
           <div className="innerRightPanel">
 
             <div className="section" id="meSection">
-              <div className="secInnerContainer">
+              <div className="secInnerContainer meInner">
                 <div className="storyText">
                 <p>{t("cv.meSection.story.p.1")}</p>
                 <p>{t("cv.meSection.story.p.2")}</p>
