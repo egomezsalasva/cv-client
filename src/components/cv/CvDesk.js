@@ -208,7 +208,6 @@ const RightPanel = styled.div`
 `
 
 
-
 //-Components
 
 //MAIN COMPONENT
@@ -357,6 +356,66 @@ function CvDesk() {
           document.querySelector(".titleBox").innerHTML = "Interests"
         }
       }
+      const languagesHandler = () => {
+        if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
+          //Section Anim
+          const notId = `.section:not(#languagesSection)`
+          document.querySelector("#languagesSection .secInnerContainer").style.opacity = 0
+          document.querySelector("#languagesSection").style.zIndex = 50
+          interestsTl
+            .to("#languagesSection", { x: 0, duration: dur, ease: eas })
+            .to("#languagesSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
+            .to("#languagesSection", { zIndex: 0,  duration: 0.001 })
+            .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+
+          //Active
+          document.querySelectorAll(".navLink").forEach( el => {
+            el.classList.remove("active")
+          })
+          document.querySelector("#languagesLink").classList.add("active")
+          document.querySelector(".titleBox").innerHTML = "Languages"
+        }
+      }
+      const linksHandler = () => {
+        if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
+          //Section Anim
+          const notId = `.section:not(#linksSection)`
+          document.querySelector("#linksSection .secInnerContainer").style.opacity = 0
+          document.querySelector("#linksSection").style.zIndex = 50
+          interestsTl
+            .to("#linksSection", { x: 0, duration: dur, ease: eas })
+            .to("#linksSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
+            .to("#linksSection", { zIndex: 0,  duration: 0.001 })
+            .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+
+          //Active
+          document.querySelectorAll(".navLink").forEach( el => {
+            el.classList.remove("active")
+          })
+          document.querySelector("#linksLink").classList.add("active")
+          document.querySelector(".titleBox").innerHTML = "Links"
+        }
+      }
+      const letsMeetHandler = () => {
+        if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
+          //Section Anim
+          const notId = `.section:not(#letsMeetSection)`
+          document.querySelector("#letsMeetSection .secInnerContainer").style.opacity = 0
+          document.querySelector("#letsMeetSection").style.zIndex = 50
+          interestsTl
+            .to("#letsMeetSection", { x: 0, duration: dur, ease: eas })
+            .to("#letsMeetSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
+            .to("#letsMeetSection", { zIndex: 0,  duration: 0.001 })
+            .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+
+          //Active
+          document.querySelectorAll(".navLink").forEach( el => {
+            el.classList.remove("active")
+          })
+          document.querySelector("#letsMeetLink").classList.add("active")
+          document.querySelector(".titleBox").innerHTML = "Let's Meet"
+        }
+      }
     //
   
   //
@@ -377,9 +436,9 @@ function CvDesk() {
               </div>
               <div className="flexLine bottom">
                 <div className="navLink" onClick={interestsHandler} id="interestsLink">Interests</div>
-                <div className="navLink">Languages</div>
-                <div className="navLink">Links</div>
-                <div className="navLink">Let's Meet</div>
+                <div className="navLink" onClick={languagesHandler} id="languagesLink">Languages</div>
+                <div className="navLink" onClick={linksHandler} id="linksLink">Links</div>
+                <div className="navLink" onClick={letsMeetHandler} id="letsMeetLink">Let's Meet</div>
               </div>
           </CvNav>
         </LeftPanel>
@@ -496,9 +555,21 @@ function CvDesk() {
 
               </div>
             </div>
-            <div className="section" id="languagesSection"></div>
-            <div className="section" id="linksSection"></div>
-            <div className="section" id="letsMeetSection"></div>
+            <div className="section" id="languagesSection">
+              <div className="secInnerContainer">
+
+              </div>
+            </div>
+            <div className="section" id="linksSection">
+              <div className="secInnerContainer">
+
+              </div>
+            </div>
+            <div className="section" id="letsMeetSection">
+              <div className="secInnerContainer">
+
+              </div>
+            </div>
           </div>
         </RightPanel>
     </div>      
