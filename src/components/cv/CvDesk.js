@@ -296,6 +296,26 @@ function CvDesk() {
       document.querySelector(".titleBox").innerHTML = "Post-Education"
     }
   }
+
+  const skillsHandler = () => {
+    if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
+      //Section Anim
+      const notId = `.section:not(#skillsSection)`
+      document.querySelector("#skillsSection").style.zIndex = 50
+      postEduTl
+        .to("#skillsSection", { x: 0, duration: dur, ease: eas })
+        .from("#skillsSection .innerRightPanel", { autoAlpha: 0, duration: dur, ease: eas, })
+        .to("#skillsSection", { zIndex: 0,  duration: 0.001 })
+        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+
+      //Active
+      document.querySelectorAll(".navLink").forEach( el => {
+        el.classList.remove("active")
+      })
+      document.querySelector("#skillsLink").classList.add("active")
+      document.querySelector(".titleBox").innerHTML = "Skills"
+    }
+  }
     
 
   return (
@@ -310,7 +330,7 @@ function CvDesk() {
                 <div className="navLink" onClick={lookingForHandler} id="whatImLookingLink" >What I'm Looking For</div>
                 <div className="navLink" onClick={eduHandler} id="eduLink">Education</div>
                 <div className="navLink" onClick={postEduHandler} id="postEduLink">Post-Education</div>
-                <div className="navLink">Skills</div>
+                <div className="navLink" onClick={skillsHandler} id="skillsLink">Skills</div>
               </div>
               <div className="flexLine bottom">
                 <div className="navLink">Interests</div>
