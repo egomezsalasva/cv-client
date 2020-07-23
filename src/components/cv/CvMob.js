@@ -11,11 +11,10 @@ import { devices, fonts, responsiveWidthHeights, colors } from '../../data/styli
 
 
 //STYLE
+//-Variables
 const tagBottomMargin = "20px"
 const tagsExtraWidth = "10px"
 const ulTranslate = "15px"
-
-
 //-Components
 const CvButtonsContainer = styled.div`
   margin-top: 30px;
@@ -55,6 +54,7 @@ const SectionsOuter = styled.div`
   margin-top: 30px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+
   .section{
     max-width: 600px;
     margin: 0 ${responsiveWidthHeights.w30px} 50px;
@@ -68,6 +68,7 @@ const SectionsOuter = styled.div`
     .summaryText{
       display: none;
     }
+
     h5{
       font-family: ${fonts.fntSemiBold};
       font-size: ${fonts.fntSz12};
@@ -84,13 +85,6 @@ const SectionsOuter = styled.div`
       display: block;
       font-size: ${fonts.fntSz14};
       color: ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
-    }
-    .interestList{      
-      li{
-        width: 49%;
-        display: inline-block;
-        list-style-type: disc; /* BUG Disc can't be seen */
-      }
     }
     ul{
       width: calc(100% - ${ulTranslate});
@@ -114,6 +108,14 @@ const SectionsOuter = styled.div`
           line-height: ${fonts.lnHt20};
 
         }
+      }
+    }
+
+    .interestList{      
+      li{
+        width: 49%;
+        display: inline-block;
+        list-style-type: disc; /* BUG Disc can't be seen */
       }
     }
     
@@ -338,7 +340,7 @@ function CvMob() {
     //
 
   //
-   
+
   return (
     <>
 

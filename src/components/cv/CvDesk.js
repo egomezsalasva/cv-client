@@ -215,166 +215,152 @@ const RightPanel = styled.div`
 function CvDesk() {
 
   //Translation
-  const { t } = useTranslation()
+    const { t } = useTranslation()
+  //
 
-  //Handle Toggle Summary / Story
-  // const handleToggleSummaryButton = () => {
+  // Panel Animation
 
-  //   if(toggleSummaryButton === "OFF"){
-  //     //Animation
+    //Create Timelines
+      const meTl = gsap.timeline()
+      const lookingForTl = gsap.timeline()
+      const eduTl = gsap.timeline()
+      const postEduTl = gsap.timeline()
+      const skillsTl = gsap.timeline()
+      const interestsTl = gsap.timeline()
+    //
 
-  //     //Handle switch of button text
-  //     document.querySelector(".summaryButton span").innerHTML = t("cv.summaryButton.story.1")
-  //     //Handle switch of cv text
-  //     document.querySelectorAll(".storyText").forEach(e => { e.style.display = "none" })
-  //     document.querySelectorAll(".summaryText").forEach(e => { e.style.display = "block" })
-  //     //Toggle State
-  //     setToggleSummaryButton("ON")
-  //   } else if (toggleSummaryButton === "ON") {
-  //     //Animation
+    //Settings Vars
+      const dur = 0.8
+      const eas = "power1.out"
+    //
 
-  //     //Handle switch of button text
-  //     document.querySelector(".summaryButton span").innerHTML = t("cv.summaryButton.summary.1")
-  //     //Handle switch of cv text
-  //     document.querySelectorAll(".storyText").forEach(e => { e.style.display = "block" })
-  //     document.querySelectorAll(".summaryText").forEach(e => { e.style.display = "none" })
-  //     //Toggle State
-  //     setToggleSummaryButton("OFF")
-  //   }
-  // }
-
-  const meTl = gsap.timeline()
-  const lookingForTl = gsap.timeline()
-  const eduTl = gsap.timeline()
-  const postEduTl = gsap.timeline()
-
-  const dur = 0.8
-  const eas = "power1.out"
-
-  const meSectionHandler = () => {
-    if( !lookingForTl.isActive() && !eduTl.isActive() && !postEduTl.isActive()){
-      //Section Anim
-      const notId = `.section:not(#meSection)`
-      document.querySelector("#meSection .secInnerContainer").style.opacity = 0
-      document.querySelector("#meSection").style.zIndex = 50
-      meTl
-        .to("#meSection", { x: 0, duration: dur, ease: eas, })
-        .to("#meSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
-        //Cleanup
-        .to("#meSection", { zIndex: 0,  duration: 0.001 })
-        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+    //Click Handlers
+      const meSectionHandler = () => {
+        if( !lookingForTl.isActive() && !eduTl.isActive() && !postEduTl.isActive()){
+          //Section Anim
+          const notId = `.section:not(#meSection)`
+          document.querySelector("#meSection .secInnerContainer").style.opacity = 0
+          document.querySelector("#meSection").style.zIndex = 50
+          meTl
+            .to("#meSection", { x: 0, duration: dur, ease: eas, })
+            .to("#meSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
+            //Cleanup
+            .to("#meSection", { zIndex: 0,  duration: 0.001 })
+            .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
 
-      //Active
-      document.querySelectorAll(".navLink").forEach( el => {
-        el.classList.remove("active")
-      })
-      document.querySelector("#meLink").classList.add("active")
-      document.querySelector(".titleBox").innerHTML = "Me"
-    }
-  }
-  const lookingForHandler = () => {
-    if( !meTl.isActive() && !eduTl.isActive() && !postEduTl.isActive()){
-      //Section Anim
-      const notId = `.section:not(#whatImLookingSection)`
-      document.querySelector("#whatImLookingSection .secInnerContainer").style.opacity = 0
-      document.querySelector("#whatImLookingSection").style.zIndex = 50
-      lookingForTl
-        .to("#whatImLookingSection", { x: 0, duration: dur, ease: eas})
-        .to("#whatImLookingSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
-        .to("#whatImLookingSection", { zIndex: 0,  duration: 0.001 })
-        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+          //Active
+          document.querySelectorAll(".navLink").forEach( el => {
+            el.classList.remove("active")
+          })
+          document.querySelector("#meLink").classList.add("active")
+          document.querySelector(".titleBox").innerHTML = "Me"
+        }
+      }
+      const lookingForHandler = () => {
+        if( !meTl.isActive() && !eduTl.isActive() && !postEduTl.isActive()){
+          //Section Anim
+          const notId = `.section:not(#whatImLookingSection)`
+          document.querySelector("#whatImLookingSection .secInnerContainer").style.opacity = 0
+          document.querySelector("#whatImLookingSection").style.zIndex = 50
+          lookingForTl
+            .to("#whatImLookingSection", { x: 0, duration: dur, ease: eas})
+            .to("#whatImLookingSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
+            .to("#whatImLookingSection", { zIndex: 0,  duration: 0.001 })
+            .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
-      //Active
-      document.querySelectorAll(".navLink").forEach( el => {
-        el.classList.remove("active")
-      })
-      document.getElementById("whatImLookingLink").classList.add("active")
-      document.querySelector(".titleBox").innerHTML = "What I'm Looking For"
-    }
-  }
-  const eduHandler = () => {
-    if(!meTl.isActive() && !lookingForTl.isActive() && !postEduTl.isActive() ){
-      //Section Anim
-      const notId = `.section:not(#eduSection)`
-      document.querySelector("#eduSection .secInnerContainer").style.opacity = 0
-      document.querySelector("#eduSection").style.zIndex = 50
-      eduTl
-        .to("#eduSection", { x: 0, duration: dur, ease: eas })
-        .to("#eduSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
-        .to("#eduSection", { zIndex: 0,  duration: 0.001 })
-        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+          //Active
+          document.querySelectorAll(".navLink").forEach( el => {
+            el.classList.remove("active")
+          })
+          document.getElementById("whatImLookingLink").classList.add("active")
+          document.querySelector(".titleBox").innerHTML = "What I'm Looking For"
+        }
+      }
+      const eduHandler = () => {
+        if(!meTl.isActive() && !lookingForTl.isActive() && !postEduTl.isActive() ){
+          //Section Anim
+          const notId = `.section:not(#eduSection)`
+          document.querySelector("#eduSection .secInnerContainer").style.opacity = 0
+          document.querySelector("#eduSection").style.zIndex = 50
+          eduTl
+            .to("#eduSection", { x: 0, duration: dur, ease: eas })
+            .to("#eduSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
+            .to("#eduSection", { zIndex: 0,  duration: 0.001 })
+            .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
-      //Active
-      document.querySelectorAll(".navLink").forEach( el => {
-        el.classList.remove("active")
-      })
-      document.querySelector("#eduLink").classList.add("active")
-      document.querySelector(".titleBox").innerHTML = "Education"
-    }
-  }
-  const postEduHandler = () => {
-    if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
-      //Section Anim
-      const notId = `.section:not(#postEduSection)`
-      document.querySelector("#postEduSection .secInnerContainer").style.opacity = 0
-      document.querySelector("#postEduSection").style.zIndex = 50
-      postEduTl
-        .to("#postEduSection", { x: 0, duration: dur, ease: eas })
-        .to("#postEduSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
-        .to("#postEduSection", { zIndex: 0,  duration: 0.001 })
-        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+          //Active
+          document.querySelectorAll(".navLink").forEach( el => {
+            el.classList.remove("active")
+          })
+          document.querySelector("#eduLink").classList.add("active")
+          document.querySelector(".titleBox").innerHTML = "Education"
+        }
+      }
+      const postEduHandler = () => {
+        if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
+          //Section Anim
+          const notId = `.section:not(#postEduSection)`
+          document.querySelector("#postEduSection .secInnerContainer").style.opacity = 0
+          document.querySelector("#postEduSection").style.zIndex = 50
+          postEduTl
+            .to("#postEduSection", { x: 0, duration: dur, ease: eas })
+            .to("#postEduSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
+            .to("#postEduSection", { zIndex: 0,  duration: 0.001 })
+            .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
-      //Active
-      document.querySelectorAll(".navLink").forEach( el => {
-        el.classList.remove("active")
-      })
-      document.querySelector("#postEduLink").classList.add("active")
-      document.querySelector(".titleBox").innerHTML = "Post-Education"
-    }
-  }
-  const skillsHandler = () => {
-    if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
-      //Section Anim
-      const notId = `.section:not(#skillsSection)`
-      document.querySelector("#skillsSection .secInnerContainer").style.opacity = 0
-      document.querySelector("#skillsSection").style.zIndex = 50
-      postEduTl
-        .to("#skillsSection", { x: 0, duration: dur, ease: eas })
-        .to("#skillsSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
-        .to("#skillsSection", { zIndex: 0,  duration: 0.001 })
-        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+          //Active
+          document.querySelectorAll(".navLink").forEach( el => {
+            el.classList.remove("active")
+          })
+          document.querySelector("#postEduLink").classList.add("active")
+          document.querySelector(".titleBox").innerHTML = "Post-Education"
+        }
+      }
+      const skillsHandler = () => {
+        if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
+          //Section Anim
+          const notId = `.section:not(#skillsSection)`
+          document.querySelector("#skillsSection .secInnerContainer").style.opacity = 0
+          document.querySelector("#skillsSection").style.zIndex = 50
+          skillsTl
+            .to("#skillsSection", { x: 0, duration: dur, ease: eas })
+            .to("#skillsSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
+            .to("#skillsSection", { zIndex: 0,  duration: 0.001 })
+            .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
-      //Active
-      document.querySelectorAll(".navLink").forEach( el => {
-        el.classList.remove("active")
-      })
-      document.querySelector("#skillsLink").classList.add("active")
-      document.querySelector(".titleBox").innerHTML = "Skills"
-    }
-  }
-  const interestsHandler = () => {
-    if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
-      //Section Anim
-      const notId = `.section:not(#interestsSection)`
-      document.querySelector("#interestsSection .secInnerContainer").style.opacity = 0
-      document.querySelector("#interestsSection").style.zIndex = 50
-      postEduTl
-        .to("#interestsSection", { x: 0, duration: dur, ease: eas })
-        .to("#interestsSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
-        .to("#interestsSection", { zIndex: 0,  duration: 0.001 })
-        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+          //Active
+          document.querySelectorAll(".navLink").forEach( el => {
+            el.classList.remove("active")
+          })
+          document.querySelector("#skillsLink").classList.add("active")
+          document.querySelector(".titleBox").innerHTML = "Skills"
+        }
+      }
+      const interestsHandler = () => {
+        if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
+          //Section Anim
+          const notId = `.section:not(#interestsSection)`
+          document.querySelector("#interestsSection .secInnerContainer").style.opacity = 0
+          document.querySelector("#interestsSection").style.zIndex = 50
+          interestsTl
+            .to("#interestsSection", { x: 0, duration: dur, ease: eas })
+            .to("#interestsSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
+            .to("#interestsSection", { zIndex: 0,  duration: 0.001 })
+            .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
-      //Active
-      document.querySelectorAll(".navLink").forEach( el => {
-        el.classList.remove("active")
-      })
-      document.querySelector("#interestsLink").classList.add("active")
-      document.querySelector(".titleBox").innerHTML = "Interests"
-    }
-  }
+          //Active
+          document.querySelectorAll(".navLink").forEach( el => {
+            el.classList.remove("active")
+          })
+          document.querySelector("#interestsLink").classList.add("active")
+          document.querySelector(".titleBox").innerHTML = "Interests"
+        }
+      }
+    //
+  
+  //
     
-
   return (
     <div id="conatiner">
         <LeftPanel>
@@ -507,7 +493,7 @@ function CvDesk() {
             </div>
             <div className="section" id="interestsSection">
               <div className="secInnerContainer">
-                
+
               </div>
             </div>
             <div className="section" id="languagesSection"></div>
