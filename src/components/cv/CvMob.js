@@ -476,49 +476,49 @@ function CvMob() {
 
           <div className="section">
 
-            <Heading headingName="Skills" classProp="heading" />
+            <Heading headingName={t("cv.skillsSection.heading.1")} classProp="heading" />
 
-            <h5>Design</h5>
+            <h5>{t("cv.skillsSection.content.1.subheading.1")}</h5>
             <div className="tagContainer">
-              <div className="tag">Sketch App</div>
-              <div className="tag">Corportate Design</div>
+              <div className="tag">{t("cv.skillsSection.content.1.tags.1")}</div>
+              <div className="tag">{t("cv.skillsSection.content.1.tags.2")}</div>
             </div>
-            <h5>Core Coding & Tools</h5>
+            <h5>{t("cv.skillsSection.content.2.subheading.1")}</h5>
             <div className="tagContainer">
-              <div className="tag">HTML 5</div>
-              <div className="tag">CSS 3</div>
-              <div className="tag">CSS Grid</div>
-              <div className="tag">SASS</div>
-              <div className="tag">JavaScrips ES6</div>
-              <div className="tag">Git</div>
-              <div className="tag">npm</div>
-              <div className="tag">Netlify</div>
-              <div className="tag">Strapi CMS</div>
+              <div className="tag">{t("cv.skillsSection.content.2.tags.1")}</div>
+              <div className="tag">{t("cv.skillsSection.content.2.tags.2")}</div>
+              <div className="tag">{t("cv.skillsSection.content.2.tags.3")}</div>
+              <div className="tag">{t("cv.skillsSection.content.2.tags.4")}</div>
+              <div className="tag">{t("cv.skillsSection.content.2.tags.5")}</div>
+              <div className="tag">{t("cv.skillsSection.content.2.tags.6")}</div>
+              <div className="tag">{t("cv.skillsSection.content.2.tags.7")}</div>
+              <div className="tag">{t("cv.skillsSection.content.2.tags.8")}</div>
+              <div className="tag">{t("cv.skillsSection.content.2.tags.9")}</div>
             </div>
-            <h5>Front-end Development</h5>
+            <h5>{t("cv.skillsSection.content.3.subheading.1")}</h5>
             <div className="tagContainer">
-              <div className="tag">React.js</div>
-              <div className="tag">React Router</div>
-              <div className="tag">React Hooks</div>
-              <div className="tag">Styled Components</div>
-              <div className="tag">Fetch API</div>
-              <div className="tag">Axios</div>
-              <div className="tag">GeenSock Animation Platform (GSAP)</div>
-              <div className="tag">Svelte</div>
+              <div className="tag">{t("cv.skillsSection.content.3.tags.1")}</div>
+              <div className="tag">{t("cv.skillsSection.content.3.tags.2")}</div>
+              <div className="tag">{t("cv.skillsSection.content.3.tags.3")}</div>
+              <div className="tag">{t("cv.skillsSection.content.3.tags.4")}</div>
+              <div className="tag">{t("cv.skillsSection.content.3.tags.5")}</div>
+              <div className="tag">{t("cv.skillsSection.content.3.tags.6")}</div>
+              <div className="tag">{t("cv.skillsSection.content.3.tags.7")}</div>
+              <div className="tag">{t("cv.skillsSection.content.3.tags.8")}</div>
             </div>
-            <h5>Back-end Development</h5>
+            <h5>{t("cv.skillsSection.content.4.subheading.1")}</h5>
             <div className="tagContainer">
-              <div className="tag">Node.js</div>
-              <div className="tag">Express</div>
-              <div className="tag">MongoDB</div>
-              <div className="tag">Mongoose</div>
-              <div className="tag">mLab</div>
-              <div className="tag">Firebase</div>
+              <div className="tag">{t("cv.skillsSection.content.4.tags.1")}</div>
+              <div className="tag">{t("cv.skillsSection.content.4.tags.2")}</div>
+              <div className="tag">{t("cv.skillsSection.content.4.tags.3")}</div>
+              <div className="tag">{t("cv.skillsSection.content.4.tags.4")}</div>
+              <div className="tag">{t("cv.skillsSection.content.4.tags.5")}</div>
+              <div className="tag">{t("cv.skillsSection.content.4.tags.6")}</div>
             </div>
-            <h5>Code Testing</h5>
+            <h5>{t("cv.skillsSection.content.5.subheading.1")}</h5>
             <div className="tagContainer">
-              <div className="tag">Jest</div>
-              <div className="tag">Cypress</div>
+              <div className="tag">{t("cv.skillsSection.content.5.tags.1")}</div>
+              <div className="tag">{t("cv.skillsSection.content.5.tags.2")}</div>
             </div>
           </div>
 

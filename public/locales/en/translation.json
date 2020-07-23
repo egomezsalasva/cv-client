@@ -9,7 +9,6 @@
                 "1": "Tell Me Your Story"
             }
         },
-
         "meSection": {
             "heading": {
                 "1": "Me"
@@ -67,6 +66,80 @@
                     "2": "IES Bendinat, Mallorca (Bachillerato)",
                     "3": "Ealing Independent Collage, London (A levels)",
                     "4": "Elisava, Barcelona (Graphic Design)"
+                }
+            }
+        },
+        "skillsSection": {
+            "heading": {
+                "1": "Skills"
+            },
+            "content": {
+                "1": {
+                    "subheading": {
+                        "1": "Design"
+                    },
+                    "tags": {
+                        "1": "Sketch App",
+                        "2": "Corportate Design"
+                    }
+
+                },
+                "2": {
+                    "subheading": {
+                        "1": "Core Coding & Tools"
+                    },
+                    "tags": {
+                        "1": "HTML 5",
+                        "2": "CSS 3",
+                        "3": "CSS Grid",
+                        "4": "SASS",
+                        "5": "JavaScrips ES6",
+                        "6": "Git",
+                        "7": "npm",
+                        "8": "Netlify",
+                        "9": "Strapi CMS"
+                    }
+
+                },
+                "3": {
+                    "subheading": {
+                        "1": "Front-end Development"
+                    },
+                    "tags": {
+                        "1": "React.js",
+                        "2": "React Router",
+                        "3": "React Hooks",
+                        "4": "Styled Components",
+                        "5": "Fetch API",
+                        "6": "Axios",
+                        "7": "GeenSock Animation Platform (GSAP)",
+                        "8": "Svelte"
+                    }
+
+                },
+                "4": {
+                    "subheading": {
+                        "1": "Back-end Development"
+                    },
+                    "tags": {
+                        "1": "Node.js",
+                        "2": "Express",
+                        "3": "MongoDB",
+                        "4": "Mongoose",
+                        "5": "mLab",
+                        "6": "Firebase"
+                    }
+
+                },
+                "5": {
+                    "subheading": {
+                        "1": "Code Testing"
+                    },
+                    "tags": {
+                        "1": "Jest",
+                        "2": "Cypress"
+                    }
+
                 }
             }
         }
