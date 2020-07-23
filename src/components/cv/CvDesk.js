@@ -13,6 +13,8 @@ import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styl
 //STYLE
 const leftPanelWidth = responsiveWidthHeights.w800px
 const rightPanelWidth = responsiveWidthHeights.w440px
+const tagBottomMargin = "20px"
+const tagsExtraWidth = "10px"
 
 
 const LeftPanel = styled.div`
@@ -99,6 +101,10 @@ const RightPanel = styled.div`
         .summaryText{
           display: none;
         }
+        h5{
+          font-family: ${fonts.fntSemiBold};
+          font-size: ${fonts.fntSz12};
+        }
         p{
           margin-bottom: 19px;
           font-family: ${fonts.fntRegular};
@@ -106,6 +112,39 @@ const RightPanel = styled.div`
           font-size: ${fonts.fntSz14};
           line-height: ${fonts.lnHt22};
           color: ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
+        }
+        .tagContainer{
+
+          display: flex;
+          flex-wrap: wrap;
+
+          width: calc(100% + calc(${tagsExtraWidth} * 2));
+
+          position: relative;
+          left: -${tagsExtraWidth};
+          margin: 20px 0 calc(30px - ${tagBottomMargin});
+
+          .tag{
+
+            height: 30px;
+
+            margin: 0 10px ${tagBottomMargin};
+            padding: 0 10px;
+
+            font-family: ${fonts.fntRegular};
+            font-size: 11px;
+            line-height: 30px;
+            text-align: center;
+
+            background: ${props => props.theme.mode === 'light' ? colors.thmWhite :  colors.thmBlack};
+            border: 1px solid ${props => props.theme.mode === 'light' ? colors.thmWhiteBorder :  colors.thmBlackBorder};
+            box-shadow: -5px -5px 10px 0 ${props => props.theme.mode === 'light' ? colors.thmWhiteShadowLight :  colors.thmBlackShadowLight}, 5px 5px 10px 0 ${ props => props.theme.mode === 'light' ? colors.thmWhiteShadowDark :  colors.thmBlackShadowDark};
+            border-radius: 5px;
+
+          }
+        }
+        .tagContainer:last-of-type{
+          margin-bottom: -20px;
         }
       }
     }
@@ -135,7 +174,7 @@ const RightPanel = styled.div`
     }
     #skillsSection{
       position: absolute;
-      background: yellowgreen;
+      background: ${colors.thmWhite};
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
@@ -234,7 +273,6 @@ function CvDesk() {
       document.querySelector(".titleBox").innerHTML = "Me"
     }
   }
-
   const lookingForHandler = () => {
     if( !meTl.isActive() && !eduTl.isActive() && !postEduTl.isActive()){
       //Section Anim
@@ -255,7 +293,6 @@ function CvDesk() {
       document.querySelector(".titleBox").innerHTML = "What I'm Looking For"
     }
   }
-
   const eduHandler = () => {
     if(!meTl.isActive() && !lookingForTl.isActive() && !postEduTl.isActive() ){
       //Section Anim
@@ -276,15 +313,15 @@ function CvDesk() {
       document.querySelector(".titleBox").innerHTML = "Education"
     }
   }
-
   const postEduHandler = () => {
     if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
       //Section Anim
       const notId = `.section:not(#postEduSection)`
+      document.querySelector("#postEduSection .secInnerContainer").style.opacity = 0
       document.querySelector("#postEduSection").style.zIndex = 50
       postEduTl
         .to("#postEduSection", { x: 0, duration: dur, ease: eas })
-        .from("#postEduSection .innerRightPanel", { autoAlpha: 0, duration: dur, ease: eas, })
+        .to("#postEduSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
         .to("#postEduSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
@@ -296,15 +333,15 @@ function CvDesk() {
       document.querySelector(".titleBox").innerHTML = "Post-Education"
     }
   }
-
   const skillsHandler = () => {
     if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
       //Section Anim
       const notId = `.section:not(#skillsSection)`
+      document.querySelector("#skillsSection .secInnerContainer").style.opacity = 0
       document.querySelector("#skillsSection").style.zIndex = 50
       postEduTl
         .to("#skillsSection", { x: 0, duration: dur, ease: eas })
-        .from("#skillsSection .innerRightPanel", { autoAlpha: 0, duration: dur, ease: eas, })
+        .to("#skillsSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
         .to("#skillsSection", { zIndex: 0,  duration: 0.001 })
         .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
 
@@ -314,6 +351,26 @@ function CvDesk() {
       })
       document.querySelector("#skillsLink").classList.add("active")
       document.querySelector(".titleBox").innerHTML = "Skills"
+    }
+  }
+  const interestsHandler = () => {
+    if(!meTl.isActive() && !lookingForTl.isActive() && !eduTl.isActive()){
+      //Section Anim
+      const notId = `.section:not(#interestsSection)`
+      document.querySelector("#interestsSection .secInnerContainer").style.opacity = 0
+      document.querySelector("#interestsSection").style.zIndex = 50
+      postEduTl
+        .to("#interestsSection", { x: 0, duration: dur, ease: eas })
+        .to("#interestsSection .secInnerContainer", { autoAlpha: 1, duration: 0.4, ease: eas, })
+        .to("#interestsSection", { zIndex: 0,  duration: 0.001 })
+        .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
+
+      //Active
+      document.querySelectorAll(".navLink").forEach( el => {
+        el.classList.remove("active")
+      })
+      document.querySelector("#interestsLink").classList.add("active")
+      document.querySelector(".titleBox").innerHTML = "Interests"
     }
   }
     
@@ -333,7 +390,7 @@ function CvDesk() {
                 <div className="navLink" onClick={skillsHandler} id="skillsLink">Skills</div>
               </div>
               <div className="flexLine bottom">
-                <div className="navLink">Interests</div>
+                <div className="navLink" onClick={interestsHandler} id="interestsLink">Interests</div>
                 <div className="navLink">Languages</div>
                 <div className="navLink">Links</div>
                 <div className="navLink">Let's Meet</div>
@@ -398,12 +455,61 @@ function CvDesk() {
             </div>
 
             <div className="section" id="postEduSection">
-                < div className="secInnerContainer">
+                <div className="secInnerContainer">
                     
                 </div>
             </div>
-            <div className="section" id="skillsSection"></div>
-            <div className="section" id="interestsSection"></div>
+            <div className="section" id="skillsSection">
+              <div className="secInnerContainer">
+                <h5>{t("cv.skillsSection.content.1.subheading.1")}</h5>
+                <div className="tagContainer">
+                  <div className="tag">{t("cv.skillsSection.content.1.tags.1")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.1.tags.2")}</div>
+                </div>
+                <h5>{t("cv.skillsSection.content.2.subheading.1")}</h5>
+                <div className="tagContainer">
+                  <div className="tag">{t("cv.skillsSection.content.2.tags.1")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.2.tags.2")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.2.tags.3")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.2.tags.4")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.2.tags.5")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.2.tags.6")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.2.tags.7")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.2.tags.8")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.2.tags.9")}</div>
+                </div>
+                <h5>{t("cv.skillsSection.content.3.subheading.1")}</h5>
+                <div className="tagContainer">
+                  <div className="tag">{t("cv.skillsSection.content.3.tags.1")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.3.tags.2")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.3.tags.3")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.3.tags.4")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.3.tags.5")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.3.tags.6")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.3.tags.7")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.3.tags.8")}</div>
+                </div>
+                <h5>{t("cv.skillsSection.content.4.subheading.1")}</h5>
+                <div className="tagContainer">
+                  <div className="tag">{t("cv.skillsSection.content.4.tags.1")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.4.tags.2")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.4.tags.3")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.4.tags.4")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.4.tags.5")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.4.tags.6")}</div>
+                </div>
+                <h5>{t("cv.skillsSection.content.5.subheading.1")}</h5>
+                <div className="tagContainer">
+                  <div className="tag">{t("cv.skillsSection.content.5.tags.1")}</div>
+                  <div className="tag">{t("cv.skillsSection.content.5.tags.2")}</div>
+                </div>
+              </div>
+            </div>
+            <div className="section" id="interestsSection">
+              <div className="secInnerContainer">
+                
+              </div>
+            </div>
             <div className="section" id="languagesSection"></div>
             <div className="section" id="linksSection"></div>
             <div className="section" id="letsMeetSection"></div>
