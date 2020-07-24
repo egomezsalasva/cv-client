@@ -435,46 +435,46 @@ function CvMob() {
               <ul>
                 <li>{t("cv.postEducationSection.summary.1.place.1")}
                   <ul>
-                    <li>Sales</li>
+                    <li>{t("cv.postEducationSection.summary.1.role.1")}</li>
                   </ul>
                 </li>
-                <li>Gryd-Design, Mallorca
+                <li>{t("cv.postEducationSection.summary.2.place.1")}
                   <ul>
-                    <li>Design</li>
-                    <li>Web Development</li>
-                    <li>Sales</li>
-                    <li>Management</li>
-                    <li>Screen-printing</li>
+                    <li>{t("cv.postEducationSection.summary.2.role.1")}</li>
+                    <li>{t("cv.postEducationSection.summary.2.role.2")}</li>
+                    <li>{t("cv.postEducationSection.summary.2.role.3")}</li>
+                    <li>{t("cv.postEducationSection.summary.2.role.4")}</li>
+                    <li>{t("cv.postEducationSection.summary.2.role.5")}</li>
                   </ul>
                 </li>
-                <li>Viatges Estiber, Barcelona
+                <li>{t("cv.postEducationSection.summary.3.place.1")}
                   <ul>
-                    <li>Lead Design</li>
-                    <li>Marketing</li>
+                    <li>{t("cv.postEducationSection.summary.3.role.1")}</li>
+                    <li>{t("cv.postEducationSection.summary.3.role.2")}</li>
                   </ul>
                 </li>
-                <li>Clothing Freelance, Barcelona
+                <li>{t("cv.postEducationSection.summary.4.place.1")}
                   <ul>
-                    <li>Sales</li>
+                    <li>{t("cv.postEducationSection.summary.4.role.1")}</li>
                   </ul>
                 </li>
-                <li>Websites Freelance, Barcleona
+                <li>{t("cv.postEducationSection.summary.5.place.1")}
                   <ul>
-                    <li>Design</li>
-                    <li>Web Development</li>
+                    <li>{t("cv.postEducationSection.summary.5.role.1")}</li>
+                    <li>{t("cv.postEducationSection.summary.6.role.2")}</li>
                   </ul>
                 </li>
-                <li>Apollo30, Barcleona
+                <li>{t("cv.postEducationSection.summary.6.place.1")}
                   <ul>
-                    <li>Design</li>
-                    <li>Web Development</li>
+                    <li>{t("cv.postEducationSection.summary.6.role.1")}</li>
+                    <li>{t("cv.postEducationSection.summary.6.role.2")}</li>
                   </ul>
                 </li>
-                <li>Scranny's House, Barcelona
+                <li>{t("cv.postEducationSection.summary.7.place.1")}
                   <ul>
-                    <li>Sales</li>
-                    <li>Design</li>
-                    <li>Web Development</li>
+                    <li>{t("cv.postEducationSection.summary.7.role.1")}</li>
+                    <li>{t("cv.postEducationSection.summary.7.role.2")}</li>
+                    <li>{t("cv.postEducationSection.summary.7.role.3")}</li>
                   </ul>
                 </li>
               </ul>

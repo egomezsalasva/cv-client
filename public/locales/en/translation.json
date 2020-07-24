@@ -96,7 +96,9 @@
                     }
                 },
                 "2": {
-                    "place": "Gryd-Design, Mallorca",
+                    "place": {
+                        "1": "Gryd-Design, Mallorca"
+                    },
                     "role": {
                         "1": "Design",
                         "2": "Web Development",
