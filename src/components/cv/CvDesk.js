@@ -501,48 +501,68 @@ function CvDesk() {
 
             <div className="section" id="postEduSection">
                 <div className="secInnerContainer">
-                  <h5>{t("cv.skillsSection.content.1.subheading.1")}</h5>
-                  <div className="tagContainer">
-                    <div className="tag">{t("cv.skillsSection.content.1.tags.1")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.1.tags.2")}</div>
+
+                  <div className="storyText">
+                    <p>{t("cv.postEducationSection.story.p.1")}</p>
+                    <p>{t("cv.postEducationSection.story.p.2")}</p>
+                    <p>{t("cv.postEducationSection.story.p.3")}</p>
+                    <p>{t("cv.postEducationSection.story.p.4")}</p>
+                    <p>{t("cv.postEducationSection.story.p.5")}</p>
+                    <p>{t("cv.postEducationSection.story.p.6")}</p>
+                    <p>{t("cv.postEducationSection.story.p.7")}</p>
+                    <p>{t("cv.postEducationSection.story.p.8")}</p>
+                    <p>{t("cv.postEducationSection.story.p.9")}</p>
                   </div>
-                  <h5>{t("cv.skillsSection.content.2.subheading.1")}</h5>
-                  <div className="tagContainer">
-                    <div className="tag">{t("cv.skillsSection.content.2.tags.1")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.2.tags.2")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.2.tags.3")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.2.tags.4")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.2.tags.5")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.2.tags.6")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.2.tags.7")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.2.tags.8")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.2.tags.9")}</div>
+                
+                  <div className="summaryText">
+                    <ul>
+                      <li>{t("cv.postEducationSection.summary.1.place.1")}
+                        <ul>
+                          <li>{t("cv.postEducationSection.summary.1.role.1")}</li>
+                        </ul>
+                      </li>
+                      <li>{t("cv.postEducationSection.summary.2.place.1")}
+                        <ul>
+                          <li>{t("cv.postEducationSection.summary.2.role.1")}</li>
+                          <li>{t("cv.postEducationSection.summary.2.role.2")}</li>
+                          <li>{t("cv.postEducationSection.summary.2.role.3")}</li>
+                          <li>{t("cv.postEducationSection.summary.2.role.4")}</li>
+                          <li>{t("cv.postEducationSection.summary.2.role.5")}</li>
+                        </ul>
+                      </li>
+                      <li>{t("cv.postEducationSection.summary.3.place.1")}
+                        <ul>
+                          <li>{t("cv.postEducationSection.summary.3.role.1")}</li>
+                          <li>{t("cv.postEducationSection.summary.3.role.2")}</li>
+                        </ul>
+                      </li>
+                      <li>{t("cv.postEducationSection.summary.4.place.1")}
+                        <ul>
+                          <li>{t("cv.postEducationSection.summary.4.role.1")}</li>
+                        </ul>
+                      </li>
+                      <li>{t("cv.postEducationSection.summary.5.place.1")}
+                        <ul>
+                          <li>{t("cv.postEducationSection.summary.5.role.1")}</li>
+                          <li>{t("cv.postEducationSection.summary.6.role.2")}</li>
+                        </ul>
+                      </li>
+                      <li>{t("cv.postEducationSection.summary.6.place.1")}
+                        <ul>
+                          <li>{t("cv.postEducationSection.summary.6.role.1")}</li>
+                          <li>{t("cv.postEducationSection.summary.6.role.2")}</li>
+                        </ul>
+                      </li>
+                      <li>{t("cv.postEducationSection.summary.7.place.1")}
+                        <ul>
+                          <li>{t("cv.postEducationSection.summary.7.role.1")}</li>
+                          <li>{t("cv.postEducationSection.summary.7.role.2")}</li>
+                          <li>{t("cv.postEducationSection.summary.7.role.3")}</li>
+                        </ul>
+                      </li>
+                    </ul>
                   </div>
-                  <h5>{t("cv.skillsSection.content.3.subheading.1")}</h5>
-                  <div className="tagContainer">
-                    <div className="tag">{t("cv.skillsSection.content.3.tags.1")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.3.tags.2")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.3.tags.3")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.3.tags.4")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.3.tags.5")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.3.tags.6")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.3.tags.7")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.3.tags.8")}</div>
-                  </div>
-                  <h5>{t("cv.skillsSection.content.4.subheading.1")}</h5>
-                  <div className="tagContainer">
-                    <div className="tag">{t("cv.skillsSection.content.4.tags.1")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.4.tags.2")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.4.tags.3")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.4.tags.4")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.4.tags.5")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.4.tags.6")}</div>
-                  </div>
-                  <h5>{t("cv.skillsSection.content.5.subheading.1")}</h5>
-                  <div className="tagContainer">
-                    <div className="tag">{t("cv.skillsSection.content.5.tags.1")}</div>
-                    <div className="tag">{t("cv.skillsSection.content.5.tags.2")}</div>
-                  </div>
+                  
                 </div>
             </div>
             <div className="section" id="skillsSection">

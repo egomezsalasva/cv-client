@@ -431,6 +431,7 @@ function CvMob() {
               <p>{t("cv.postEducationSection.story.p.8")}</p>
               <p>{t("cv.postEducationSection.story.p.9")}</p>
             </div>
+            
             <div className="summaryText">
               <ul>
                 <li>{t("cv.postEducationSection.summary.1.place.1")}
