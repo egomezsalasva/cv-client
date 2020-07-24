@@ -253,7 +253,7 @@ function CvDesk() {
             el.classList.remove("active")
           })
           document.querySelector("#meLink").classList.add("active")
-          document.querySelector(".titleBox").innerHTML = "Me"
+          document.querySelector(".titleBox").innerHTML = t("cv.meSection.heading.1")
         }
       }
       const lookingForHandler = () => {
@@ -273,7 +273,7 @@ function CvDesk() {
             el.classList.remove("active")
           })
           document.getElementById("whatImLookingLink").classList.add("active")
-          document.querySelector(".titleBox").innerHTML = "What I'm Looking For"
+          document.querySelector(".titleBox").innerHTML = t("cv.whatImLookingForSection.heading.1")
         }
       }
       const eduHandler = () => {
@@ -428,8 +428,8 @@ function CvDesk() {
           </HeadingContainer>
           <CvNav>
               <div className="flexLine top">
-                <div className="navLink active" onClick={meSectionHandler} id="meLink">Me</div>
-                <div className="navLink" onClick={lookingForHandler} id="whatImLookingLink" >What I'm Looking For</div>
+                <div className="navLink active" onClick={meSectionHandler} id="meLink">{t("cv.meSection.heading.1")}</div>
+                <div className="navLink" onClick={lookingForHandler} id="whatImLookingLink" >{t("cv.whatImLookingForSection.heading.1")}</div>
                 <div className="navLink" onClick={eduHandler} id="eduLink">Education</div>
                 <div className="navLink" onClick={postEduHandler} id="postEduLink">Post-Education</div>
                 <div className="navLink" onClick={skillsHandler} id="skillsLink">Skills</div>
