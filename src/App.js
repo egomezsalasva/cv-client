@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { Switch, Route } from "react-router-dom"
 //-Components
@@ -30,7 +30,9 @@ const GlobalStyles = createGlobalStyle`
 const App = () => {
 
   const { theme, setTheme } = useContext(ThemeContext)
+  const [width, setWidth] = useState(window.innerWidth);
 
+  
   //Reset Theme
   useEffect( () => {
     setTheme({mode: "light"})
@@ -60,6 +62,9 @@ const App = () => {
       return <Library />
     }
   }
+  useEffect( () => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, [width])
 
   return (
     <ThemeProvider theme={theme}>

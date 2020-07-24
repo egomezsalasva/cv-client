@@ -5,21 +5,30 @@ import styled from 'styled-components'
 import gsap from 'gsap'
 // import { useTranslation } from 'react-i18next'
 //-Styling
-import {  zIndexes } from '../../data/styling/stylingVars'
+import {  zIndexes, responsiveWidthHeights, colors } from '../../data/styling/stylingVars'
 //-Context
 // import { ThemeContext } from '../../contexts/ThemeContext'
+//-Components
+import NavigationDesk from './NavigationDesk.js'
 
-//STYLE//-Variables
+
+//STYLE
+//-Variables
 // const themeBoxWidth = "30px"
+const rightPanelWidth = responsiveWidthHeights.w440px
 //-Components
 const HeaderContainer = styled.div`
   position: fixed;
-  padding-top: 40px;
-  margin: 0 30px;
+  /* padding-top: 40px; */
+  width: 100vw;
   z-index: ${zIndexes.header};
+  background: pink;
 `
 const Title = styled.h2`
-  display: inline;
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  display: inline-block;
   font-family: 'Space Mono';
   font-size: 14.5px;
   line-height: 20px;
@@ -34,12 +43,21 @@ const Title = styled.h2`
     cursor: pointer;
   }
 `
+const WhiteBlock = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: ${rightPanelWidth};
+  height: 100px;
+  background: ${colors.thmWhite};
+`
 
 
 //MAIN COMPONENT
 const HeaderDesk = () => {
 
-  //Encrypt/Decrypt Animation
+  //Encrypt/Decrypt Title Animation
 
     //Initialize Timelines Decrypt Animation
       // const [toggleLogoAnim, setToggleLogoAnim] = useState(true)
@@ -198,6 +216,7 @@ const HeaderDesk = () => {
 
   return (
     <HeaderContainer>
+
       <Title onMouseOver={() => decryptAnim02.play()} onMouseOut={() => decryptAnim02.reverse()}>
         <div className="letterContainer">
           <div className="letterDecrypted" ref={el => (letter01_a = el)}>J</div>
@@ -306,6 +325,12 @@ const HeaderDesk = () => {
           <div className="letterDecrypted" ref={el => (letter18_c = el)}>s</div>
         </div>
       </Title>
+
+      <WhiteBlock>
+        <NavigationDesk/>
+      </WhiteBlock>
+      
+
     </HeaderContainer>      
   )
 }
