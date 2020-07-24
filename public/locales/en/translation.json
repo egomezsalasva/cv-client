@@ -88,7 +88,9 @@
             },
             "summary": {
                 "1": {
-                    "place": "Clothing Freelance, Barcelona",
+                    "place": {
+                        "1": "Clothing Freelance, Barcelona"
+                    },
                     "role": {
                         "1": "Sales"
                     }
@@ -104,34 +106,44 @@
                     }
                 },
                 "3": {
-                    "place": "Viatges Estiber, Barcelona",
+                    "place": {
+                        "1": "Viatges Estiber, Barcelona"
+                    },
                     "role": {
                         "1": "Lead Design",
                         "2": "Marketing"
                     }
                 },
                 "4": {
-                    "place": "Clothing Freelance, Barcelona",
+                    "place": {
+                        "1": "Clothing Freelance, Barcelona"
+                    },
                     "role": {
                         "1": "Sales"
                     }
                 },
                 "5": {
-                    "place": "Websites Freelance, Barcleona",
+                    "place": {
+                        "1": "Websites Freelance, Barcleona"
+                    },
                     "role": {
                         "1": "Design",
                         "2": "Web Development"
                     }
                 },
                 "6": {
-                    "place": "Apollo30, Barcleona",
+                    "place": {
+                        "1": "Apollo30, Barcleona"
+                    },
                     "role": {
                         "1": "Design",
                         "2": "Web Development"
                     }
                 },
                 "7": {
-                    "place": "Scranny's House, Barcelona",
+                    "place": {
+                        "1": "Scranny's House, Barcelona"
+                    },
                     "role": {
                         "1": "Sales",
                         "2": "Design",

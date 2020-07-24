@@ -418,22 +418,22 @@ function CvMob() {
 
           <div className="section">
 
-            <Heading headingName="Post-Education" classProp="heading" />
+            <Heading headingName={t("cv.postEducationSection.heading.1")} classProp="heading" />
 
             <div className="storyText">
-              <p>Once I left Elisava I realized I was interested in business. So I decided to start making clothing as it was a business I could afford to start, and made me enough money to live.</p>
-              <p>For the clothing, I needed a website so I started to learn how to make websites with an Adobe program called Muse.</p>
-              <p>Then I realized I could earn some money making websites for other people, so I moved back to Mallorca and started Gryd-Design.</p>
-              <p>With Gryd-Design I made some flyers and walked around doing door-to-door sales. Once I got a few projects running (Carpenter, Real Estate, Film Director, Hedge Fund, Artist, Fruit Shop) I managed to save enough to hire a friend to do the sales side. This allowed me to focus on website creation. I then hired an off-shore virtual assistant to investigate which businesses didn’t have a websites so we could be more efficient on the sales side.</p>
-              <p>On the way I saw a lot of inspiration on websites like awwwards and cssdesignawards and saw limitations with Adobe Muse. So I started learning coding on 2014 roughly. I learnt HTML, CSS and JavaScript.</p>
-              <p>During this time I bought a fucking expensive screen-printing machine so I could offer that as an extra service to my customers at Gryd. It also allowed me to retake the clothing line I wanted to initially create.</p>
-              <p>I got offered a job for Estiber in Barcelona, so I moved back there. I thought it was a good idea since it was starting to become a tech-hub at the time.</p>
-              <p>I worked for Estiber for a year as a Lead Designer and was also involved in some of the Marketing roles (hand-coding Mailchimp emails). After the year we decided our values didn’t match so we stopped working together.</p>
-              <p>I went back into selling clothes while I learnt new technologies like React and Node and its correspondant modules and libraries. I worked on personal projects too, and got a few odd jobs here and there making webistes. I ended up catching the attention of the founder of Apollo30 in a cafe and we got on well, so he offered me to work with them and I have been working there as a freelancer ever since.</p>
+              <p>{t("cv.postEducationSection.story.p.1")}</p>
+              <p>{t("cv.postEducationSection.story.p.2")}</p>
+              <p>{t("cv.postEducationSection.story.p.3")}</p>
+              <p>{t("cv.postEducationSection.story.p.4")}</p>
+              <p>{t("cv.postEducationSection.story.p.5")}</p>
+              <p>{t("cv.postEducationSection.story.p.6")}</p>
+              <p>{t("cv.postEducationSection.story.p.7")}</p>
+              <p>{t("cv.postEducationSection.story.p.8")}</p>
+              <p>{t("cv.postEducationSection.story.p.9")}</p>
             </div>
             <div className="summaryText">
               <ul>
-                <li>Clothing Freelance, Barcelona
+                <li>{t("cv.postEducationSection.summary.1.place.1")}
                   <ul>
                     <li>Sales</li>
                   </ul>
