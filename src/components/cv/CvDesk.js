@@ -94,7 +94,6 @@ const RightPanel = styled.div`
         width: ${rightPanelWidth};
         height: calc(100vh - 100px - 100px - 75px);
         overflow: scroll;
-        background: red;
 
         .storyText{
           display: block;
