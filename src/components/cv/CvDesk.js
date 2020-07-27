@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap/all'
@@ -15,6 +15,7 @@ const leftPanelWidth = responsiveWidthHeights.w800px
 const rightPanelWidth = responsiveWidthHeights.w440px
 const tagBottomMargin = "20px"
 const tagsExtraWidth = "10px"
+const ulTranslate = "15px"
 
 
 const LeftPanel = styled.div`
@@ -89,9 +90,9 @@ const RightPanel = styled.div`
 
       .secInnerContainer{
         position: absolute;
-        top: 100px;
+        top: 175px;
         width: ${rightPanelWidth};
-        height: calc(100vh - 100px - 100px);
+        height: calc(100vh - 100px - 100px - 75px);
         overflow: scroll;
 
         .storyText{
@@ -117,13 +118,40 @@ const RightPanel = styled.div`
           line-height: ${fonts.lnHt22};
           color: ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
         }
+        a{
+          display: block;
+          font-size: ${fonts.fntSz14};
+          color: ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
+        }
+        ul{
+          width: calc(100% - ${ulTranslate});
+          transform:translateX(${ulTranslate});
+          li{
+            font-size: ${fonts.fntSz14};
+            margin-bottom: ${fonts.fntSz14};
+          }
+          ul{
+            margin-top: ${fonts.fntSz14};
+            margin-bottom: 30px;
+            list-style-type: disc;
+            li{
+              margin-bottom: 0;
+              font-size: ${fonts.fntSz12};
+              line-height: ${fonts.lnHt20};
+            }
+          }
+        }
+        .interestList{      
+          li{
+            width: 49%;
+            display: inline-block;
+            list-style-type: disc; /* BUG Disc can't be seen */
+          }
+        }
         .tagContainer{
-
           display: flex;
           flex-wrap: wrap;
-
-          width: calc(360px + (${tagsExtraWidth} * 2));
-
+          width: calc( 360px + (${tagsExtraWidth} * 2));
           position: relative;
           left: -${tagsExtraWidth};
           margin: 20px 0 calc(30px - ${tagBottomMargin});
@@ -206,17 +234,48 @@ const RightPanel = styled.div`
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
-
-  } 
 `
 
 const CvButtonsHeader= styled.div `
   position: fixed;
   left: ${leftPanelWidth};
+  top: 100px;
   width: ${rightPanelWidth};
   height: 75px;
-  background: red;
-  top: 100px;
+  background: ${colors.thmWhite};
+  z-index: 400;
+`
+
+const CvButtonsContainer = styled.div`
+  text-align: center;
+  .summaryButton{
+    display: inline-block;
+    padding: 13px 20px 10px;
+    border: 1px solid ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
+    font-family: ${fonts.fntRegular};
+    font-size: ${fonts.fntSz12};
+    text-align: center;
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+  }
+  .textResizeButton{
+    display: inline-block;
+    padding: 13px 17px 10px;
+    border: 1px solid ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
+    font-family: 'Graphik-Regular';
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+  }
+  .increaseSizeButton{
+    margin-left: 10px;
+    border-right: 0px solid transparent;
+  }
 `
 
 
@@ -431,6 +490,180 @@ function CvDesk() {
     //
   
   //
+
+  //Toggle Summary Button
+
+    //Toogle Summary Initial State
+    const [toggleSummaryButton, setToggleSummaryButton] = useState("OFF")
+    //
+
+    //Handle Toggle Summary / Story
+      const handleToggleSummaryButton = () => {
+        if(toggleSummaryButton === "OFF"){
+          //Animation
+            //TODO Animate box
+          //Handle switch of button text
+            document.querySelector(".summaryButton span").innerHTML = t("cv.summaryButton.story.1")
+          //Handle switch of cv text
+            document.querySelectorAll(".storyText").forEach(e => { e.style.display = "none" })
+            document.querySelectorAll(".summaryText").forEach(e => { e.style.display = "block" })
+          //Toggle State
+            setToggleSummaryButton("ON")
+        } else if (toggleSummaryButton === "ON") {
+          //Animation
+            //TODO Animate box
+          //Handle switch of button text
+            document.querySelector(".summaryButton span").innerHTML = t("cv.summaryButton.summary.1")
+          //Handle switch of cv text
+            document.querySelectorAll(".storyText").forEach(e => { e.style.display = "block" })
+            document.querySelectorAll(".summaryText").forEach(e => { e.style.display = "none" })
+          //Toggle State
+          setToggleSummaryButton("OFF")
+        }
+      }
+    //
+
+  //
+
+  //Font Sizing
+
+    //Font Size Variables
+      const numberOfTimesButtonCanBeClicked = 4
+      const numberOfPixelsToChange = 2
+    //
+
+    //Font Size Initial State
+      const [headingFontSize, setHeadingFontSize] = useState(parseInt(fonts.fntSz14))
+      const [headingLineHeight, setHeadingLineHeight] = useState(parseInt(fonts.lnHt20))
+      const [paragraphFontSize, setParagraphFontSize] = useState(parseInt(fonts.fntSz14))
+      const [paragraphLineHeight, setParagraphLineHeight] = useState(parseInt(fonts.lnHt20))
+      const [subheadingFontSize, setSubheadingFontSize] = useState(parseInt(fonts.fntSz12))
+      const [listItemFontSize, setListItemFontSize] = useState(parseInt(fonts.fntSz14))
+      const [listItemInnerFontSize, setListItemInnerFontSize] = useState(parseInt(fonts.fntSz12))
+      const [listItemInnerLineHeightSize, setListItemInnerLineHeightSize] = useState(parseInt(fonts.lnHt20))
+    //
+
+    //Increment Font Size Button
+      const handleIncrementFontSize = () => {
+        //Increment H4
+          setHeadingFontSize(headingFontSize + numberOfPixelsToChange)
+          setHeadingLineHeight(headingLineHeight + numberOfPixelsToChange)
+          if( headingFontSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz14)) ){
+            setHeadingFontSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz14)))
+          }
+          if(headingLineHeight === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20))){
+            setHeadingLineHeight(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20)))
+          }
+        //Increment p
+          setParagraphFontSize(paragraphFontSize + numberOfPixelsToChange)
+          setParagraphLineHeight(paragraphLineHeight + numberOfPixelsToChange)
+          if( paragraphFontSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz14)) ){
+            setParagraphFontSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz14)))
+          }
+          if (paragraphLineHeight === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20))){
+            setParagraphLineHeight(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20)))
+          }
+        //Increment H5
+          setSubheadingFontSize(subheadingFontSize + numberOfPixelsToChange)
+          if( subheadingFontSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz12)) ){
+            setSubheadingFontSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz12)))
+          }
+        //Increment li
+          setListItemFontSize(listItemFontSize + numberOfPixelsToChange)
+          if( listItemFontSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz14)) ){
+            setListItemFontSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz14)))
+          }
+        //Increment li li
+          setListItemInnerFontSize(listItemInnerFontSize + numberOfPixelsToChange)
+          setListItemInnerLineHeightSize(listItemInnerLineHeightSize + numberOfPixelsToChange)
+          if( listItemInnerFontSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz12)) ){
+            setListItemInnerFontSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz12)))
+          }
+          if (listItemInnerLineHeightSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20))){
+            setListItemInnerLineHeightSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20)))
+          }
+      }
+    //
+
+    //Decrement Font Size Button
+      const handleDecrementFontSize = () => {
+        //Decrement H4
+          setHeadingFontSize(headingFontSize - numberOfPixelsToChange)
+          setHeadingLineHeight(headingLineHeight - numberOfPixelsToChange)
+          if( headingFontSize === parseInt(fonts.fntSz14) ){
+            setHeadingFontSize(parseInt(fonts.fntSz14))
+          }
+          if( headingLineHeight === parseInt(fonts.lnHt20) ){
+            setHeadingLineHeight(parseInt(fonts.lnHt20))
+          }
+        //Decrement p
+          setParagraphFontSize(paragraphFontSize - numberOfPixelsToChange)
+          setParagraphLineHeight(paragraphLineHeight - numberOfPixelsToChange)
+          if( paragraphFontSize === parseInt(fonts.fntSz14) ){
+            setParagraphFontSize( parseInt(fonts.fntSz14) )
+          }
+          if ( paragraphLineHeight === parseInt(fonts.lnHt20) ){
+            setParagraphLineHeight(parseInt(fonts.lnHt20))
+          }
+        //Decrement H5
+          setSubheadingFontSize(subheadingFontSize - numberOfPixelsToChange)
+          if( subheadingFontSize === parseInt(fonts.fntSz12) ){
+            setSubheadingFontSize(parseInt(fonts.fntSz12))
+          }
+        //Decrement li
+          setListItemFontSize(listItemFontSize - numberOfPixelsToChange)
+          if( listItemFontSize === (parseInt(fonts.fntSz14)) ){
+            setListItemFontSize(parseInt(fonts.fntSz14))
+          }
+        //Decrement li li
+          setListItemInnerFontSize(listItemInnerFontSize - numberOfPixelsToChange)
+          setListItemInnerLineHeightSize(listItemInnerLineHeightSize - numberOfPixelsToChange)
+          if( listItemInnerFontSize === parseInt(fonts.fntSz12) ){
+            setListItemInnerFontSize(parseInt(fonts.fntSz12))
+          }
+          if (listItemInnerLineHeightSize === parseInt(fonts.lnHt20)){
+            setListItemInnerLineHeightSize(parseInt(fonts.lnHt20))
+          }
+      }
+    //
+
+    //Increment / Decrement Refresh State
+      useEffect(() => {
+        const sectionHeadingFont = document.querySelectorAll(".section h4")
+        sectionHeadingFont.forEach(e => { e.style.fontSize = `${headingFontSize}px` })
+      }, [headingFontSize])
+      useEffect(() => {
+        const sectionHeadingFont = document.querySelectorAll(".section h4")
+        sectionHeadingFont.forEach(e => { e.style.lineHeight = `${headingLineHeight}px` })
+      }, [headingLineHeight])
+      useEffect(() => {
+        const sectionParagraphFont = document.querySelectorAll(".section p")
+        sectionParagraphFont.forEach(e => { e.style.fontSize = `${paragraphFontSize}px` })
+      }, [paragraphFontSize])
+      useEffect(() => {
+        const sectionParagraphFont = document.querySelectorAll(".section p")
+        sectionParagraphFont.forEach(e => { e.style.lineHeight = `${paragraphLineHeight}px` })
+      }, [paragraphLineHeight])
+      useEffect(() => {
+        const sectionSubheadingFont = document.querySelectorAll(".section h5")
+        sectionSubheadingFont.forEach(e => { e.style.fontSize = `${subheadingFontSize}px` })
+      }, [subheadingFontSize])
+      useEffect(() => {
+        const sectionListItemFont = document.querySelectorAll(".section li")
+        sectionListItemFont.forEach(e => { e.style.fontSize = `${listItemFontSize}px` })
+        sectionListItemFont.forEach(e => { e.style.marginBottom = `${listItemFontSize}px` })
+      }, [listItemFontSize])
+      useEffect(() => {
+        const sectionListItemInnerFont = document.querySelectorAll(".section li li")
+        sectionListItemInnerFont.forEach(e => { e.style.fontSize = `${listItemInnerFontSize}px` })
+      }, [listItemInnerFontSize])
+      useEffect(() => {
+        const sectionListItemInnerFont = document.querySelectorAll(".section li li")
+        sectionListItemInnerFont.forEach(e => { e.style.lineHeight = `${listItemInnerLineHeightSize}px` })
+      }, [listItemInnerLineHeightSize])
+    //
+
+  //
     
   return (
     <div id="conatiner">
@@ -459,7 +692,17 @@ function CvDesk() {
         <RightPanel>
 
             <CvButtonsHeader>
-
+              <CvButtonsContainer>
+                <div className="summaryButton" onClick={handleToggleSummaryButton}>
+                  <span>{toggleSummaryButton === "ON" ? t("cv.summaryButton.story.1") : t("cv.summaryButton.summary.1")}</span>
+                </div>
+                <div className="textResizeButton increaseSizeButton" onClick={handleIncrementFontSize}>
+                  <span>+</span>
+                </div>
+                <div className="textResizeButton decreseSizeButton" onClick={handleDecrementFontSize}>
+                  <span>-</span>
+                </div>
+              </CvButtonsContainer>
             </CvButtonsHeader>
 
             <div className="section" id="meSection">
