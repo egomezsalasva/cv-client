@@ -84,25 +84,28 @@ const RightPanel = styled.div`
   left: ${leftPanelWidth};
   /* overflow: hidden; */
 
-  .innerRightPanel{
-
     .section{
       width: ${rightPanelWidth};
       height: 100vh;
-      overflow: scroll;
+      /* overflow: scroll; */
 
       .secInnerContainer{
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 360px;
+        top: 100px;
+        width: ${rightPanelWidth};
+        height: calc(100vh - 100px - 100px);
+        overflow: scroll;
 
         .storyText{
           display: block;
+          width: 360px;
+          align-self: center;
+          margin: 0 auto 0;
         }
         .summaryText{
           display: none;
+          width: 360px;
+          margin: 0 auto;
         }
         h5{
           font-family: ${fonts.fntSemiBold};
@@ -121,7 +124,8 @@ const RightPanel = styled.div`
           display: flex;
           flex-wrap: wrap;
 
-          width: calc(100% + calc(${tagsExtraWidth} * 2));
+          /* width: calc(100% + (${tagsExtraWidth} * 2)); */
+          width: calc(360px + (${tagsExtraWidth} * 2));
 
           position: relative;
           left: -${tagsExtraWidth};
@@ -171,7 +175,7 @@ const RightPanel = styled.div`
     }
     #postEduSection{
       position: absolute;
-      background: pink;
+      background: ${colors.thmWhite};
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
@@ -425,6 +429,7 @@ function CvDesk() {
     
   return (
     <div id="conatiner">
+
         <LeftPanel>
           <HeadingContainer>
               <h4 className="titleBox">Me</h4>   
@@ -445,14 +450,15 @@ function CvDesk() {
               </div>
           </CvNav>
         </LeftPanel>
+
         <RightPanel>
-          <div className="innerRightPanel">
 
             <div className="section" id="meSection">
+
               <div className="secInnerContainer">
                 <div className="storyText">
-                <p>{t("cv.meSection.story.p.1")}</p>
-                <p>{t("cv.meSection.story.p.2")}</p>
+                  <p>{t("cv.meSection.story.p.1")}</p>
+                  <p>{t("cv.meSection.story.p.2")}</p>
                 </div>
                 <div className="summaryText">
                   <ul>
@@ -461,6 +467,7 @@ function CvDesk() {
                   </ul>
                 </div>
               </div>
+
             </div>
 
             <div className="section" id="whatImLookingSection">
@@ -568,6 +575,7 @@ function CvDesk() {
 
                 </div>
             </div>
+
             <div className="section" id="skillsSection">
               <div className="secInnerContainer">
                 <h5>{t("cv.skillsSection.content.1.subheading.1")}</h5>
@@ -614,6 +622,7 @@ function CvDesk() {
                 </div>
               </div>
             </div>
+
             <div className="section" id="interestsSection">
               <div className="secInnerContainer">
 
@@ -634,7 +643,6 @@ function CvDesk() {
 
               </div>
             </div>
-          </div>
         </RightPanel>
     </div>      
   )
