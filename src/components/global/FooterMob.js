@@ -14,7 +14,7 @@ const FooterContainer = styled.div`
   box-shadow: 0 5px 10px 0 #CBCCCB;
   text-align: center;
   border-top: 1px solid rgba(242,242,241,0.50);
-  background: ${colors.back};
+  background: ${props => props.theme.mode === 'light' ? colors.thmWhite :  colors.thmBlack};
 `
 const Email = styled.div`
     font-family: 'Graphik-Semibold';
@@ -26,7 +26,7 @@ const Email = styled.div`
 
 
 //MAIN COMPONENT
-function Footer() {
+function FooterMob() {
   return (
     <>
       <FooterContainer>
@@ -35,4 +35,4 @@ function Footer() {
     </>
   )
 }
-export default Footer;
+export default FooterMob;

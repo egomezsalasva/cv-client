@@ -6,7 +6,8 @@ import { Switch, Route } from "react-router-dom"
 //-Components
 import HeaderMob from './components/global/HeaderMob'
 import HeaderDesk from './components/global/HeaderDesk'
-import Footer from './components/global/Footer'
+import FooterMob from './components/global/FooterMob'
+import FooterDesk from './components/global/FooterDesk'
 import Navigation from './components/global/Navigation'
 import CvMob from './components/cv/CvMob'
 import CvDesk from './components/cv/CvDesk'
@@ -34,37 +35,41 @@ const App = () => {
 
   
   //Reset Theme
-  useEffect( () => {
-    setTheme({mode: "light"})
-  }, [setTheme])
-
+    useEffect( () => {
+      setTheme({mode: "light"})
+    }, [setTheme])
+  //
 
   //Desktop Design Match
-  const mediaDesignBreakpoint = window.matchMedia("(min-width: 1200px)").matches
-  const cvMatchMedia = () => {
-    if (mediaDesignBreakpoint) {
-      return <CvDesk/>
-    } else {
-      return <CvMob/>
+    const mediaDesignBreakpoint = window.matchMedia("(min-width: 1200px)").matches
+    const cvMatchMedia = () => {
+      if (mediaDesignBreakpoint) {
+        return <CvDesk/>
+      } else {
+        return <CvMob/>
+      }
     }
-  }
-  const portfolioMatchMedia = () => {
-    if (mediaDesignBreakpoint) {
-      return <div>Portfolio Desktop Version</div>
-    } else {
-      return <Portfolio />
+    const portfolioMatchMedia = () => {
+      if (mediaDesignBreakpoint) {
+        return <div>Portfolio Desktop Version</div>
+      } else {
+        return <Portfolio />
+      }
     }
-  }
-  const libraryMatchMedia = () => {
-    if (mediaDesignBreakpoint) {
-      return <div>Library Desktop Version</div>
-    } else {
-      return <Library />
+    const libraryMatchMedia = () => {
+      if (mediaDesignBreakpoint) {
+        return <div>Library Desktop Version</div>
+      } else {
+        return <Library />
+      }
     }
-  }
-  useEffect( () => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-  }, [width])
+  //
+
+  //Resize 
+    useEffect( () => {
+      window.addEventListener("resize", () => setWidth(window.innerWidth));
+    }, [width])
+  //
 
   return (
     <ThemeProvider theme={theme}>
@@ -87,7 +92,7 @@ const App = () => {
         </Route>
       </Switch>
 
-      {mediaDesignBreakpoint ? <></> : <Footer/>}
+      {mediaDesignBreakpoint ? <FooterDesk/> : <FooterMob/>}
       
 
     </ThemeProvider>
