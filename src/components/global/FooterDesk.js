@@ -37,15 +37,40 @@ const EmailContainer = styled.div`
         line-height: 40px;
     }
 `
+const Button = styled.div`
+    display: inline-block;
+    border: 1px solid ${colors.thmBlack};
+    padding: 13px 20px 10px;
+    font-family: ${fonts.fntRegular};
+    font-size: ${fonts.fntSz12};
+    color: ${colors.thmBlack};
+    text-align: center;
+    cursor: pointer;
+`
+const PDFSummary = styled(Button)`
+    position: absolute;
+    right: calc(232px - 4px + 30px);
+    bottom: 38px;
+`
+const PDFStory = styled(Button)`
+    position: absolute;
+    right: calc(232px - 4px + 30px + 121px + 30px);
+    bottom: 40px;
+`
 
 //MAIN COMPONENT
 function FooterDesk() {
   return (
     <>
       <FooterContainer>
-          <EmailContainer>
-              <h3>egomezsalasva@gmail.com</h3>
-          </EmailContainer>
+
+        <PDFStory>PDF Story</PDFStory>
+
+        <PDFSummary>PDF Summary</PDFSummary>
+
+        <EmailContainer>
+            <h3>egomezsalasva@gmail.com</h3>
+        </EmailContainer>
         
       </FooterContainer>      
     </>
