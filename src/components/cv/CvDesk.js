@@ -82,12 +82,10 @@ const RightPanel = styled.div`
   position: absolute; 
   top: 0;
   left: ${leftPanelWidth};
-  /* overflow: hidden; */
 
     .section{
       width: ${rightPanelWidth};
       height: 100vh;
-      /* overflow: scroll; */
 
       .secInnerContainer{
         position: absolute;
@@ -100,7 +98,7 @@ const RightPanel = styled.div`
           display: block;
           width: 360px;
           align-self: center;
-          margin: 0 auto 0;
+          margin: 0 auto;
         }
         .summaryText{
           display: none;
@@ -124,7 +122,6 @@ const RightPanel = styled.div`
           display: flex;
           flex-wrap: wrap;
 
-          /* width: calc(100% + (${tagsExtraWidth} * 2)); */
           width: calc(360px + (${tagsExtraWidth} * 2));
 
           position: relative;
@@ -210,8 +207,16 @@ const RightPanel = styled.div`
       transform: translateX(-${rightPanelWidth});
     }
 
-  }
-  
+  } 
+`
+
+const CvButtonsHeader= styled.div `
+  position: fixed;
+  left: ${leftPanelWidth};
+  width: ${rightPanelWidth};
+  height: 75px;
+  background: red;
+  top: 100px;
 `
 
 
@@ -452,6 +457,10 @@ function CvDesk() {
         </LeftPanel>
 
         <RightPanel>
+
+            <CvButtonsHeader>
+
+            </CvButtonsHeader>
 
             <div className="section" id="meSection">
 
