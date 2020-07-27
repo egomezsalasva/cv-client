@@ -98,7 +98,6 @@ const RightPanel = styled.div`
         .storyText{
           display: block;
           width: 360px;
-          align-self: center;
           margin: 0 auto;
         }
         .summaryText{
@@ -235,7 +234,6 @@ const RightPanel = styled.div`
       transform: translateX(-${rightPanelWidth});
     }
 `
-
 const CvButtonsHeader= styled.div `
   position: fixed;
   left: ${leftPanelWidth};
@@ -245,7 +243,6 @@ const CvButtonsHeader= styled.div `
   background: ${colors.thmWhite};
   z-index: 400;
 `
-
 const CvButtonsContainer = styled.div`
   text-align: center;
   .summaryButton{
@@ -530,6 +527,7 @@ function CvDesk() {
     //Font Size Variables
       const numberOfTimesButtonCanBeClicked = 4
       const numberOfPixelsToChange = 2
+      const widthContainerSizeVar = 20
     //
 
     //Font Size Initial State
@@ -541,10 +539,17 @@ function CvDesk() {
       const [listItemFontSize, setListItemFontSize] = useState(parseInt(fonts.fntSz14))
       const [listItemInnerFontSize, setListItemInnerFontSize] = useState(parseInt(fonts.fntSz12))
       const [listItemInnerLineHeightSize, setListItemInnerLineHeightSize] = useState(parseInt(fonts.lnHt20))
+      const [containerWidthSize, setContainerWidthSize] = useState(parseInt("360px"))
     //
 
     //Increment Font Size Button
       const handleIncrementFontSize = () => {
+        //Increment Width Container
+          setContainerWidthSize(containerWidthSize + widthContainerSizeVar)
+          if( containerWidthSize === ((widthContainerSizeVar * numberOfTimesButtonCanBeClicked) + parseInt("360px")) ){
+            setContainerWidthSize(((widthContainerSizeVar * numberOfTimesButtonCanBeClicked) + parseInt("360px")))
+          }
+        //
         //Increment H4
           setHeadingFontSize(headingFontSize + numberOfPixelsToChange)
           setHeadingLineHeight(headingLineHeight + numberOfPixelsToChange)
@@ -554,6 +559,7 @@ function CvDesk() {
           if(headingLineHeight === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20))){
             setHeadingLineHeight(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20)))
           }
+        //
         //Increment p
           setParagraphFontSize(paragraphFontSize + numberOfPixelsToChange)
           setParagraphLineHeight(paragraphLineHeight + numberOfPixelsToChange)
@@ -563,16 +569,19 @@ function CvDesk() {
           if (paragraphLineHeight === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20))){
             setParagraphLineHeight(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20)))
           }
+        //
         //Increment H5
           setSubheadingFontSize(subheadingFontSize + numberOfPixelsToChange)
           if( subheadingFontSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz12)) ){
             setSubheadingFontSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz12)))
           }
+        //
         //Increment li
           setListItemFontSize(listItemFontSize + numberOfPixelsToChange)
           if( listItemFontSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz14)) ){
             setListItemFontSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.fntSz14)))
           }
+        //
         //Increment li li
           setListItemInnerFontSize(listItemInnerFontSize + numberOfPixelsToChange)
           setListItemInnerLineHeightSize(listItemInnerLineHeightSize + numberOfPixelsToChange)
@@ -582,11 +591,18 @@ function CvDesk() {
           if (listItemInnerLineHeightSize === ((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20))){
             setListItemInnerLineHeightSize(((numberOfPixelsToChange * numberOfTimesButtonCanBeClicked) + parseInt(fonts.lnHt20)))
           }
+        //
       }
     //
 
     //Decrement Font Size Button
       const handleDecrementFontSize = () => {
+        //Increment Width Container
+          setContainerWidthSize(containerWidthSize - widthContainerSizeVar)
+          if( containerWidthSize ===  parseInt("360px") ){
+            setContainerWidthSize(parseInt("360px"))
+          }
+        //
         //Decrement H4
           setHeadingFontSize(headingFontSize - numberOfPixelsToChange)
           setHeadingLineHeight(headingLineHeight - numberOfPixelsToChange)
@@ -596,6 +612,7 @@ function CvDesk() {
           if( headingLineHeight === parseInt(fonts.lnHt20) ){
             setHeadingLineHeight(parseInt(fonts.lnHt20))
           }
+        //
         //Decrement p
           setParagraphFontSize(paragraphFontSize - numberOfPixelsToChange)
           setParagraphLineHeight(paragraphLineHeight - numberOfPixelsToChange)
@@ -605,16 +622,19 @@ function CvDesk() {
           if ( paragraphLineHeight === parseInt(fonts.lnHt20) ){
             setParagraphLineHeight(parseInt(fonts.lnHt20))
           }
+        //
         //Decrement H5
           setSubheadingFontSize(subheadingFontSize - numberOfPixelsToChange)
           if( subheadingFontSize === parseInt(fonts.fntSz12) ){
             setSubheadingFontSize(parseInt(fonts.fntSz12))
           }
+        //
         //Decrement li
           setListItemFontSize(listItemFontSize - numberOfPixelsToChange)
           if( listItemFontSize === (parseInt(fonts.fntSz14)) ){
             setListItemFontSize(parseInt(fonts.fntSz14))
           }
+        //
         //Decrement li li
           setListItemInnerFontSize(listItemInnerFontSize - numberOfPixelsToChange)
           setListItemInnerLineHeightSize(listItemInnerLineHeightSize - numberOfPixelsToChange)
@@ -624,10 +644,15 @@ function CvDesk() {
           if (listItemInnerLineHeightSize === parseInt(fonts.lnHt20)){
             setListItemInnerLineHeightSize(parseInt(fonts.lnHt20))
           }
+        //
       }
     //
 
     //Increment / Decrement Refresh State
+      useEffect(() => {
+        const widthContainer = document.querySelectorAll(".storyText")
+        widthContainer.forEach(e => { e.style.width = `${containerWidthSize}px` })
+      }, [containerWidthSize])
       useEffect(() => {
         const sectionHeadingFont = document.querySelectorAll(".section h4")
         sectionHeadingFont.forEach(e => { e.style.fontSize = `${headingFontSize}px` })
