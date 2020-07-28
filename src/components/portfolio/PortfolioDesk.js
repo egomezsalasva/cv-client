@@ -211,19 +211,17 @@ function PortfolioDesk() {
      
   //
 
-    const scrannysImgTl = gsap.timeline({reversed: false})
+    const scrannysImgTl = gsap.timeline()
+    const [hoverAnim, setHoverAnimn] = useState(null);
     
-    const testMouseOn = () => {
+    useEffect(() => {
+      setHoverAnimn(
         scrannysImgTl
-            .to(".imgClip", { scale: 0.9, duration: 1, ease: eas })
-            .to(".imgContainer", { scale: 1.3, duration: 1, ease: eas }, "-=1")
-    }
-    const testMouseOut = () => {
-        scrannysImgTl
-            .to(".imgContainer", { scale: 1, duration: 1, ease: eas })
-            .to(".imgClip", { scale: 1, duration: 1, ease: eas }, "-=1")
-            
-    }
+          .to(".imgClip", { scale: 0.9, duration: 1, ease: eas })
+          .to(".imgContainer", { scale: 1.3, duration: 1, ease: eas }, "-=1")
+          .pause()
+      )
+    }, [])
  
 
 
@@ -236,7 +234,7 @@ function PortfolioDesk() {
           <HeadingContainer>
                 <h4 className="titleBox">Scranny's House</h4>
                 <div className="viewBoxContainer">
-                    <a href="https://www.scrannyshouse.com/" target="_blank" onMouseEnter={() => testMouseOn()} onMouseLeave={() => testMouseOut()}>
+                    <a href="https://www.scrannyshouse.com/" target="_blank" onMouseEnter={() => hoverAnim.play()} onMouseLeave={() => hoverAnim.reverse()}>
                         <div className="viewSiteBox">View Site</div>
                     </a>
                 </div>
