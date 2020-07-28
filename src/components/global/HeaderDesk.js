@@ -1,20 +1,20 @@
 //IMPORTS
 //-Modules
-import React, {  useRef, useEffect } from 'react'
+import React, {  useRef, useEffect, useContext, useState } from 'react'
 import styled from 'styled-components'
 import gsap from 'gsap'
 // import { useTranslation } from 'react-i18next'
 //-Styling
 import {  zIndexes, responsiveWidthHeights, colors } from '../../data/styling/stylingVars'
 //-Context
-// import { ThemeContext } from '../../contexts/ThemeContext'
+import { ThemeContext } from '../../contexts/ThemeContext'
 //-Components
 import NavigationDesk from './NavigationDesk.js'
 
 
 //STYLE
 //-Variables
-// const themeBoxWidth = "30px"
+const themeBoxWidth = "30px"
 const rightPanelWidth = responsiveWidthHeights.w440px
 //-Components
 const HeaderContainer = styled.div`
@@ -52,10 +52,47 @@ const WhiteBlock = styled.div`
   height: 100px;
   background: ${colors.thmWhite};
 `
+const ThemeBox = styled.div`
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  top: 43px;
+  .button{
+    position: relative;
+    width: ${themeBoxWidth};
+    height: 18px;
+    border: 1px solid ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
+    .cube{
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
+      margin: 3px;
+      right: auto;
+      left: 0;
+    }
+  }
+`
 
 
 //MAIN COMPONENT
 const HeaderDesk = () => {
+
+  const { setTheme } = useContext(ThemeContext)
+  const [ themeColorToggle , setThemeColorToggle ] = useState(false)
+  const toggleCubeAnim = gsap.timeline()
+
+
+  const themeColorToggleHandler = () => {
+    if(themeColorToggle === false){
+      toggleCubeAnim.to(".cube", 0.4, { x: 12 })
+      setTheme({ mode: "dark"})
+    } else {
+      toggleCubeAnim.to(".cube", 0.4, { x: 0 })
+      setTheme({ mode: "light"})
+    }
+    setThemeColorToggle(!themeColorToggle)
+  }
 
   //Encrypt/Decrypt Title Animation
 
@@ -328,6 +365,11 @@ const HeaderDesk = () => {
 
       <WhiteBlock>
         <NavigationDesk/>
+        <ThemeBox>
+          <div className="button" onClick={themeColorToggleHandler}>
+            <div className="cube"/>
+          </div>
+        </ThemeBox>
       </WhiteBlock>
       
 
