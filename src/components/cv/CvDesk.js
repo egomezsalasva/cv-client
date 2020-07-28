@@ -183,23 +183,23 @@ const RightPanel = styled.div`
     #meSection{
       position: absolute;
       top: 0;
-      background: ${colors.thmWhite};
+      background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
     }
     #whatImLookingSection{
       position: absolute;
-      background: ${colors.thmWhite};
+      background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
     #eduSection{
       position: absolute;
-      background: ${colors.thmWhite};
+      background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
     #postEduSection{
       position: absolute;
-      background: ${colors.thmWhite};
+      background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
@@ -240,7 +240,7 @@ const CvButtonsHeader= styled.div `
   top: 100px;
   width: ${rightPanelWidth};
   height: 75px;
-  background: ${colors.thmWhite};
+  background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
   z-index: 400;
 `
 const CvButtonsContainer = styled.div`
@@ -491,7 +491,7 @@ function CvDesk() {
   //Toggle Summary Button
 
     //Toogle Summary Initial State
-    const [toggleSummaryButton, setToggleSummaryButton] = useState("OFF")
+      const [toggleSummaryButton, setToggleSummaryButton] = useState("OFF")
     //
 
     //Handle Toggle Summary / Story

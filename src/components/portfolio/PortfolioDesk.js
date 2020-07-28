@@ -126,11 +126,11 @@ const RightPanel = styled.div`
     #scrannysSection{
       position: absolute;
       top: 0;
-      background: ${colors.thmWhite};
+      background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
     }
     #apolloSection{
       position: absolute;
-      background: ${colors.thmWhite};
+      background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }

@@ -19,10 +19,8 @@ const rightPanelWidth = responsiveWidthHeights.w440px
 //-Components
 const HeaderContainer = styled.div`
   position: fixed;
-  /* padding-top: 40px; */
   width: 100vw;
   z-index: ${zIndexes.header};
-  background: pink;
 `
 const Title = styled.h2`
   position: absolute;
@@ -50,7 +48,7 @@ const WhiteBlock = styled.div`
   display: inline-block;
   width: ${rightPanelWidth};
   height: 100px;
-  background: ${colors.thmWhite};
+  background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
 `
 const ThemeBox = styled.div`
   display: inline-block;
@@ -61,12 +59,12 @@ const ThemeBox = styled.div`
     position: relative;
     width: ${themeBoxWidth};
     height: 18px;
-    border: 1px solid ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
+    border: 1px solid ${ props => props.theme.mode === 'light' ? colors.thmBlack : colors.thmWhite };
     .cube{
       position: absolute;
       width: 10px;
       height: 10px;
-      background: ${ props => props.theme.mode === 'light' ? "#141414" :  "#F8F9F8"};
+      background: ${ props => props.theme.mode === 'light' ? colors.thmBlack : colors.thmWhite };
       margin: 3px;
       right: auto;
       left: 0;

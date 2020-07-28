@@ -17,15 +17,15 @@ const FooterContainer = styled.div`
   width: ${rightPanelWidth};
   height: 120px;
   text-align: center;
-  background: ${colors.thmWhite};
+  background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
   z-index: 400;
   overflow: hidden;
 `
 const EmailContainer = styled.div`
     position: absolute;
-    background: ${colors.thmWhite};
-    border: 1px solid rgba(230,230,228,0.25);
-    box-shadow: -5px -5px 10px 0 #FFFFFF, 5px 5px 10px 0 #F2F2F1;
+    background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
+    border: 1px solid ${props => props.theme.mode === 'light' ? colors.thmWhiteBorder :  colors.thmBlackBorder};
+    box-shadow: -5px -5px 10px 0 ${props => props.theme.mode === 'light' ? colors.thmWhiteShadowLight :  colors.thmBlackShadowLight}, 5px 5px 10px 0 ${ props => props.theme.mode === 'light' ? colors.thmWhiteShadowDark :  colors.thmBlackShadowDark};
     border-radius: 5px;
     text-align: center;
     height: 40px;
@@ -35,17 +35,17 @@ const EmailContainer = styled.div`
     h3{
         font-family: ${fonts.fntSemiBold};
         font-size: ${fonts.fntSz14};
-        color: ${colors.thmBlack};
+        color: ${ props => props.theme.mode === 'light' ? colors.thmBlack : colors.thmWhite };
         line-height: 40px;
     }
 `
 const Button = styled.div`
     display: inline-block;
-    border: 1px solid ${colors.thmBlack};
+    border: 1px solid ${ props => props.theme.mode === 'light' ? colors.thmBlack : colors.thmWhite };
     padding: 13px 20px 10px;
     font-family: ${fonts.fntRegular};
     font-size: ${fonts.fntSz12};
-    color: ${colors.thmBlack};
+    color: ${ props => props.theme.mode === 'light' ? colors.thmBlack : colors.thmWhite };
     text-align: center;
     cursor: pointer;
 `
