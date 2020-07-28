@@ -10,7 +10,7 @@ const leftPanelWidth = responsiveWidthHeights.w800px
 const rightPanelWidth = responsiveWidthHeights.w440px
 //-Components
 const FooterContainer = styled.div`
-  position: absolute;
+  position: fixed;
   left: ${leftPanelWidth};
   bottom: 0;
   width: ${rightPanelWidth};
@@ -18,6 +18,7 @@ const FooterContainer = styled.div`
   text-align: center;
   background: ${colors.thmWhite};
   z-index: 400;
+  overflow: hidden;
 `
 const EmailContainer = styled.div`
     position: absolute;

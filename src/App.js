@@ -11,7 +11,8 @@ import FooterDesk from './components/global/FooterDesk'
 import Navigation from './components/global/Navigation'
 import CvMob from './components/cv/CvMob'
 import CvDesk from './components/cv/CvDesk'
-import Portfolio from './components/portfolio/Portfolio'
+import PortfolioMob from './components/portfolio/PortfolioMob'
+import PortfolioDesk from './components/portfolio/PortfolioDesk'
 import Library from './components/library/Library'
 import { ThemeContext } from './contexts/ThemeContext'
 //-Data
@@ -51,9 +52,9 @@ const App = () => {
     }
     const portfolioMatchMedia = () => {
       if (mediaDesignBreakpoint) {
-        return <div>Portfolio Desktop Version</div>
+        return <PortfolioDesk/>
       } else {
-        return <Portfolio />
+        return <PortfolioMob />
       }
     }
     const libraryMatchMedia = () => {
