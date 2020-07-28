@@ -7,15 +7,14 @@ import { gsap } from 'gsap/all'
 //-Components
 //-Styling
 import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
+import scrannysImgDesk from '../../images/scrannysHouseDesk.png'
+import apolloImgDesk from '../../images/apolloDesk.png'
 
 
 
 //STYLE
 const leftPanelWidth = responsiveWidthHeights.w800px
 const rightPanelWidth = responsiveWidthHeights.w440px
-const tagBottomMargin = "20px"
-const tagsExtraWidth = "10px"
-const ulTranslate = "15px"
 
 
 const LeftPanel = styled.div`
@@ -27,7 +26,7 @@ const LeftPanel = styled.div`
     background: ${colors.thmBlack};
     z-index: ${zIndexes.leftPanelBg};
 `
-const CvNav = styled.div`
+const LeftNav = styled.div`
   position: absolute;
   bottom: 50px;
   width: ${leftPanelWidth};
@@ -46,11 +45,6 @@ const CvNav = styled.div`
     }
     .active{
       font-weight: 700;
-    }
-  }
-  .top{
-    .navLink{
-      margin: 0 15px 10px;
     }
   }
   .bottom{
@@ -90,7 +84,7 @@ const HeadingContainer = styled.div`
             .viewSiteBox{
                 display: inline-block;
                 border: 1px solid ${colors.thmWhite};
-                padding: 11px 20px 10px;
+                padding: 12px 20px 10px;
             }
         }
     }
@@ -107,146 +101,38 @@ const RightPanel = styled.div`
 
       .secInnerContainer{
         position: absolute;
-        top: 175px;
         width: ${rightPanelWidth};
-        height: calc(100vh - 100px - 100px - 75px);
+        /* height: calc(100vh - 100px - 100px - 75px); */
+        height: calc(100vh - 30px);
         overflow: scroll;
+        /* top: 100px; */
 
-        .storyText{
-          display: block;
-          width: 360px;
-          margin: 0 auto;
-        }
-        .summaryText{
-          display: none;
-          width: 360px;
-          margin: 0 auto;
-        }
-        h5{
-          font-family: ${fonts.fntSemiBold};
-          font-size: ${fonts.fntSz12};
-        }
-        p{
-          margin-bottom: 19px;
-          font-family: ${fonts.fntRegular};
-          font-weight: 300;
-          font-size: ${fonts.fntSz14};
-          line-height: ${fonts.lnHt22};
-          color: ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
-        }
-        a{
-          display: block;
-          font-size: ${fonts.fntSz14};
-          color: ${props => props.theme.mode === 'light' ? colors.thmBlack :  colors.thmWhite};
-        }
-        ul{
-          width: calc(100% - ${ulTranslate});
-          transform:translateX(${ulTranslate});
-          li{
-            font-size: ${fonts.fntSz14};
-            margin-bottom: ${fonts.fntSz14};
-          }
-          ul{
-            margin-top: ${fonts.fntSz14};
-            margin-bottom: 30px;
-            list-style-type: disc;
-            li{
-              margin-bottom: 0;
-              font-size: ${fonts.fntSz12};
-              line-height: ${fonts.lnHt20};
+        .imgClip{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 360px;
+            height: 360px;
+            overflow: hidden;
+            .imgContainer{
+                width: 360px;
+                height: 360px;
+                object-fit: cover;
             }
-          }
         }
-        .interestList{      
-          li{
-            width: 49%;
-            display: inline-block;
-            list-style-type: disc; /* BUG Disc can't be seen */
-          }
-        }
-        .tagContainer{
-          display: flex;
-          flex-wrap: wrap;
-          width: calc( 360px + (${tagsExtraWidth} * 2));
-          position: relative;
-          left: -${tagsExtraWidth};
-          margin: 20px 0 calc(30px - ${tagBottomMargin});
-
-          .tag{
-
-            height: 30px;
-
-            margin: 0 10px ${tagBottomMargin};
-            padding: 0 10px;
-
-            font-family: ${fonts.fntRegular};
-            font-size: 11px;
-            line-height: 30px;
-            text-align: center;
-
-            background: ${props => props.theme.mode === 'light' ? colors.thmWhite :  colors.thmBlack};
-            border: 1px solid ${props => props.theme.mode === 'light' ? colors.thmWhiteBorder :  colors.thmBlackBorder};
-            box-shadow: -5px -5px 10px 0 ${props => props.theme.mode === 'light' ? colors.thmWhiteShadowLight :  colors.thmBlackShadowLight}, 5px 5px 10px 0 ${ props => props.theme.mode === 'light' ? colors.thmWhiteShadowDark :  colors.thmBlackShadowDark};
-            border-radius: 5px;
-
-          }
-        }
-        .tagContainer:last-of-type{
-          margin-bottom: -20px;
-        }
+        
       }
     }
 
-    #meSection{
+    #scrannysSection{
       position: absolute;
       top: 0;
       background: ${colors.thmWhite};
     }
-    #whatImLookingSection{
+    #apolloSection{
       position: absolute;
       background: ${colors.thmWhite};
-      top: 0;
-      transform: translateX(-${rightPanelWidth});
-    }
-    #eduSection{
-      position: absolute;
-      background: ${colors.thmWhite};
-      top: 0;
-      transform: translateX(-${rightPanelWidth});
-    }
-    #postEduSection{
-      position: absolute;
-      background: ${colors.thmWhite};
-      top: 0;
-      transform: translateX(-${rightPanelWidth});
-    }
-    #skillsSection{
-      position: absolute;
-      background: ${colors.thmWhite};
-      top: 0;
-      transform: translateX(-${rightPanelWidth});
-    }
-    #interestsSection{
-      position: absolute;
-      background: yellow;
-      top: 0;
-      transform: translateX(-${rightPanelWidth});
-    }
-    #languagesSection{
-      position: absolute;
-      background: aqua;
-      top: 0;
-      transform: translateX(-${rightPanelWidth});
-    }
-    #linksSection{
-      position: absolute;
-      background: wheat;
-      top: 0;
-      transform: translateX(-${rightPanelWidth});
-    }
-    #letsMeetSection{
-      position: absolute;
-      background: seagreen;
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
@@ -280,11 +166,11 @@ function PortfolioDesk() {
 
           //Section Anim
             const notId = `.section:not(#scrannysSection)`
-            document.querySelector("#scrannysSection .secInnerContainer").style.opacity = 0
+            // document.querySelector("#scrannysSection .secInnerContainer").style.opacity = 0
             document.querySelector("#scrannysSection").style.zIndex = 50
             scrannysTl
                 .to("#scrannysSection", { x: 0, duration: dur, ease: eas, })
-                .to("#scrannysSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
+                // .to("#scrannysSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
                 //Cleanup
                 .to("#scrannysSection", { zIndex: 0,  duration: 0.001 })
                 .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
@@ -304,11 +190,11 @@ function PortfolioDesk() {
 
           //Section Anim
             const notId = `.section:not(#apolloSection)`
-            document.querySelector("#apolloSection .secInnerContainer").style.opacity = 0
+            // document.querySelector("#apolloSection .secInnerContainer").style.opacity = 0
             document.querySelector("#apolloSection").style.zIndex = 50
             apolloTl
                 .to("#apolloSection", { x: 0, duration: dur, ease: eas})
-                .to("#apolloSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
+                // .to("#apolloSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
                 .to("#apolloSection", { zIndex: 0,  duration: 0.001 })
                 .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
           //
@@ -323,7 +209,25 @@ function PortfolioDesk() {
         }
       }
     //
-  
+     
+  //
+
+    const scrannysImgTl = gsap.timeline({reversed: false})
+    
+    const testMouseOn = () => {
+        scrannysImgTl
+            .to(".imgClip", { scale: 0.9, duration: 1, ease: eas })
+            .to(".imgContainer", { scale: 1.3, duration: 1, ease: eas }, "-=1")
+    }
+    const testMouseOut = () => {
+        scrannysImgTl
+            .to(".imgContainer", { scale: 1, duration: 1, ease: eas })
+            .to(".imgClip", { scale: 1, duration: 1, ease: eas }, "-=1")
+            
+    }
+ 
+
+
   //
     
   return (
@@ -333,17 +237,17 @@ function PortfolioDesk() {
           <HeadingContainer>
                 <h4 className="titleBox">Scranny's House</h4>
                 <div className="viewBoxContainer">
-                    <a href="https://www.scrannyshouse.com/" target="_blank">
+                    <a href="https://www.scrannyshouse.com/" target="_blank" onMouseEnter={() => testMouseOn()} onMouseLeave={() => testMouseOut()}>
                         <div className="viewSiteBox">View Site</div>
                     </a>
                 </div>
           </HeadingContainer>
-          <CvNav>
+          <LeftNav>
               <div className="flexLine bottom">
                 <div className="navLink active" onClick={scrannysSectionHandler} id="scrannysLink">Scranny's House</div>
                 <div className="navLink" onClick={apolloSectionHandler} id="apolloLink">Apollo30</div>
               </div>
-          </CvNav>
+          </LeftNav>
         </LeftPanel>
 
 
@@ -351,13 +255,17 @@ function PortfolioDesk() {
 
             <div className="section" id="scrannysSection">
                 <div className="secInnerContainer">
-                    
+                    <div className="imgClip">
+                        <img className="imgContainer" src={scrannysImgDesk}></img>
+                    </div>
                 </div>
             </div>
 
             <div className="section" id="apolloSection">
                 <div className="secInnerContainer">
-                    
+                    <div className="imgClip">
+                        <img className="imgContainer" src={apolloImgDesk}></img>
+                    </div>
                 </div>
             </div>
 
