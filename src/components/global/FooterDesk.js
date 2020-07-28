@@ -1,7 +1,8 @@
 //IMPORTS
 //-Modules
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { useRouteMatch } from "react-router-dom";
 import { colors, responsiveWidthHeights, fonts } from '../../data/styling/stylingVars'
 
 //STYLE
@@ -61,13 +62,17 @@ const PDFStory = styled(Button)`
 
 //MAIN COMPONENT
 function FooterDesk() {
+    
+  const match = useRouteMatch("/portfolio")
+  const match2 = useRouteMatch("/library")
+
   return (
     <>
       <FooterContainer>
 
-        <PDFStory>PDF Story</PDFStory>
+        {  match || match2 ? <></> : <PDFStory>PDF Story</PDFStory>}
 
-        <PDFSummary>PDF Summary</PDFSummary>
+        {  match || match2 ? <></> : <PDFSummary>PDF Summary</PDFSummary>}
 
         <EmailContainer>
             <h3>egomezsalasva@gmail.com</h3>

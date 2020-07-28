@@ -102,10 +102,8 @@ const RightPanel = styled.div`
       .secInnerContainer{
         position: absolute;
         width: ${rightPanelWidth};
-        /* height: calc(100vh - 100px - 100px - 75px); */
-        height: calc(100vh - 30px);
+        height: calc(100vh - 20px);
         overflow: scroll;
-        /* top: 100px; */
 
         .imgClip{
             position: absolute;
@@ -158,6 +156,7 @@ function PortfolioDesk() {
     //Settings Vars
       const dur = 0.8
       const eas = "power1.out"
+      const linEas = "power0.out"
     //
 
     //Click Handlers
@@ -166,11 +165,11 @@ function PortfolioDesk() {
 
           //Section Anim
             const notId = `.section:not(#scrannysSection)`
-            // document.querySelector("#scrannysSection .secInnerContainer").style.opacity = 0
+            document.querySelector("#scrannysSection .secInnerContainer").style.opacity = 0
             document.querySelector("#scrannysSection").style.zIndex = 50
             scrannysTl
-                .to("#scrannysSection", { x: 0, duration: dur, ease: eas, })
-                // .to("#scrannysSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
+                .to("#scrannysSection", { x: 0, duration: dur, ease: linEas, })
+                .to("#scrannysSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
                 //Cleanup
                 .to("#scrannysSection", { zIndex: 0,  duration: 0.001 })
                 .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
@@ -190,11 +189,11 @@ function PortfolioDesk() {
 
           //Section Anim
             const notId = `.section:not(#apolloSection)`
-            // document.querySelector("#apolloSection .secInnerContainer").style.opacity = 0
+            document.querySelector("#apolloSection .secInnerContainer").style.opacity = 0
             document.querySelector("#apolloSection").style.zIndex = 50
             apolloTl
-                .to("#apolloSection", { x: 0, duration: dur, ease: eas})
-                // .to("#apolloSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
+                .to("#apolloSection", { x: 0, duration: dur, ease: linEas})
+                .to("#apolloSection .secInnerContainer", { opacity: 1, duration: 0.4, ease: eas })
                 .to("#apolloSection", { zIndex: 0,  duration: 0.001 })
                 .to(notId, { x: `-${rightPanelWidth}`, duration: 0.001})
           //
