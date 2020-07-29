@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import Heading from './cvDeskComponents/leftPanel/Heading'
 import CvNav from './cvDeskComponents/leftPanel/CvNav'
 import CvButtons from './cvDeskComponents/rightPanel/CvButtons'
+import MeSection from './cvDeskComponents/rightPanel/sections/Me'
 //-Styling
 import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
 
@@ -206,22 +207,7 @@ function CvDesk() {
         <RightPanel>
             <CvButtons />
 
-            <div className="section" id="meSection">
-
-              <div className="secInnerContainer">
-                <div className="storyText">
-                  <p>{t("cv.meSection.story.p.1")}</p>
-                  <p>{t("cv.meSection.story.p.2")}</p>
-                </div>
-                <div className="summaryText">
-                  <ul>
-                    <li>{t("cv.meSection.summary.li.1")}</li>
-                    <li>{t("cv.meSection.summary.li.2")}</li>
-                  </ul>
-                </div>
-              </div>
-
-            </div>
+            <MeSection />
 
             <div className="section" id="whatImLookingSection">
               <div className="secInnerContainer">
