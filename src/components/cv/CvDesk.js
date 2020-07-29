@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap/all'
 //-Components
+import LeftPanelHeading from './cvDeskComponents/LeftPanelHeading'
 //-Styling
 import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
 
@@ -694,9 +695,9 @@ function CvDesk() {
     <div id="conatiner">
 
         <LeftPanel>
-          <HeadingContainer>
-              <h4 className="titleBox">Me</h4>   
-          </HeadingContainer>
+          
+          <LeftPanelHeading/>
+          
           <CvNav>
               <div className="flexLine top">
                 <div className="navLink active" onClick={meSectionHandler} id="meLink">{t("cv.meSection.heading.1")}</div>
