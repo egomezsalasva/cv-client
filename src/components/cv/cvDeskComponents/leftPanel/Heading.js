@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 //-Components
 //-Styling
-import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../../data/styling/stylingVars'
+import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../../../data/styling/stylingVars'
 
 
 

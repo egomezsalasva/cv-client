@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap/all'
 //-Styling
-import { fonts, responsiveWidthHeights } from '../../../data/styling/stylingVars'
+import { fonts, responsiveWidthHeights } from '../../../../data/styling/stylingVars'
 
 
 
