@@ -697,7 +697,7 @@ function CvDesk() {
         <LeftPanel>
           
           <LeftPanelHeading/>
-          
+
           <CvNav>
               <div className="flexLine top">
                 <div className="navLink active" onClick={meSectionHandler} id="meLink">{t("cv.meSection.heading.1")}</div>
@@ -713,6 +713,7 @@ function CvDesk() {
                 <div className="navLink" onClick={letsMeetHandler} id="letsMeetLink">Let's Meet</div>
               </div>
           </CvNav>
+          
         </LeftPanel>
 
         <RightPanel>
