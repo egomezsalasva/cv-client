@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap/all'
 //-Components
 import LeftPanelHeading from './cvDeskComponents/LeftPanelHeading'
+import LeftPanelCvNav from './cvDeskComponents/LeftPanelCvNav'
 //-Styling
 import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
 
@@ -27,58 +28,6 @@ const LeftPanel = styled.div`
     height: 100vh;
     background: ${colors.thmBlack};
     z-index: ${zIndexes.leftPanelBg};
-`
-const CvNav = styled.div`
-  position: absolute;
-  bottom: 40px;
-  width: ${leftPanelWidth};
-  .flexLine{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    .navLink{
-      font-family: ${fonts.displayFnt};
-      font-size: 14px;
-      color: white;
-      cursor: pointer;
-    }
-    .navLink:hover{
-      font-weight: 700;
-    }
-    .active{
-      font-weight: 700;
-    }
-  }
-  .top{
-    .navLink{
-      margin: 0 15px 10px;
-    }
-  }
-  .bottom{
-    .navLink{
-      margin: 0 15px;
-    }
-  }
-  
-`
-const HeadingContainer = styled.div`
-    position: fixed;
-    top: 50vh;
-    left: calc(${responsiveWidthHeights.w800px} / 2);
-    transform: translate( -50%, -50%);
-    overflow: hidden;
-    h4{
-        display: inline-block;
-        margin-bottom: 20px; 
-        padding: 0 15px 0 10px;
-        background: #F8F9F8;
-        font-family: ${fonts.displayFnt};
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 24px;
-        text-align: center;
-        color: #141414; 
-    }
 `
 const RightPanel = styled.div`
   position: absolute; 
@@ -695,25 +644,8 @@ function CvDesk() {
     <div id="conatiner">
 
         <LeftPanel>
-          
           <LeftPanelHeading/>
-
-          <CvNav>
-              <div className="flexLine top">
-                <div className="navLink active" onClick={meSectionHandler} id="meLink">{t("cv.meSection.heading.1")}</div>
-                <div className="navLink" onClick={lookingForHandler} id="whatImLookingLink" >{t("cv.whatImLookingForSection.heading.1")}</div>
-                <div className="navLink" onClick={eduHandler} id="eduLink">Education</div>
-                <div className="navLink" onClick={postEduHandler} id="postEduLink">Post-Education</div>
-                <div className="navLink" onClick={skillsHandler} id="skillsLink">Skills</div>
-              </div>
-              <div className="flexLine bottom">
-                <div className="navLink" onClick={interestsHandler} id="interestsLink">Interests</div>
-                <div className="navLink" onClick={languagesHandler} id="languagesLink">Languages</div>
-                <div className="navLink" onClick={linksHandler} id="linksLink">Links</div>
-                <div className="navLink" onClick={letsMeetHandler} id="letsMeetLink">Let's Meet</div>
-              </div>
-          </CvNav>
-          
+          <LeftPanelCvNav />
         </LeftPanel>
 
         <RightPanel>
@@ -923,6 +855,7 @@ function CvDesk() {
               </div>
             </div>
         </RightPanel>
+
     </div>      
   )
 }

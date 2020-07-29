@@ -4,10 +4,8 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap/all'
-//-Components
-import LeftPanelHeading from './cvDeskComponents/LeftPanelHeading'
 //-Styling
-import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
+import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../../data/styling/stylingVars'
 
 
 
