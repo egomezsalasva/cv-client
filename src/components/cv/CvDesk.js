@@ -14,6 +14,8 @@ import PostEducationSection from './cvDeskComponents/rightPanel/sections/PostEdu
 import SkillsSection from './cvDeskComponents/rightPanel/sections/Skills'
 import InterestsSection from './cvDeskComponents/rightPanel/sections/Interests'
 import LanguagesSection from './cvDeskComponents/rightPanel/sections/Languages'
+import LinksSection from './cvDeskComponents/rightPanel/sections/Links'
+import LetsMeetSection from './cvDeskComponents/rightPanel/sections/LetsMeet'
 //-Styling
 import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
 
@@ -205,12 +207,15 @@ function CvDesk() {
     <div id="conatiner">
 
         <LeftPanel>
+
           <Heading />
           <CvNav />
+          
         </LeftPanel>
 
 
         <RightPanel>
+
           <CvButtons />
 
           <MeSection />
@@ -220,19 +225,8 @@ function CvDesk() {
           <SkillsSection />
           <InterestsSection />
           <LanguagesSection />
-          
-        
-          <div className="section" id="linksSection">
-            <div className="secInnerContainer">
-
-            </div>
-          </div>
-
-          <div className="section" id="letsMeetSection">
-            <div className="secInnerContainer">
-
-            </div>
-          </div>
+          <LinksSection />
+          <LetsMeetSection />
 
         </RightPanel>
     </div>      
