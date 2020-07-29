@@ -218,7 +218,7 @@ function PortfolioDesk() {
       setHoverAnimn(
         scrannysImgTl
           .to(".imgClip", { scale: 0.9, duration: 1, ease: eas })
-          .to(".imgContainer", { scale: 1.3, duration: 1, ease: eas }, "-=1")
+          .to(".imgContainer", { scale: 1.2, duration: 1, ease: eas }, "-=1")
           .pause()
       )
     }, [])
