@@ -11,8 +11,9 @@ import MeSection from './cvDeskComponents/rightPanel/sections/Me'
 import WhatImLookingForSection from './cvDeskComponents/rightPanel/sections/WhatImLookingFor'
 import EducationSection from './cvDeskComponents/rightPanel/sections/Education'
 import PostEducationSection from './cvDeskComponents/rightPanel/sections/PostEducation'
-import SkillsSection from './cvDeskComponents/rightPanel/sections/SkillsSection'
-import InterestsSection from './cvDeskComponents/rightPanel/sections/InterestsSection'
+import SkillsSection from './cvDeskComponents/rightPanel/sections/Skills'
+import InterestsSection from './cvDeskComponents/rightPanel/sections/Interests'
+import LanguagesSection from './cvDeskComponents/rightPanel/sections/Languages'
 //-Styling
 import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
 
@@ -218,14 +219,9 @@ function CvDesk() {
           <PostEducationSection />
           <SkillsSection />
           <InterestsSection />
-
+          <LanguagesSection />
           
-          <div className="section" id="languagesSection">
-            <div className="secInnerContainer">
-
-            </div>
-          </div>
-
+        
           <div className="section" id="linksSection">
             <div className="secInnerContainer">
 
