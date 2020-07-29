@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap/all'
 //-Components
-import LeftPanelHeading from './cvDeskComponents/LeftPanelHeading'
-import LeftPanelCvNav from './cvDeskComponents/LeftPanelCvNav'
+import Heading from './cvDeskComponents/leftPanel/Heading'
+import CvNav from './cvDeskComponents/leftPanel/CvNav'
 //-Styling
 import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
 
@@ -644,8 +644,8 @@ function CvDesk() {
     <div id="conatiner">
 
         <LeftPanel>
-          <LeftPanelHeading/>
-          <LeftPanelCvNav />
+          <Heading/>
+          <CvNav />
         </LeftPanel>
 
         <RightPanel>

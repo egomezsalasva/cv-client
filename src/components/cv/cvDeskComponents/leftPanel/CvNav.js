@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap/all'
 //-Styling
-import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../../data/styling/stylingVars'
+import { fonts, responsiveWidthHeights } from '../../../data/styling/stylingVars'
 
 
 
@@ -14,7 +14,7 @@ import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../../data/s
         const leftPanelWidth = responsiveWidthHeights.w800px
         const rightPanelWidth = responsiveWidthHeights.w440px
     //-Components
-        const CvNav = styled.div`
+        const CvNavContainer = styled.div`
             position: absolute;
             bottom: 40px;
             width: ${leftPanelWidth};
@@ -51,7 +51,7 @@ import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../../data/s
 
 
 //MAIN COMPONENT
-function CvDesk() {
+const CvNav = () => {
 
   //Translation
     const { t } = useTranslation()
@@ -261,7 +261,7 @@ function CvDesk() {
   //
 
   return (
-    <CvNav>
+    <CvNavContainer>
         <div className="flexLine top">
             <div className="navLink active" onClick={meSectionHandler} id="meLink">{t("cv.meSection.heading.1")}</div>
             <div className="navLink" onClick={lookingForHandler} id="whatImLookingLink" >{t("cv.whatImLookingForSection.heading.1")}</div>
@@ -275,7 +275,7 @@ function CvDesk() {
             <div className="navLink" onClick={linksHandler} id="linksLink">Links</div>
             <div className="navLink" onClick={letsMeetHandler} id="letsMeetLink">Let's Meet</div>
         </div>
-    </CvNav>        
+    </CvNavContainer>        
   )
 }
-export default CvDesk;
+export default CvNav;

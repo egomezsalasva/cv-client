@@ -33,16 +33,16 @@ const HeadingContainer = styled.div`
 
 
 //MAIN COMPONENT
-const LeftPanelHeading = () => {
+const Heading = () => {
 
   //Translation
     const { t } = useTranslation()
   //
     
   return (
-        <HeadingContainer>
-            <h4 className="titleBox">Me</h4>   
-        </HeadingContainer>      
+    <HeadingContainer>
+        <h4 className="titleBox">Me</h4>   
+    </HeadingContainer>      
   )
 }
-export default LeftPanelHeading
+export default Heading
