@@ -8,6 +8,7 @@ import Heading from './cvDeskComponents/leftPanel/Heading'
 import CvNav from './cvDeskComponents/leftPanel/CvNav'
 import CvButtons from './cvDeskComponents/rightPanel/CvButtons'
 import MeSection from './cvDeskComponents/rightPanel/sections/Me'
+import WhatImLookingForSection from './cvDeskComponents/rightPanel/sections/WhatImLookingFor'
 //-Styling
 import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
 
@@ -188,7 +189,6 @@ const RightPanel = styled.div`
 
 
 
-
 //MAIN COMPONENT
 function CvDesk() {
 
@@ -205,29 +205,10 @@ function CvDesk() {
         </LeftPanel>
 
         <RightPanel>
-            <CvButtons />
+          <CvButtons />
 
-            <MeSection />
-
-            <div className="section" id="whatImLookingSection">
-              <div className="secInnerContainer">
-                <div className="storyText">
-                  <p>{t("cv.whatImLookingForSection.story.p.1")}</p>
-                  <p>{t("cv.whatImLookingForSection.story.p.2")}</p>
-                  <p>{t("cv.whatImLookingForSection.story.p.3")}</p>
-                  <p>{t("cv.whatImLookingForSection.story.p.4")}</p>
-                  <p>{t("cv.whatImLookingForSection.story.p.5")}</p>
-                </div>
-                <div className="summaryText">
-                  <ul>
-                    <li>{t("cv.whatImLookingForSection.summary.li.1")}</li>
-                    <li>{t("cv.whatImLookingForSection.summary.li.2")}</li>
-                    <li>{t("cv.whatImLookingForSection.summary.li.3")}</li>
-                    <li>{t("cv.whatImLookingForSection.summary.li.4")}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <MeSection />
+          <WhatImLookingForSection />
 
             <div className="section" id="eduSection">
               < div className="secInnerContainer">
