@@ -2,6 +2,7 @@
 //-Modules
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import SectionWrapper from './SectionWrapper'
 
 
 
@@ -13,29 +14,19 @@ const MeSection = () => {
   //
     
   return (
-    <div className="section" id="meSection">
+    <SectionWrapper sectionId="meSection">
+      <div className="storyText">
+          <p>{t("cv.meSection.story.p.1")}</p>
+          <p>{t("cv.meSection.story.p.2")}</p>
+      </div>
 
-        <div className="secInnerContainer">
-
-            <div className="posCenterContainer">
-
-              <div className="storyText">
-                  <p>{t("cv.meSection.story.p.1")}</p>
-                  <p>{t("cv.meSection.story.p.2")}</p>
-              </div>
-
-              <div className="summaryText">
-                  <ul>
-                      <li>{t("cv.meSection.summary.li.1")}</li>
-                      <li>{t("cv.meSection.summary.li.2")}</li>
-                  </ul>
-              </div>
-
-            </div>
-
-        </div>
-
-    </div>  
+      <div className="summaryText">
+          <ul>
+              <li>{t("cv.meSection.summary.li.1")}</li>
+              <li>{t("cv.meSection.summary.li.2")}</li>
+          </ul>
+      </div>
+    </SectionWrapper>
   )
 }
 export default MeSection

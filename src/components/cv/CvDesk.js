@@ -58,12 +58,16 @@ const RightPanel = styled.div`
         height: calc(100vh - ${heights.headerDesk} - ${heights.cvButtonsDesk} - ${heights.footerDesk});
         overflow: scroll;
 
-        .posCenterContainer{
+        .positionContainer{
+          background: green;
+        }
+
+        .posCenter{
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, calc(-50% - 40px));
-          background: green;
+          background: purple;
         }
 
         .storyText{
