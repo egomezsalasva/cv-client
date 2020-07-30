@@ -52,23 +52,28 @@ const RightPanel = styled.div`
       
 
       .secInnerContainer{
-        position: absolute;
-        top: 175px;
-        width: ${rightPanelWidth};
-        height: calc(100vh - ${heights.headerDesk} - ${heights.cvButtonsDesk} - ${heights.footerDesk});
+        position: relative;
+        height: 100vh;
         overflow: scroll;
+        background: red;
+        /* padding-top: 175px;
+        padding-bottom: 120px; */
+        
 
         .positionContainer{
-          background: green;
-        }
-
-        .posCenter{
           position: absolute;
+          background:orange;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, calc(-50% - 40px));
+          transform: translate(-50%, -50%);
+        }
+        .pink{
+          background: pink;
+        } 
+        .purple{
           background: purple;
         }
+
 
         .storyText{
           display: block;
