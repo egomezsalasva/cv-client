@@ -17,7 +17,7 @@ import LanguagesSection from './cvDeskComponents/rightPanel/sections/Languages'
 import LinksSection from './cvDeskComponents/rightPanel/sections/Links'
 import LetsMeetSection from './cvDeskComponents/rightPanel/sections/LetsMeet'
 //-Styling
-import { fonts, responsiveWidthHeights, colors, zIndexes } from '../../data/styling/stylingVars'
+import { fonts, responsiveWidthHeights, colors, zIndexes, heights } from '../../data/styling/stylingVars'
 
 
 
@@ -28,6 +28,9 @@ const rightPanelWidth = responsiveWidthHeights.w440px
 const tagBottomMargin = "20px"
 const tagsExtraWidth = "10px"
 const ulTranslate = "15px"
+const headerHeight = "100px"
+const CvButtonsHeight = "75px"
+const footerHeight = "100px"
 //-Components
 const LeftPanel = styled.div`
     position: fixed;
@@ -46,18 +49,27 @@ const RightPanel = styled.div`
     .section{
       width: ${rightPanelWidth};
       height: 100vh;
+      
 
       .secInnerContainer{
         position: absolute;
         top: 175px;
         width: ${rightPanelWidth};
-        height: calc(100vh - 100px - 100px - 75px);
+        height: calc(100vh - ${heights.headerDesk} - ${heights.cvButtonsDesk} - ${heights.footerDesk});
         overflow: scroll;
+
+        .posCenterContainer{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, calc(-50% - 40px));
+          background: green;
+        }
 
         .storyText{
           display: block;
           width: 360px;
-          margin: 0 auto;
+          margin: 0 auto; 
         }
         .summaryText{
           display: none;
@@ -67,6 +79,8 @@ const RightPanel = styled.div`
         h5{
           font-family: ${fonts.fntSemiBold};
           font-size: ${fonts.fntSz12};
+          width: 360px;
+          margin: 0 auto;
         }
         p{
           margin-bottom: 19px;
@@ -112,7 +126,7 @@ const RightPanel = styled.div`
           width: calc( 360px + (${tagsExtraWidth} * 2));
           position: relative;
           left: -${tagsExtraWidth};
-          margin: 20px 0 calc(30px - ${tagBottomMargin});
+          margin: 20px auto calc(30px - ${tagBottomMargin});
 
           .tag{
 

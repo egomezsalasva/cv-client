@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useRouteMatch } from "react-router-dom";
-import { colors, responsiveWidthHeights, fonts } from '../../data/styling/stylingVars'
+import { colors, responsiveWidthHeights, fonts, heights } from '../../data/styling/stylingVars'
 
 //STYLE
 //-Vars
@@ -15,7 +15,7 @@ const FooterContainer = styled.div`
   left: ${leftPanelWidth};
   bottom: 0;
   width: ${rightPanelWidth};
-  height: 120px;
+  height: ${heights.footerDesk};
   text-align: center;
   background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
   z-index: 400;

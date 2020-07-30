@@ -59,6 +59,13 @@ const zIndexes = {
   header: 200,
 }
 
+//Shared Heights
+const heights = {
+  headerDesk: "100px",
+  cvButtonsDesk: "75px",
+  footerDesk: "120px",
+}
 
 
-export { devices, colors, fonts, responsiveWidthHeights, zIndexes }
+
+export { devices, colors, fonts, responsiveWidthHeights, zIndexes, heights }
