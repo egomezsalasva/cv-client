@@ -266,19 +266,7 @@ function CvButtons() {
 
   //
 
-  // useEffect(() => {
-  //   let textHeights = document.querySelectorAll(".positionContainer")
-  //   textHeights.forEach( thisTextHeight => {
-  //     console.log(thisTextHeight.getBoundingClientRect().top)
-  //     if(thisTextHeight.getBoundingClientRect().top > 175){
-  //       console.log("stay centered")
-  //     } else {
-  //       console.log("add padding")
-  //     }
-  //   })
-  // }, [handleIncrementFontSize])
  
-    
   return (
     <CvButtonsHeader>
         <CvButtonsContainer>

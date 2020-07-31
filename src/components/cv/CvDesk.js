@@ -61,17 +61,17 @@ const RightPanel = styled.div`
         
 
         .positionContainer{
-          position: absolute;
           background:orange;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
         }
-        .pink{
+        .center{
           background: pink;
+          
         } 
-        .purple{
+        .top{
+          padding-top: 175px;
+          padding-bottom: 120px;
           background: purple;
+
         }
 
 
