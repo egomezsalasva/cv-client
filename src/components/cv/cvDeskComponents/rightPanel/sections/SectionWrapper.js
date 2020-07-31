@@ -1,15 +1,10 @@
 //IMPORTS
 //-Modules
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 
 
 //MAIN COMPONENT
 const SectionWrapper = ({children, sectionId}) => {
-
-
-
-
-  
   return (
     <div className="section" id={sectionId}>
         <div className="secInnerContainer">

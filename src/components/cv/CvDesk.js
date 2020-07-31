@@ -55,23 +55,19 @@ const RightPanel = styled.div`
         position: relative;
         height: 100vh;
         overflow: scroll;
-        background: red;
-        /* padding-top: 175px;
-        padding-bottom: 120px; */
-        
 
         .positionContainer{
-          background:orange;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
-        .center{
-          background: pink;
-          
-        } 
-        .top{
-          padding-top: 175px;
+        .scrollCont{
+          position: absolute;
+          top: 175px;
+          left: 50%;
+          transform: translate(-50%);
           padding-bottom: 120px;
-          background: purple;
-
         }
 
 
@@ -157,7 +153,8 @@ const RightPanel = styled.div`
           }
         }
         .tagContainer:last-of-type{
-          margin-bottom: -20px;
+          /* margin-bottom: -20px; */
+          margin-bottom: -10px;
         }
       }
     }
@@ -187,7 +184,7 @@ const RightPanel = styled.div`
     }
     #skillsSection{
       position: absolute;
-      background: ${colors.thmWhite};
+      background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }

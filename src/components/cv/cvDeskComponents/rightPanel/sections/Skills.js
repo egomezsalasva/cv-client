@@ -2,6 +2,8 @@
 //-Modules
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+//-Components
+import SectionWrapper from './SectionWrapper'
 
 
 
@@ -13,9 +15,7 @@ const SkillsSection = () => {
   //
     
   return (
-    <div className="section" id="skillsSection">
-
-        <div className="secInnerContainer">
+    <SectionWrapper sectionId="skillsSection">
 
             <h5>{t("cv.skillsSection.content.1.subheading.1")}</h5>
             <div className="tagContainer">
@@ -64,9 +64,7 @@ const SkillsSection = () => {
                 <div className="tag">{t("cv.skillsSection.content.5.tags.2")}</div>
             </div>
 
-        </div>
-        
-    </div> 
+    </SectionWrapper>
   )
 }
 export default SkillsSection

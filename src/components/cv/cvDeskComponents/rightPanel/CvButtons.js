@@ -266,6 +266,16 @@ function CvButtons() {
 
   //
 
+  useEffect( () => {
+    const cont01 = document.querySelector(".secInnerContainer")
+    const cont02 = document.querySelectorAll(".positionContainer")
+    cont02.forEach( thisCont => {
+      let contRec = thisCont.getBoundingClientRect()
+      if(contRec.top < 175) {
+        thisCont.classList.add("scrollCont")
+      }
+    })
+  }, [])
  
   return (
     <CvButtonsHeader>
