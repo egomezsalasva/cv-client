@@ -2,6 +2,8 @@
 //-Modules
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+//-Components
+import SectionWrapper from './SectionWrapper'
 
 
 
@@ -13,11 +15,9 @@ const LinksSection = () => {
   //
     
   return (
-    <div className="section" id="linksSection">
-        <div className="secInnerContainer">
-
-        </div>
-    </div>
+    <SectionWrapper sectionId="linksSection">
+      <a href="https://github.com/egomezsalasva" target="_blank" rel="noopener noreferrer">https://github.com/egomezsalasva</a>
+    </SectionWrapper>
   )
 }
 export default LinksSection

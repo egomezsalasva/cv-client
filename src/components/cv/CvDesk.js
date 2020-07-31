@@ -188,25 +188,25 @@ const RightPanel = styled.div`
     }
     #interestsSection{
       position: absolute;
-      background: yellow;
+      background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
     #languagesSection{
       position: absolute;
-      background: aqua;
+      background: ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
     #linksSection{
       position: absolute;
-      background: wheat;
+      background:  ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
     #letsMeetSection{
       position: absolute;
-      background: seagreen;
+      background:  ${ props => props.theme.mode === 'light' ? colors.thmWhite : colors.thmBlack };
       top: 0;
       transform: translateX(-${rightPanelWidth});
     }
