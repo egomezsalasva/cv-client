@@ -69,8 +69,6 @@ const RightPanel = styled.div`
           transform: translate(-50%);
           padding-bottom: 120px;
         }
-
-
         .storyText{
           display: block;
           width: 360px;

@@ -100,6 +100,18 @@ function CvButtons() {
 
   //Font Sizing
 
+    //Check height
+      const checkHeight = () => {
+        const cont02 = document.querySelectorAll(".positionContainer")
+        cont02.forEach( thisCont => {
+          let contRec = thisCont.getBoundingClientRect()
+          if(contRec.top < 175) {
+            thisCont.classList.add("scrollCont")
+          }
+        })
+      }
+    //
+
     //Font Size Variables
       const numberOfTimesButtonCanBeClicked = 4
       const numberOfPixelsToChange = 2
@@ -120,6 +132,9 @@ function CvButtons() {
 
     //Increment Font Size Button
       const handleIncrementFontSize = () => {
+        //Check height
+          checkHeight()
+        //
         //Increment Width Container
           setContainerWidthSize(containerWidthSize + widthContainerSizeVar)
           if( containerWidthSize === ((widthContainerSizeVar * numberOfTimesButtonCanBeClicked) + parseInt("360px")) ){
@@ -173,6 +188,9 @@ function CvButtons() {
 
     //Decrement Font Size Button
       const handleDecrementFontSize = () => {
+        //Check height
+          checkHeight()
+        //
         //Increment Width Container
           setContainerWidthSize(containerWidthSize - widthContainerSizeVar)
           if( containerWidthSize ===  parseInt("360px") ){
@@ -228,46 +246,54 @@ function CvButtons() {
       useEffect(() => {
         const widthContainer = document.querySelectorAll(".storyText")
         widthContainer.forEach(e => { e.style.width = `${containerWidthSize}px` })
+        checkHeight()
       }, [containerWidthSize])
       useEffect(() => {
         const sectionHeadingFont = document.querySelectorAll(".section h4")
         sectionHeadingFont.forEach(e => { e.style.fontSize = `${headingFontSize}px` })
+        checkHeight()
       }, [headingFontSize])
       useEffect(() => {
         const sectionHeadingFont = document.querySelectorAll(".section h4")
         sectionHeadingFont.forEach(e => { e.style.lineHeight = `${headingLineHeight}px` })
+        checkHeight()
       }, [headingLineHeight])
       useEffect(() => {
         const sectionParagraphFont = document.querySelectorAll(".section p")
         sectionParagraphFont.forEach(e => { e.style.fontSize = `${paragraphFontSize}px` })
+        checkHeight()
       }, [paragraphFontSize])
       useEffect(() => {
         const sectionParagraphFont = document.querySelectorAll(".section p")
         sectionParagraphFont.forEach(e => { e.style.lineHeight = `${paragraphLineHeight}px` })
+        checkHeight()
       }, [paragraphLineHeight])
       useEffect(() => {
         const sectionSubheadingFont = document.querySelectorAll(".section h5")
         sectionSubheadingFont.forEach(e => { e.style.fontSize = `${subheadingFontSize}px` })
+        checkHeight()
       }, [subheadingFontSize])
       useEffect(() => {
         const sectionListItemFont = document.querySelectorAll(".section li")
         sectionListItemFont.forEach(e => { e.style.fontSize = `${listItemFontSize}px` })
         sectionListItemFont.forEach(e => { e.style.marginBottom = `${listItemFontSize}px` })
+        checkHeight()
       }, [listItemFontSize])
       useEffect(() => {
         const sectionListItemInnerFont = document.querySelectorAll(".section li li")
         sectionListItemInnerFont.forEach(e => { e.style.fontSize = `${listItemInnerFontSize}px` })
+        checkHeight()
       }, [listItemInnerFontSize])
       useEffect(() => {
         const sectionListItemInnerFont = document.querySelectorAll(".section li li")
         sectionListItemInnerFont.forEach(e => { e.style.lineHeight = `${listItemInnerLineHeightSize}px` })
+        checkHeight()
       }, [listItemInnerLineHeightSize])
     //
 
   //
 
   useEffect( () => {
-    const cont01 = document.querySelector(".secInnerContainer")
     const cont02 = document.querySelectorAll(".positionContainer")
     cont02.forEach( thisCont => {
       let contRec = thisCont.getBoundingClientRect()

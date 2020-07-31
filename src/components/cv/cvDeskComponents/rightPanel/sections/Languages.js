@@ -2,6 +2,8 @@
 //-Modules
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+//-Components
+import SectionWrapper from './SectionWrapper'
 
 
 
@@ -13,11 +15,12 @@ const LanguagesSection = () => {
   //
     
   return (
-    <div className="section" id="languagesSection">
-        <div className="secInnerContainer">
-
-        </div>
-    </div>
+    <SectionWrapper sectionId="languagesSection">
+      <ul>
+        <li>Spanish: First Language</li>
+        <li>English: Second Language</li>
+      </ul>
+    </SectionWrapper>
   )
 }
 export default LanguagesSection
